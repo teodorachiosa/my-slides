@@ -1,0 +1,133 @@
+:host {
+  --slide-background: var(--surface-background);
+  --slide-text: color-mix(in hsl, var(--slide-background), var(--text) 80%);
+  --slides-link-hover: color-mix(in hsl, var(--slide-background), var(--text) 70%);
+  --slides-borders: color-mix(in hsl, var(--slide-background), var(--text) 30%);
+  --slides-table-headers: color-mix(in hsl, var(--slide-background), var(--text) 12%);
+  --slides-background-light: color-mix(in hsl, var(--slide-background), var(--inverted-text) 60%);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-width: fit-content;
+  margin: 0 auto;
+  background: var(--slide-background);
+  color: var(--slide-text);
+
+  ::ng-deep .slide-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.4em;
+    padding: 0 0.6em;
+    translate: -100%;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  ::ng-deep markdown {
+    width: 100%;
+  }
+
+  ::ng-deep :first-child {
+    margin-top: 0;
+  }
+
+  ::ng-deep :last-child {
+    margin-bottom: 0;
+  }
+
+  ::ng-deep a {
+    color: var(--slide-text);
+    font-weight: 700;
+  }
+
+  ::ng-deep a:hover {
+    color: var(--slides-link-hover);
+  }
+
+  ::ng-deep hr {
+    border: 1px solid var(--slides-borders);
+    height: 1px;
+    border-radius: var(--radius);
+  }
+
+  ::ng-deep img {
+    width: 100%;
+  }
+
+  ::ng-deep blockquote {
+    border: 1px solid var(--slides-borders);
+    border-left: 8px solid var(--slides-borders);
+    margin: 0;
+    padding-block-start: 1em;
+    padding-block-end: 1em;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    border-radius: var(--radius);
+    background: var(--slides-background-light);
+  }
+
+  ::ng-deep li {
+    margin-block-start: 0.5em !important;
+    margin-block-end: 0.5em !important;
+  }
+
+  ::ng-deep code.hljs {
+    background: oklch(0 0 347 / 0.87);
+    font-family: var(--mono-font);
+    border-radius: var(--radius);
+  }
+
+  ::ng-deep code:not(.hljs) {
+    background: var(--slides-background-light);
+    font-family: var(--mono-font);
+    padding: 0.2em;
+    border-radius: var(--radius);
+  }
+
+  ::ng-deep table {
+    border-collapse: collapse;
+    border: 2px solid var(--slides-borders);
+    background: var(--slides-background-light);
+  }
+
+  ::ng-deep table th {
+    background-color: var(--slides-table-headers);
+  }
+
+  ::ng-deep table th,
+  ::ng-deep table td {
+    padding: 0.4em 0.6em;
+    border: 2px solid var(--slides-borders);
+  }
+
+  &:focus-visible {
+    outline-offset: 4px;
+  }
+}
+
+:host-context(.web-view) {
+  :host {
+    border-radius: var(--radius);
+
+    ::ng-deep .slide-number {
+      display: none;
+    }
+  }
+}
+
+:host-context(.slide-view) {
+  :host {
+    font-size: 3cqi;
+
+    aspect-ratio: 16 / 9;
+    overflow-x: visible;
+    overflow-y: clip;
+  }
+}

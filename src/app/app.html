@@ -1,0 +1,16 @@
+<div class="skip-links sr-only">
+  <a [routerLink]="['/']"
+     fragment="present">{{'ui.skipToPresent' | translate}}</a>
+  <a [routerLink]="['/']"
+     fragment="menu-title">{{'ui.skipToNavigation' | translate}}</a>
+  <a [routerLink]="['/']"
+     fragment="slides-start">{{'ui.skipToSlides' | translate}}</a>
+</div>
+
+<header header></header>
+
+<div class="main-container">
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

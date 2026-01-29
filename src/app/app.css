@@ -1,0 +1,38 @@
+:host {
+  --menu-width: 200px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .skip-links {
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    box-shadow: 0 0 var(--shadow-spread) 0 var(--shadow-color);
+
+    a {
+      padding: calc(var(--spacing) / 3) calc(var(--spacing) / 2);
+    }
+
+    &:has(:focus-within) {
+      clip: unset;
+      clip-path: unset;
+      height: unset;
+      overflow: unset;
+      position: unset;
+      white-space: unset;
+      width: unset;
+    }
+  }
+
+  .main-container {
+    display: flex;
+
+    /* route */
+    & > ::ng-deep *:last-child {
+      flex-grow: 1;
+    }
+  }
+}
