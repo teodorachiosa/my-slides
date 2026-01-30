@@ -1,6 +1,7 @@
 # https://github.com/marketplace/actions/actions-template-sync
 # File: .github/workflows/template-sync.yml
 
+name: Sync template
 on:
   # cronjob trigger
   schedule:
