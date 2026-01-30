@@ -32,7 +32,7 @@ Using this approach, you can create groups of slides that can be reused in multi
 
 ## To do:
 
-- [ ] Handle 404 (page not found)
+- [ ] Fix Vercel 404 error
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
 - [ ] Perform accessibility checks (WCAG 2.2 minimum) and add an accessibility statement
@@ -50,7 +50,7 @@ app
 
 ## How to run
 
-- fork, clone or use this template in a new repo
+- fork or use this template in a new repo
 - run `npm install` in the "ngx-md-slides" folder
 - run `npm run start` for local development
 - edit the example slide set
