@@ -29,11 +29,12 @@ Using this approach, you can create groups of slides that can be reused in multi
 - [x] Implement responsive UI (Update translations, Update a11y)
 - [x] Move dark mode toggle to a side menu (along with other settings)
 - [x] Update the max-width / zoom feature to use minus/plus buttons instead and a select control for the zoom level (similar to FireFox's PDF viewer) 
+- [x] Use TypeScript for translations instead of JSON
+- [x] Add support for Angular components in Markdown
+- [x] Add a section at the end for credits, links, etc.
 
 ## To do:
 
-- [ ] Use TypeScript (and separate Markdown files?) for translations instead of JSON
-- [ ] Add a footer section (for credits, links)
 - [ ] Fix Vercel 404 error
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
@@ -46,8 +47,7 @@ Using this approach, you can create groups of slides that can be reused in multi
 app
 |__ layout
 |__ shared
-|__ slides <-- slide set components go here
-|__ templates <-- reusable slide templates/components go here
+|__ slides <-- slide content goes here
 ```
 
 ## How to run
@@ -57,3 +57,7 @@ app
 - run `npm run start` for local development
 - edit the example slide set
 - (optional) create a GitHub Pages workflow to host the slides online
+
+## Credits
+
+- Icons: [Lucide](https://lucide.dev/)

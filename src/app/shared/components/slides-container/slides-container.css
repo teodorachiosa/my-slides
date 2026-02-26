@@ -1,0 +1,42 @@
+:host {
+  --slides-spacing: 40px;
+  container: slides / inline-size;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: min-content;
+  margin: 0 auto;
+
+  .slides-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: min-content;
+    margin: 0 auto;
+    gap: min(5vw, calc(var(--slides-spacing) * 1.5));
+    padding: min(5vw, calc(var(--slides-spacing) * 1.5));
+    padding-bottom: 0;
+
+    & > ::ng-deep :not(app-slide) {
+      display: contents;
+    }
+  }
+
+  ::ng-deep app-slide {
+    markdown {
+      width: 100%;
+    }
+  }
+}
+
+:host-context(.slide-view) {
+  :host {
+    --slides-spacing: 3cqi;
+  }
+}
+
+:host-context(.fullscreen) {
+  :host {
+    --slides-spacing: 0;
+  }
+}
