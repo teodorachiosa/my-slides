@@ -7,10 +7,10 @@ const en = {
     settings: '\\Settings',
     siteTitle: '\\Slides',
     skipToPresent: '\\Skip to "Present"',
-    skipToNavigation: '\\Skip to navigation',
+    skipToNavigation: '\\Skip to "Menu"',
     skipToSlides: '\\Skip to main content',
     noteTitle: '\\Note',
-    noteText: '\\Changes to settings apply instantly',
+    noteText: '\\Changes apply instantly',
     contentView: '\\Content view',
     webView: '\\Cards',
     slideView: '\\Slides',
@@ -22,6 +22,8 @@ const en = {
     off: '\\Off',
     language: '\\Language',
     present: '\\Present',
+    notFoundTitle: '\\Page not found',
+    notFoundSubtitle: '\\Try one of the pages from the menu instead'
   },
   sets: {
     set1: enSlideSet1Translations,

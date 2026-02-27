@@ -8,7 +8,7 @@ A way to make multi-lingual presentations, using markdown and Angular components
 
 I hate working with PowerPoint and I hate copy-pasting content between similar presentations. 
 
-Using this approach, you can create groups of slides that can be reused in multiple presentations.
+Using this approach, you can create slide content that can be reused in multiple presentations.
 
 ## Implemented:
 
@@ -32,14 +32,17 @@ Using this approach, you can create groups of slides that can be reused in multi
 - [x] Use TypeScript for translations instead of JSON
 - [x] Add support for Angular components in Markdown
 - [x] Add a section at the end for credits, links, etc.
+- [x] Fix Vercel 404 error
 
 ## To do:
 
-- [ ] Fix Vercel 404 error
+- [ ] Update icon naming convention (from icon-menu to menu-icon)
+- [ ] Scale all content in "slides" view, not just text
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
 - [ ] Perform accessibility checks (WCAG 2.2 minimum) and add an accessibility statement
 - [ ] Save presentation as PDF
+- [ ] Add "loading" states
 - [ ] Implement non-hardcoded languages (and use a `select` element)
 
 ## Folder structure
@@ -47,7 +50,9 @@ Using this approach, you can create groups of slides that can be reused in multi
 app
 |__ layout
 |__ shared
-|__ slides <-- slide content goes here
+|__ slides <-- all slide sets
+|____ slide-set1 <-- demo slide set
+|______ i18n <-- translations for slide-set1
 ```
 
 ## How to run
@@ -55,8 +60,7 @@ app
 - fork or use this template in a new repo
 - run `npm install` in the "ngx-md-slides" folder
 - run `npm run start` for local development
-- edit the example slide set
-- (optional) create a GitHub Pages workflow to host the slides online
+- edit the example slide sets
 
 ## Credits
 
