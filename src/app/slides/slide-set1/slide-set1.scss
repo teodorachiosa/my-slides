@@ -1,4 +1,5 @@
 #slide-1 ::ng-deep {
+  /*title slide*/
   background:
     radial-gradient(ellipse 80% 60% at 60% 20%, rgba(115, 0, 255, 0.25), transparent 65%),
     radial-gradient(ellipse 70% 60% at 20% 80%, rgba(255, 0, 132, 0.2), transparent 65%),
@@ -45,9 +46,10 @@
 
         img {
           width: 18cqi;
-          padding: 0 1.5cqi;
+          padding: 1.1cqi;
           background: #fff;
           border-radius: 10px;
+          margin-right: 0.5cqi;
         }
       }
     }
@@ -55,6 +57,7 @@
 }
 
 #slide-2 ::ng-deep {
+  /*about speakers*/
   .about-me-images {
     display: inline-flex;
     gap: 1cqi;
@@ -67,8 +70,18 @@
   }
 }
 
-::ng-deep .full-img {
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
+#slide-7 ::ng-deep {
+  /*what is web a11y*/
+  .desktop-mobile-emoji {
+    font-size: 7cqi;
+  }
+}
+
+::ng-deep .decorative {
+  user-select: none;
+  pointer-events: none;
+}
+
+::ng-deep .center-text {
+  text-align: center;
 }

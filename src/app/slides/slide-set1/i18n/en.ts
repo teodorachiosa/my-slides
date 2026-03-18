@@ -19,7 +19,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
 
   <div class="footer">
     <span class="presenters">
-      <img src="img/ced-logo.png" alt="CED Romania - Center of Excellence Through Diversity">
+      <img src="img/ced-logo.png" class="ced-logo" alt="CED Romania - Center of Excellence Through Diversity">
        and <strong>Teodora Chiosa</strong>
     </span>
     <span>March 23<sup>rd</sup> 2026</span>
@@ -79,7 +79,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
 - These websites must work well when used from a **personal computer** and from a **mobile device**.
 
 
-<div style="text-align: center; font-size: 7cqi">
+<div aria-hidden="true" class="decorative center-text desktop-mobile-emoji">
 💻📱📄
 </div>
       `,

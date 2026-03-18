@@ -18,7 +18,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
 
   <div class="footer">
     <span class="presenters">
-      <img src="img/ced-logo.png" alt="CED România - Centrul de excelență prin diversitate">
+      <img src="img/ced-logo.png" class="ced-logo" alt="CED România - Centrul de excelență prin diversitate">
        și <strong>Teodora Chiosa</strong>
     </span>
     <span>23 Martie 2026</span>
@@ -74,7 +74,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
 - Aceste site-uri trebuie să fie utilizabile și pe **calculator**, dar și de pe **telefonul mobil**.
 
 
-<div style="text-align: center; font-size: 7cqi">
+<div aria-hidden="true" class="decorative center-text desktop-mobile-emoji">
 💻📱📄
 </div>
       `,
