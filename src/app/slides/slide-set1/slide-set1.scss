@@ -72,18 +72,40 @@
   }
 }
 
-#slide-7 ::ng-deep {
-  /*what is web a11y*/
-  .desktop-mobile-emoji {
-    font-size: calc(7 * var(--unit));
+:host {
+  ::ng-deep .side-by-side {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 49.5%;
+      object-fit: cover;
+      object-position: top;
+      min-height: 50px;
+    }
   }
-}
 
-::ng-deep .decorative {
-  user-select: none;
-  pointer-events: none;
-}
+  ::ng-deep .desktop-mobile-emoji {
+    font-size: calc(7 * var(--unit));
+    margin-top: 5%;
+  }
 
-::ng-deep .center-text {
-  text-align: center;
+  ::ng-deep .decorative {
+    user-select: none;
+    pointer-events: none;
+  }
+
+  ::ng-deep .center-text {
+    text-align: center;
+  }
+
+  ::ng-deep .f-w-normal {
+    font-weight: normal;
+  }
+
+  ::ng-deep .interaction-diagram {
+    display: flex;;
+    place-self: center;
+    width: 50%;
+  }
 }

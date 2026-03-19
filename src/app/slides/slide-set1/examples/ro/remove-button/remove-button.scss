@@ -1,0 +1,11 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(1 * var(--unit));
+
+  button {
+    padding: calc(1 * var(--unit));
+    display: inline-flex;
+    gap: calc(1 * var(--unit));
+  }
+}

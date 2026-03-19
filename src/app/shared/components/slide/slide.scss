@@ -30,6 +30,10 @@
     opacity: 0.7;
   }
 
+  ::ng-deep * {
+    text-wrap: balance;
+  }
+
   ::ng-deep markdown {
     width: 100%;
   }
@@ -59,7 +63,6 @@
 
   ::ng-deep img {
     width: 100%;
-    border-radius: 4px;
   }
 
   ::ng-deep blockquote {
@@ -123,7 +126,8 @@
       object-fit: cover;
     }
 
-    &:has(img.fullscreen) {
+    &:has(img.fullscreen),
+    &:has(.side-by-side) {
       padding: 0 !important;
     }
   }
@@ -133,6 +137,14 @@
   :host {
     --unit: 1cqi;
     font-size: calc(2.2 * var(--unit));
+
+    ::ng-deep .side-by-side {
+      height: 100%;
+    }
+
+    &:has(.side-by-side) {
+      padding: 0 !important;
+    }
 
     ::ng-deep h1 {
       font-size: calc(6 * var(--unit));

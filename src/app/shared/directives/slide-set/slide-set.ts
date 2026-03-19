@@ -1,11 +1,10 @@
-import { inject, signal, OnInit, AfterViewInit, OnDestroy, Directive, WritableSignal } from '@angular/core';
+import { inject, signal, OnInit, AfterViewInit, OnDestroy, Directive, WritableSignal, Type } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 import { AttachComponentService } from '@shared/services/attach-component.service';
 import { TranslatedSlide } from '@shared/models/translation.model';
-import { A11yIcon } from '@shared/components/icons/a11y-icon/a11y-icon';
 
 const SHAMEFUL_TIMEOUT = 300;
 
@@ -16,7 +15,7 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   setName = '';
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
-  components = [A11yIcon];
+  components: Type<unknown>[] = [];
   slidesContent = signal<TranslatedSlide[]>([]);
   destroyed = signal<boolean>(false);
   baseTranslation: WritableSignal<TranslatedSlide[]> = signal<TranslatedSlide[]>([]);
@@ -51,7 +50,7 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
       this.languageChangeSubscription = this.translateService.onLangChange.subscribe(() => {
         setTimeout(() => {
           this.attachComponents();
-        });
+        }, SHAMEFUL_TIMEOUT);
       });
     }
   }
