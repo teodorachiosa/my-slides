@@ -129,6 +129,6 @@
   }
 
   ::ng-deep :has(.smaller) {
-    font-size: calc(2 * var(--unit));
+    font-size: calc(2.01 * var(--unit));
   }
 }

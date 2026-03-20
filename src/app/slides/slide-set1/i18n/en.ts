@@ -164,7 +164,7 @@ Spoken screen reader output: <code>button</code>.
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: '\\var(--blue)',
       content: md`
 ## Why is web accessibility important?
       `,

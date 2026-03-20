@@ -132,7 +132,7 @@ Exemple:
 
 - <span aria-hidden="true" class="decorative">🔊</span> **Cititoare de ecran** - transformă textul în sunet pentru cei ce nu pot citi textul afișat pe ecran
 - <span aria-hidden="true" class="decorative">🔍</span> **Lupa** - mărește ce este afișat pe ecran
-- <span aria-hidden="true" class="decorative">🗣️</span> **Recunoașterea vocală** - transformă comenzile vocale în interacțiuni
+- <span aria-hidden="true" class="decorative">🗣️</span> **Recunoașterea vocală** - transformă comenzile vocale în interacțiuni cu site-ul web
       `,
     },
     {
@@ -276,7 +276,7 @@ Conținutul trebuie să fie:
     {
       content: md`
 <h3 style="text-align: center">
-  „Minimul <span class="f-w-normal">cerințelor din</span> Ghidul pentru Conținut Web Accesibil”?
+  <span class="f-w-normal">„</span>Minimul <span class="f-w-normal">cerințelor din Ghidul pentru Conținut Web Accesibil”?</span>
 </h3>
 
 <div class="center-pyramid">
@@ -290,10 +290,11 @@ Conținutul trebuie să fie:
 
 ## Soluțiile accesibile rapide... </br><span class="f-w-normal">Sunt ele eficiente?</span>
 
-Unele companii oferă, contra cost, soluții de accesibilitate numite **overlay-uri**.
+Unele companii oferă soluții de accesibilitate numite **overlay-uri**.
 
-Acestea se prezintă sub forma unui buton poziționat pe deasupra conținutului unui site.
+Se instalează ușor pe site.
 
+Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui site.
       `,
     },
     {
@@ -305,6 +306,9 @@ Acestea se prezintă sub forma unui buton poziționat pe deasupra conținutului 
   - Nu pot repara structura sau conținutul paginii ci se axează pe îmbunătățiri vizuale.
 - Promovează **lipsa de standardizare**, fiecare overlay fiind puțin diferit de celelalte și oferind funcționalități diferite.
 - Funcționalitatea oferită de overlay poate fi **greu de găsit** (e.g. buton fără etichetă, buton plasat ultimul în pagină).
+- Poate crea noi bariere.
+
+<span class="smaller">Detalii</span>: [OverlayFactsheet.com](https://overlayfactsheet.com/en/).
       `,
     },
     {
@@ -330,7 +334,7 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
     },
     {
       content: md`
-## QR code prezentare
+## Cod QR
       `,
     },
   ],
