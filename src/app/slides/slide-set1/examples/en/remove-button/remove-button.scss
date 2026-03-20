@@ -8,6 +8,7 @@
     padding: calc(1 * var(--unit));
     display: inline-flex;
     gap: calc(1 * var(--unit));
+    min-height: 0;
 
     svg {
       --icon-size: calc(2 * var(--unit));
