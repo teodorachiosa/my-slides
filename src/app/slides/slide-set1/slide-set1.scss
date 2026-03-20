@@ -121,6 +121,13 @@
     align-items: center;
   }
 
+  ::ng-deep .float-overlay {
+    float: left;
+    width: 36%;
+    border-radius: 8px;
+    margin-right: calc(4 * var(--unit));
+  }
+
   ::ng-deep :has(.smaller) {
     font-size: calc(2 * var(--unit));
   }

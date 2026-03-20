@@ -164,7 +164,7 @@ Spoken screen reader output: <code>button</code>.
       `,
     },
     {
-      backgroundColor: '\\var(--emerald)',
+      backgroundColor: '\\var(--violet)',
       content: md`
 ## Why is web accessibility important?
       `,
@@ -172,7 +172,7 @@ Spoken screen reader output: <code>button</code>.
     {
       backgroundColor: '\\var(--violet)',
       content: md`
-## <span aria-hidden="true" class="decorative">⚖️</span> What does the law say?
+## <span aria-hidden="true" class="decorative">⚖️</span> What does the law say (1)?
 
 First EU directive
       `,
@@ -180,7 +180,7 @@ First EU directive
     {
       backgroundColor: '\\var(--violet)',
       content: md`
-## <span aria-hidden="true" class="decorative">⚖️</span> What does the law say?
+## <span aria-hidden="true" class="decorative">⚖️</span> What does the law say (2)?
 
 Second EU directive
       `,
@@ -212,15 +212,30 @@ Second EU directive
     },
     {
       content: md`
+## Minimum support?
+      `,
+    },
+    {
+      backgroundColor: '\\var(--blue)',
+      content: md`
 ## Quick solutions... are they effective?
       `,
     },
+
     {
+      backgroundColor: '\\var(--red)',
       content: md`
-## Artificial Intelligence
+### The issues with overlays
       `,
     },
     {
+      backgroundColor: '\\var(--red)',
+      content: md`
+## A website with an overlay does not mean an accessible website!
+      `,
+    },
+    {
+      backgroundColor: '\\var(--green)',
       content: md`
 ## How to tell if a website might truly be accessible?
       `,

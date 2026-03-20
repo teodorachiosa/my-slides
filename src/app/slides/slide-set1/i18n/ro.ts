@@ -163,7 +163,7 @@ Câteodată, cutiile:
 
 Rezultat vorbit de un cititor de ecran: <code>buton</code>.
 
-**Ce face butonul?** Nu știu, fiindcă nu are etichetă.
+**Ce funcționalitate are butonul?** Nu știu, fiindcă nu are etichetă.
       `,
     },
     {
@@ -211,6 +211,7 @@ Există **2** legi relevante pentru mediul digital:
      - <span aria-hidden="true" class="decorative smaller">🚋</span> serviciile de transport
      - <span aria-hidden="true" class="decorative smaller">🪙</span> serviciile bancare
      - <span aria-hidden="true" class="decorative smaller">🛒</span> site-uri de comerț online (shopping)
+     - <span aria-hidden="true" class="decorative smaller">📙</span> cărți electronice
       `,
     },
     {
@@ -262,9 +263,9 @@ Conținutul trebuie să fie:
       content: md`
 #### Robust
 
-- Respectarea standardelor pentru a îmbunătăți compatibiltatea cu tehnologiile asistive („etichetarea cutiilor”)
+- Respectarea **standardelor** pentru a îmbunătăți **compatibiltatea** cu tehnologiile asistive („etichetarea cutiilor”)
 
-<img class="interaction-diagram" src="img/website/user-interaction.png" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
+<img class="interaction-diagram" style="width: 47%" src="img/website/user-interaction.png" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
 <div class="sr-only">
   <p>În partea stângă se află un chenar care reprezintă o fereastră de browser. </p>
   <p>Înăuntrul acestei ferestre se află alte 2 chenare: unul arată reprezentarea vizuală a unui site web, iar cealaltă arată structura arborescentă a aceluiași site - sub formă de cutii.</p>
@@ -285,17 +286,41 @@ Conținutul trebuie să fie:
     },
     {
       content: md`
-## Soluțiile accesibile rapide... sunt ele eficiente?
+<img class="float-overlay" src="img/website/overlay.png" alt="">
+
+## Soluțiile accesibile rapide... </br><span class="f-w-normal">Sunt ele eficiente?</span>
+
+Unele companii oferă, contra cost, soluții de accesibilitate numite **overlay-uri**.
+
+Acestea se prezintă sub forma unui buton poziționat pe deasupra conținutului unui site.
+
       `,
     },
     {
       content: md`
-## Inteligența artificială
+### <span aria-hidden="true" class="decorative">❌</span> Problemele soluțiilor overlay
+
+- Fac **promisiuni pe care nu le pot îndeplini**.
+  - Nu abordează toate criteriile cerute de legislație.
+  - Nu pot repara structura sau conținutul paginii ci se axează pe îmbunătățiri vizuale.
+- Promovează **lipsa de standardizare**, fiecare overlay fiind puțin diferit de celelalte și oferind funcționalități diferite.
+- Funcționalitatea oferită de overlay poate fi **greu de găsit** (e.g. buton fără etichetă, buton plasat ultimul în pagină).
       `,
     },
     {
       content: md`
-## Cum îți dai seama dacă un site ar putea fi cu adevărat accesibil?
+### <span aria-hidden="true" class="decorative">🚨</span> Un site cu overlay _nu_ înseamnă un site accesibil!
+
+Atunci când accesibilitatea este luată în considerare cu adevărat:
+
+- este **planificată** și **integrată în procesul de lucru** al designerilor, programatorilor, testerilor
+- poate dura de la câteva luni până la câțiva ani pentru o remediere inițială (depinde de dimensiunea site-ului)
+- este mereu luată în considerare când un site primește funcționalități noi
+      `,
+    },
+    {
+      content: md`
+## Cum detectăm un site accesibil?
       `,
     },
     {
