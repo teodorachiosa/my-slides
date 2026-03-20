@@ -9,6 +9,12 @@
     display: inline-flex;
     gap: calc(1 * var(--unit));
 
+    svg {
+      --icon-size: calc(2 * var(--unit));
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+
     &:active {
       scale: 0.95;
       opacity: 1;
