@@ -68,6 +68,21 @@ const roSlideSetTranslations: TranslatedSlideSet = {
     },
     {
       content: md`
+## Tipuri de dizabilități
+
+- <span aria-hidden="true" class="decorative">👁️</span> Persoane cu daltonism, cu deficiențe de vedere (glaucom, cataracta) sau oarbe
+- <span aria-hidden="true" class="decorative">👂</span> Persoane cu deficiențe de auz sau surde
+- <span aria-hidden="true" class="decorative">🖐️</span> Persoane cu artrită, boala Parkinson sau paralizie
+- <span aria-hidden="true" class="decorative">🧠</span> Persoane cu ADHD, dislexie, autism sau cu dizabilitate intelectuală
+
+> Unele persoane pot avea:
+>
+> - **multiple dizabilități**
+> - **dizabilități invizibile**
+      `,
+    },
+    {
+      content: md`
 ## Ce este accesibilitatea web?
 
 - Proiectarea și implementarea de **site-uri web** (inclusiv documente PDF) astfel încât acestea să poată fi accesate și utilizate de către persoanele cu dizabilități.
@@ -107,6 +122,19 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
     },
     {
       content: md`
+## Ce este tehnologia asistivă?
+
+Tehnologia asistivă include software sau hardware ce **permite persoanelor cu dizabilități să interacționeze cu site-urile web**.
+
+Exemple:
+
+- <span aria-hidden="true" class="decorative">🔊</span> **Cititoare de ecran** - transformă textul în sunet pentru cei ce nu pot citi textul afișat pe ecran
+- <span aria-hidden="true" class="decorative">🔍</span> **Lupa** - mărește ce este afișat pe ecran
+- <span aria-hidden="true" class="decorative">🗣️</span> **Recunoașterea vocală** - transformă comenzile vocale în interacțiuni
+      `,
+    },
+    {
+      content: md`
 ## <span aria-hidden="true" class="decorative">✅</span> Exemplu: un buton accesibil
 
 În cel mai fericit caz, cutiile au etichete.
@@ -117,7 +145,7 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
 
 ### Utilizatorii de cititor de ecran vor auzi eticheta cutiei:
 
-Rezultat vorbit de un cititor de ecran: <code>buton Șterge</code>.
+Rezultat vorbit de un cititor de ecran: <code>Șterge buton</code>.
       `,
     },
     {
@@ -137,56 +165,17 @@ Rezultat vorbit de un cititor de ecran: <code>buton</code>.
       `,
     },
     {
+      content: md`
+## <span aria-hidden="true" class="decorative">💬</span> Care este experiența unui utilizator de cititor de ecran?
+
+Constantin va vorbi acum despre experiența sa...
+      `,
+    },
+    {
       content: md``,
     },
     {
-      content: md`
-## <span aria-hidden="true" class="decorative">♿</span> Dizabilități </br> și funcționalități de accesibilitate web
-      `,
-    },
-    {
-      content: md`
-### <span class="f-w-normal">Funcționalități de accesibilitate pentru ...</span> </br> o persoană cu mobilitate scăzută
-
-- Elemente interactive destul de mari (butoane, casete text)
-- Posibilitatea de interacțiune doar din tastatură
-- Posibilitatea de interacțiune doar din comenzi vocale
-
-#### Cine altcineva beneficiază de aceste funcționalități?
-
-- Posibilitatea de interacțiune doar din comenzi vocale
-
-### <span class="f-w-normal">Funcționalități de accesibilitate pentru ...</span> </br> o persoană surdă
-
-- Subtitrări
-  - text **sincronizat** cu video și audio
-  - transcriere directă, dialog și non-dialog (e.g. "tunet puternic")
-- Transcrieri
-  - alternativă text pentru audio (e.g. podcast) sau video cu audio
-  - identificarea vorbitorului
-  - transcriere directă, dialog și non-dialog
-- Limba semnelor
-  - a metodă de comunicare care folosește o combinație de mișcări ale mâinilor, expresii faciale, sau poziția corpului
-
-#### Cine altcineva beneficiază de aceste funcționalități?
-
-- Persoanele care învață o nouă limba
-- Persoanele care se află într-un mediu zgomotos (e.g. autobuz)
-
-### <span class="f-w-normal">Funcționalități de accesibilitate pentru ...</span> </br> o persoană cu deficiențe de vedere sau oarbă
-
-- Contrast îndeajuns de mare între text și fundal
-- Mărirea textului sau a întregii pagini web (zoom in)
-- Simboluri sau descrieri text și evitarea comunicării doar prin culoare
-- Descrieri audio (e.g. explicarea verbală a unor imagini în timpul unei prezentări vizuale)
-- Posibilitatea de interacțiune doar din tastatură
-- Transformarea din text în vorbire prin utilizarea unui cititor de ecran
-- Transformarea din text în braille (tactil)
-
-#### Cine altcineva beneficiază de aceste funcționalități?
-
-- Posibilitatea de interacțiune doar din comenzi vocale
-      `,
+      content: md``,
     },
   ],
 };

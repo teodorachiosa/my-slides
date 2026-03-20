@@ -70,6 +70,12 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
+      backgroundColor: '\\var(--blue)',
+      content: md`
+## Types of disabilities
+      `,
+    },
+    {
       backgroundColor: '\\var(--orange)',
       content: md`
 ## What is Web Accessibility?
@@ -100,9 +106,19 @@ We could imagine a website's structure as a box with various other boxes inside.
       `,
     },
     {
+      backgroundColor: '\\var(--orange)',
       content: md`
+## How does a person with disabilities use a website?
+
 Reminder: Translate image and add image description...
-      `
+      `,
+    },
+    {
+      content: md`
+## What is assistive technology?
+
+...
+      `,
     },
     {
       backgroundColor: '\\var(--green)',
@@ -138,25 +154,15 @@ Spoken screen reader output: <code>button</code>.
       `,
     },
     {
-      backgroundColor: '\\var(--blue)',
+      backgroundColor: '\\var(--yellow)',
       content: md`
-## <span aria-hidden="true" class="decorative">♿</span> Disabilities </br> and web accessibility features
+## What is the experience of a an actual screen reader user?
+
+Constantin will now speak about his experience...
       `,
     },
     {
-      content: md`
-### <span class="f-w-normal">Accessibility features for...</span> </br> a deaf person
-
-- Captions
-  - **synchronized** text wit video and audio
-  - includes dialog and non-dialog (e.g. "thunder rumbling")
-- Transcript
-  - text alternative for audio (e.g. podcast) or video with audio
-  - the speaker must be identified and mentioned
-  - dialog and non-dialog
-- Sign language
-  - a language using combinations of movements of the hands and arms, facial expressions, or body positions to convey meaning
-      `,
+      content: md``,
     },
   ],
 };
