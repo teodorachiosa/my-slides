@@ -162,7 +162,31 @@ Constantin will now speak about his experience...
       `,
     },
     {
-      content: md``,
+      backgroundColor: '\\var(--red)',
+      content: md`
+## Why is web accessibility important?
+      `,
+    },
+    {
+      backgroundColor: '\\var(--violet)',
+      content: md`
+## <span aria-hidden="true" class="decorative">⚖️</span> What does the law say?
+      `,
+    },
+    {
+      content: md`
+### The 4 principles of the accessibility guidelines
+      `,
+    },
+    {
+      content: md`
+## Quick solutions... are they effective?
+      `,
+    },
+    {
+      content: md`
+## How to tell if a website might truly be accessible?
+      `,
     },
   ],
 };

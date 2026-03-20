@@ -67,12 +67,12 @@
 
   ::ng-deep blockquote {
     border: 1px solid var(--slides-borders);
-    border-left: 8px solid var(--slides-borders);
+    border-left: calc(1 * var(--unit)) solid var(--slides-borders);
     margin: 0;
-    padding-block-start: 1em;
-    padding-block-end: 1em;
-    padding-inline-start: 20px;
-    padding-inline-end: 20px;
+    padding-block-start: calc(1 * var(--unit));
+    padding-block-end: calc(1 * var(--unit));
+    padding-inline-start: calc(2 * var(--unit));
+    padding-inline-end: calc(2 * var(--unit));
     border-radius: var(--radius);
     background: var(--slides-background-light);
   }

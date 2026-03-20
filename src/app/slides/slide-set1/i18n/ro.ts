@@ -172,10 +172,46 @@ Constantin va vorbi acum despre experiența sa...
       `,
     },
     {
-      content: md``,
+      content: md`
+## De ce este importantă accesibilitatea web?
+
+Orice persoană are dreptul la **autonomie**.
+
+O persoană cu dizabilități ar trebui să poată:
+
+- să găsească informații
+- să vizioneze un film
+- să facă cumpărături
+- să cumpere bilete la muzeu
+- să interogheze un cont bancar etc.
+      `,
     },
     {
-      content: md``,
+      content: md`
+## <span aria-hidden="true" class="decorative">⚖️</span> Ce spune legislația?
+
+1. [Directiva (UE) 2016/2102](https://eur-lex.europa.eu/legal-content/RO/TXT/HTML/?uri=CELEX:32016L2102) privind accesibilitatea site-urilor web și a aplicațiilor mobile ale organismelor din sectorul public
+   - Transpusă în [Ordonanța de urgență nr. 112](https://legislatie.just.ro/Public/DetaliiDocumentAfis/209421)
+2. [Directiva (UE) 2019/882](https://eur-lex.europa.eu/legal-content/RO/TXT/HTML/?uri=CELEX:32019L0882) privind cerințele de accesibilitate aplicabile produselor și serviciilor
+   - Transpusă în [Legea nr. 232](https://legislatie.just.ro/Public/DetaliiDocument/257778)
+
+Legislația cere ca site-urile să respecte **Ghidul pentru Conținut Web Accesibil**.
+      `,
+    },
+    {
+      content: md`
+### Cele 4 principii ale ghidului de accesibilitate
+      `,
+    },
+    {
+      content: md`
+## Soluțiile accesibile rapide... sunt ele eficiente?
+      `,
+    },
+    {
+      content: md`
+## Cum îți dai seama dacă un site ar putea fi cu adevărat accesibil?
+      `,
     },
   ],
 };
