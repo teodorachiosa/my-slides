@@ -258,11 +258,13 @@ Lawsuit screenshot
       `,
     },
     {
+      backgroundColor: '\\var(--magenta)',
       content: md`
 ## Q&A
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 ## QR code
       `,

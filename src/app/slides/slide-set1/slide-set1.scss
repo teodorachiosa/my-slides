@@ -153,4 +153,9 @@
     padding: 0 calc(0.5 * var(--unit));
     background: var(--background);
   }
+
+  ::ng-deep .qa {
+    font-size: 10cqi;
+    text-align: center;
+  }
 }

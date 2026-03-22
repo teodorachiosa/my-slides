@@ -369,10 +369,11 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
     },
     {
       content: md`
-## Q&A
+## <span aria-hidden="true" class="decorative">💭</span> Întrebări și răspunsuri
       `,
     },
     {
+
       content: md`
 ## Cod QR
       `,
