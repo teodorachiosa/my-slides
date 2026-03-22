@@ -72,8 +72,8 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       content: md`
 ## Tipuri de dizabilități
 
-- <span aria-hidden="true" class="decorative">👁️</span> Persoane cu daltonism, cu deficiențe de vedere (glaucom, cataracta) sau oarbe
-- <span aria-hidden="true" class="decorative">👂</span> Persoane cu deficiențe de auz sau surde
+- <span aria-hidden="true" class="decorative">👁️</span> Persoane cu daltonism, cu deficiențe de vedere (glaucom, cataracta) sau nevăzătoare
+- <span aria-hidden="true" class="decorative">👂</span> Persoane cu deficiențe de auz
 - <span aria-hidden="true" class="decorative">🖐️</span> Persoane cu artrită, boala Parkinson sau paralizie
 - <span aria-hidden="true" class="decorative">🧠</span> Persoane cu ADHD, dislexie, autism sau cu dizabilitate intelectuală
 
@@ -172,13 +172,6 @@ Ce funcționalitate are butonul? Nu știu, fiindcă nu are etichetă.
     },
     {
       content: md`
-## <span aria-hidden="true" class="decorative">💬</span> Care este experiența unui utilizator de cititor de ecran?
-
-**Constantin** va vorbi acum despre experiența sa...
-      `,
-    },
-    {
-      content: md`
 ## De ce este importantă accesibilitatea web?
 
 Orice persoană are dreptul la **autonomie**.
@@ -196,7 +189,7 @@ O persoană cu dizabilități ar trebui să poată:
       content: md`
 ## <span aria-hidden="true" class="decorative">⚖️</span> Ce spune legislația?
 
-Există **2** legi relevante pentru mediul digital:
+Există două legi relevante pentru mediul digital:
 
 1. [Directiva (UE) 2016/2102](https://eur-lex.europa.eu/legal-content/RO/TXT/HTML/?uri=CELEX:32016L2102) privind accesibilitatea site-urilor web și a aplicațiilor mobile ale organismelor din sectorul public, transpusă în [Ordonanța de urgență nr. 112/2018](https://legislatie.just.ro/Public/DetaliiDocumentAfis/209421)
    - Intrată în vigoare între 2019 și 2021
@@ -262,7 +255,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
 
 - Interacțiune fără bariere folosind tastatura
 - Destul timp la dispoziție pentru interacțiune (excepție: examen)
-- Fără flash-uri de lumină care pot provoca crize epileptice
+- Fără flash-uri care pot provoca crize în cazul persoanelor epileptice, de exemplu
 - Navigarea ușoară în pagină:
   - Titlul paginii
   - Titluri pentru delimitarea conținutului
@@ -365,7 +358,7 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
 ## Resurse (engleză)
 
 - [European Accessibility Act (EAA)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en)
-- [WCAG 2 at a Glance](https://www.w3.org/WAI/standards-guidelines/wcag/glance/) - WCAG pe scurt
+- [WCAG 2 at a Glance](https://www.w3.org/WAI/standards-guidelines/wcag/glance/) - Ghidul pentru Conținut Web Accesibil (<span lang="en">WCAG</span>), pe scurt
 - [NVDA](https://www.nvaccess.org/download/) - Cititor de ecran (Windows)
       `,
     },

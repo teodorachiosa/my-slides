@@ -157,14 +157,6 @@ Sometimes, the boxes:
       `,
     },
     {
-      backgroundColor: '\\var(--yellow)',
-      content: md`
-## What is the experience of an actual screen reader user?
-
-**Constantin** will now speak about his experience...
-      `,
-    },
-    {
       backgroundColor: '\\var(--blue)',
       content: md`
 ## Why is web accessibility important?
