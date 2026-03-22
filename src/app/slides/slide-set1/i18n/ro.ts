@@ -165,7 +165,7 @@ Câteodată, cutiile:
 
 Ce funcționalitate are butonul? Nu știu, fiindcă nu are etichetă.
 
-**Concluzie**: Structura corectă este esențială pentru accesibilitate!
+**Concluzie**: Structura corectă și codul corect sunt esențiale pentru accesibilitate!
       `,
     },
     {
@@ -239,6 +239,14 @@ Conținutul trebuie să fie:
 - Text alternativ la imagini
 - Subtitrări la clipuri video
 - Transcrieri la podcasturi și clipuri video
+
+</br>
+
+<img class="cloud-img" src="img/website/cloudy.png" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Caputa de ecran include de asemenea și o ilustrație cu un nor">
+
+Alt text pentru imaginea cu norul?
+
+"Înnorat".
       `,
     },
     {
@@ -251,9 +259,10 @@ Conținutul trebuie să fie:
 #### Operabil
 
 - Interacțiune fără bariere folosind tastatura
-- Destul timp la dispoziție pentru interacțiune
+- Destul timp la dispoziție pentru interacțiune (excepție: examen)
 - Fără flash-uri de lumină care pot provoca crize epileptice
-- Navigarea ușoară în pagină
+- Navigarea ușoară în pagină:
+  - Titlul paginii
   - Titluri pentru delimitarea conținutului
   - Câmp de căutare
   - Focus de la tastatură vizibil
@@ -265,7 +274,7 @@ Conținutul trebuie să fie:
 #### Ușor de înțeles
 
 - Conținut clar
-- Așezare în pagină previzibilă
+- Așezare în pagină previzibilă (exemplu: meniul e mereu în același loc)
 - Ajutor în identificarea și repararea erorilor
       `,
     },
