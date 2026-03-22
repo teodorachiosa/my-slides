@@ -36,15 +36,17 @@ const roSlideSetTranslations: TranslatedSlideSet = {
 </div>
 
 - [Specialist în accesibilitate web](https://www.credly.com/badges/8c7936b4-35be-4aa2-9064-eb57ce746db3/public_url), cu certificat obținut de la Asociația Internațională a Profesioniștilor în Accesibilitate
-- Programator Web, cu experiență în crearea de componente pentru site-uri web
+- **Programator Web**, cu experiență în crearea de componente pentru site-uri web
       `,
     },
     {
       content: md`
 ## Despre prezentatori: </br> <span class="f-w-normal">Constantin Cristache</span>
 
-- Tester accesibilitate web și digitală
-- Utilizator de soluții asistive pentru nevăzători
+- **Profesor** la Liceul Teoretic Special „Iris” din Timișoara
+- **Trainer** în programele de formare derulate de CED România
+- **Tester** accesibilitate web și digitală
+- **Utilizator de soluții asistive** pentru nevăzători
       `,
     },
     {
