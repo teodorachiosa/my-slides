@@ -230,7 +230,6 @@ Conținutul trebuie să fie:
 - **O**perabil
 - **U**șor de înțeles
 - **R**obust
-
       `,
     },
     {
@@ -244,6 +243,11 @@ Conținutul trebuie să fie:
     },
     {
       content: md`
+<img class="fullscreen" src="img/disabilities/captions-transcripts-ro.png" alt="o captură de ecran a unui video pe Youtube. Chenare roșii indică butonul de activare a subtitrărilor și subtitrările în sine afișate în josul clipului video. Un alt chenar roșu indică și panoul cu transcrierea clipului video.">
+      `,
+    },
+    {
+      content: md`
 #### Operabil
 
 - Interacțiune fără bariere folosind tastatura
@@ -252,7 +256,8 @@ Conținutul trebuie să fie:
 - Navigarea ușoară în pagină
   - Titluri pentru delimitarea conținutului
   - Câmp de căutare
-  - Focus de la tastatură vizibil, butoane destul de mari
+  - Focus de la tastatură vizibil
+  - Butoane destul de mari
       `,
     },
     {
@@ -314,6 +319,11 @@ Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui sit
 - Poate crea noi bariere.
 
 <span class="smaller">Detalii</span>: [Overlay Factsheet](https://overlayfactsheet.com/en/) și [Overlay Timeline](https://overlaytimeline.com/).
+      `,
+    },
+    {
+      content: md`
+<img class="fullscreen" src="img/website/lawsuit.png" alt="o captură de ecran a unui articolul cu titlu: Comisia Federală pentru Comerț ordonă startup-ului de accesibilitate prin inteligență artificială accessiBe să plătească 1 milion de dolari pentru publicitate înșelătoare">
       `,
     },
     {

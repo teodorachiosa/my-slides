@@ -159,7 +159,7 @@ Sometimes, the boxes:
     {
       backgroundColor: '\\var(--yellow)',
       content: md`
-## What is the experience of a an actual screen reader user?
+## What is the experience of an actual screen reader user?
 
 **Constantin** will now speak about his experience...
       `,
@@ -198,6 +198,11 @@ Second EU directive
     },
     {
       content: md`
+### POUR: Perceivable (example)
+      `,
+    },
+    {
+      content: md`
 ### POUR: Operable
       `,
     },
@@ -228,6 +233,11 @@ Second EU directive
       content: md`
 ### The issues with overlays
       `,
+    },
+        {
+      content: md`
+Lawsuit screenshot
+      `
     },
     {
       backgroundColor: '\\var(--red)',
