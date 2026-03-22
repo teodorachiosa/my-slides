@@ -33,10 +33,10 @@ Using this approach, you can create slide content that can be reused in multiple
 - [x] Add support for Angular components in Markdown
 - [x] Add a section at the end for credits, links, etc.
 - [x] Fix Vercel 404 error
+- [x] Scale all content in "slides" view, not just text
 
 ## To do:
 
-- [ ] Scale all content in "slides" view, not just text
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
 - [ ] Perform accessibility checks (WCAG 2.2 minimum) and add an accessibility statement

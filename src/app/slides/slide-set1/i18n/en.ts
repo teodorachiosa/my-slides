@@ -133,7 +133,6 @@ A sighted user sees the box contents directly:
 
 <!--RemoveButtonEn-->
 
-
 Screen reader users hear the label of the box:
 
 **Spoken screen reader output**: <code>Remove button</code>.
@@ -226,10 +225,10 @@ Second EU directive
 ### The issues with overlays
       `,
     },
-        {
+    {
       content: md`
 Lawsuit screenshot
-      `
+      `,
     },
     {
       backgroundColor: '\\var(--red)',
@@ -253,12 +252,6 @@ Lawsuit screenshot
       backgroundColor: '\\var(--green)',
       content: md`
 ## Q&A
-      `,
-    },
-    {
-      backgroundColor: '\\var(--violet)',
-      content: md`
-## QR code
       `,
     },
   ],

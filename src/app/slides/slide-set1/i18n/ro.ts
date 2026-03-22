@@ -369,12 +369,6 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
 <img class="q-and-a-img" src="img/q-and-a.png" alt="">
       `,
     },
-    {
-
-      content: md`
-## Cod QR
-      `,
-    },
   ],
 };
 

@@ -132,7 +132,7 @@ export class Header implements OnInit, AfterViewInit {
       this.rootElement?.classList.add('fullscreen');
       this.updateFullscreenStateAndUI(true);
       setTimeout(() => {
-        this.document.querySelector<HTMLElement>('app-slide')?.focus();
+        this.document.querySelectorAll<HTMLElement>('app-slide')[this.stateService.getState().currentSlide ?? 0]?.focus();
       });
     }
   }
@@ -143,13 +143,13 @@ export class Header implements OnInit, AfterViewInit {
     this.rootElement?.classList.remove('fullscreen');
     this.updateFullscreenStateAndUI(false);
 
-    this.state['currentSlide'] = 0;
-    this.stateService.setState(this.state);
+    this.document.querySelectorAll<HTMLElement>('app-slide')[this.stateService.getState().currentSlide ?? 0]?.focus();
   }
 
   updateFullscreenStateAndUI(isFullscreen: boolean): void {
     this.state['isFullscreen'] = isFullscreen;
     this.stateService.setState(this.state);
+
   }
 
   switchLanguage(language: ContentLanguage): void {

@@ -11,6 +11,8 @@ import {
 import { State } from '@shared/models/state.model';
 import { StateService } from '@shared/services/state.service';
 
+const INTERSECTION_RATIO = 0.75;
+
 @Component({
   selector: 'app-slides-container',
   imports: [],
@@ -32,6 +34,8 @@ export class SlidesContainer implements AfterViewInit {
     }
 
     this.assignSlideNumber();
+
+    this.observeSlides();
   }
 
   @HostBinding('style.maxWidth') get maxWidth() {
@@ -101,5 +105,31 @@ export class SlidesContainer implements AfterViewInit {
       this.renderer.appendChild(span, text);
       this.renderer.appendChild(slide, span);
     });
+  }
+
+  observeSlides(): void {
+    if (typeof window !== 'undefined') {
+      const slidesObserver = new IntersectionObserver(
+        (entries) => {
+          console.log(entries);
+
+          const match = entries[0];
+          if (match.intersectionRatio >= INTERSECTION_RATIO) {
+            const currentIndex = match.target.id.split('-')[1];
+
+            this.currentSlide = Number(currentIndex) - 1;
+            this.state['currentSlide'] = this.currentSlide;
+            this.stateService.setState(this.state);
+          }
+        },
+        {
+          threshold: [INTERSECTION_RATIO],
+        },
+      );
+
+      this.allSlides?.forEach((slide) => {
+        slidesObserver.observe(slide);
+      });
+    }
   }
 }
