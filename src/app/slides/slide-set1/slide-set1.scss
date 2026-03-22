@@ -145,4 +145,12 @@
     margin-right: calc(5 * var(--unit));
     margin-bottom: calc(4 * var(--unit));
   }
+
+  ::ng-deep .nu {
+    text-transform: uppercase;
+    border: calc(0.4 * var(--unit)) solid var(--slides-borders);
+    border-radius: calc(0.5 * var(--unit));
+    padding: 0 calc(0.5 * var(--unit));
+    background: var(--background);
+  }
 }

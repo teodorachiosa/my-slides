@@ -35,7 +35,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
   <img src="img/was.png" alt="Insigna pentru Specialist în accesibilitate digitală">
 </div>
 
-- Specialist în accesibilitate web, cu certificat obținut de Asociația Internațională a Profesioniștilor în Accesibilitate
+- [Specialist în accesibilitate web](https://www.credly.com/badges/8c7936b4-35be-4aa2-9064-eb57ce746db3/public_url), cu certificat obținut de la Asociația Internațională a Profesioniștilor în Accesibilitate
 - Programator Web, cu experiență în crearea de componente pentru site-uri web
       `,
     },
@@ -337,7 +337,7 @@ Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui sit
     },
     {
       content: md`
-### <span aria-hidden="true" class="decorative">🚨</span> Un site cu overlay _nu_ înseamnă un site accesibil!
+### Un site cu overlay <br> <span class="nu">nu</span> înseamnă un site accesibil!
 
 Atunci când accesibilitatea este luată în considerare cu adevărat:
 
@@ -350,8 +350,8 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
       content: md`
 ## <span aria-hidden="true" class="decorative">💚</span> Cum detectăm un site accesibil?
 
-- Conține o **Declarație de accesibilitate**
-- Este o plăcere să folosești acel site, oricum ai încerca să interacționezi cu acesta
+- Conține o **Declarație de accesibilitate**.
+- Este o plăcere să folosești site-ul, oricum ai încerca să interacționezi cu acesta.
 
 ### Demo:
 
@@ -360,7 +360,11 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
     },
     {
       content: md`
-## Linkuri utile și surse
+## Resurse (engleză)
+
+- [European Accessibility Act (EAA)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en)
+- [WCAG 2 at a Glance](https://www.w3.org/WAI/standards-guidelines/wcag/glance/) - WCAG pe scurt
+- [NVDA](https://www.nvaccess.org/download/) - Cititor de ecran (Windows)
       `,
     },
     {
