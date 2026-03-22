@@ -244,7 +244,7 @@ Conținutul trebuie să fie:
 
 <img class="cloud-img" src="img/website/cloudy.png" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Caputa de ecran include de asemenea și o ilustrație cu un nor">
 
-Alt text pentru imaginea cu norul?
+Exemplu: Text alternativ pentru imaginea cu norul?
 
 "Înnorat".
       `,
