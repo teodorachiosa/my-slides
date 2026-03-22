@@ -258,7 +258,7 @@ Lawsuit screenshot
       `,
     },
     {
-      backgroundColor: '\\var(--magenta)',
+      backgroundColor: '\\var(--green)',
       content: md`
 ## Q&A
       `,

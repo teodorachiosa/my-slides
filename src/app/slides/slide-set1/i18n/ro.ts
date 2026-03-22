@@ -370,6 +370,8 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
     {
       content: md`
 ## <span aria-hidden="true" class="decorative">💭</span> Întrebări și răspunsuri
+
+<img class="q-and-a-img" src="img/q-and-a.png" alt="">
       `,
     },
     {

@@ -158,4 +158,10 @@
     font-size: 10cqi;
     text-align: center;
   }
+
+  ::ng-deep .q-and-a-img {
+    width: 36%;
+    display: flex;
+    place-self: center;
+  }
 }
