@@ -131,4 +131,11 @@
   ::ng-deep :has(.smaller) {
     font-size: calc(2.01 * var(--unit));
   }
+
+  ::ng-deep .pour-img {
+    width: 60%;
+    float: left;
+    margin-right: calc(5 * var(--unit));
+    margin-bottom: calc(4 * var(--unit));
+  }
 }

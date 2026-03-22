@@ -145,7 +145,6 @@ Persoanele văzătoare văd direct conținutul cutiei:
 
 <!--RemoveButtonRo-->
 
-
 Utilizatorii de cititor de ecran vor auzi eticheta cutiei:
 
 **Rezultat vorbit de un cititor de ecran**: <code>Șterge buton</code>.
@@ -221,14 +220,17 @@ Există **2** legi relevante pentru mediul digital:
       content: md`
 ### Ghidul de accesibilitate
 
-Legislația cere ca site-urile să respecte **minimul** cerințelor din **Ghidul pentru Conținut Web Accesibil**.
+Legislația cere ca site-urile să respecte **minimul** cerințelor din **[Ghidul pentru Conținut Web Accesibil](https://www.w3.org/TR/WCAG22/)** (<span lang="en">WCAG</span>).
 
 Conținutul trebuie să fie:
+
+<img class="pour-img" src="img/wcag/pour.png" alt="">
 
 - **P**erceptibil
 - **O**perabil
 - **U**șor de înțeles
 - **R**obust
+
       `,
     },
     {
