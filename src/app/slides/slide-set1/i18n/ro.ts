@@ -323,7 +323,7 @@ Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui sit
     },
     {
       content: md`
-<img class="fullscreen" src="img/website/lawsuit.png" alt="o captură de ecran a unui articolul cu titlu: Comisia Federală pentru Comerț ordonă startup-ului de accesibilitate prin inteligență artificială accessiBe să plătească 1 milion de dolari pentru publicitate înșelătoare">
+<img class="fullscreen" src="img/website/lawsuit.png" alt="o captură de ecran a unui articolul cu titlul: Comisia Federală pentru Comerț ordonă startup-ului de accesibilitate prin inteligență artificială accessiBe să plătească 1 milion de dolari pentru publicitate înșelătoare">
       `,
     },
     {
