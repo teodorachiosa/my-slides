@@ -111,8 +111,6 @@ export class SlidesContainer implements AfterViewInit {
     if (typeof window !== 'undefined') {
       const slidesObserver = new IntersectionObserver(
         (entries) => {
-          console.log(entries);
-
           const match = entries[0];
           if (match.intersectionRatio >= INTERSECTION_RATIO) {
             const currentIndex = match.target.id.split('-')[1];
