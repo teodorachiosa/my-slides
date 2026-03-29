@@ -168,7 +168,12 @@
   ::ng-deep .barrier {
     float: left;
     font-size: calc(12 * var(--unit));
-    margin-right: calc(5 * var(--unit));
     margin-bottom: calc(0.5 * var(--unit));
+  }
+
+  ::ng-deep p:has(.barrier) {
+    + ul {
+      margin-left: calc(17 * var(--unit));
+    }
   }
 }
