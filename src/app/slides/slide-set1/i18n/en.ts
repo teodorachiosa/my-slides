@@ -234,7 +234,16 @@ There two main laws relevant for the digital world (in Europe):
       content: md`
 ### The accessibility guidelines
 
-The laws require that websites apply the **minimum** requirements of the **[Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG22/)** (WCAG)
+The laws require that websites apply the **minimum** requirements of the **[Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG22/)** (WCAG).
+
+Website content must be:
+
+<img class="pour-img" src="img/wcag/pour.png" alt="">
+
+- **P**erceivable
+- **O**perable
+- **U**nderstandable
+- **R**obust
       `,
     },
     {

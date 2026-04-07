@@ -14,9 +14,18 @@
 <div class="main-container">
   <main>
     <router-outlet></router-outlet>
-    <p class="credit">
-      {{'ui.creditsBy' | translate}}
-      <a href="https://chiosa.dev">Teodora Chiosa<span class="sr-only">({{'ui.external' | translate}})</span></a>.
-    </p>
   </main>
 </div>
+
+<footer>
+  <p>
+    {{'ui.humanDisclaimer' | translate}}:
+    <a href="https://chiosa.dev">Teodora Chiosa<span class="sr-only">({{'ui.external' | translate}})</span></a>.
+  </p>
+  <p>{{'ui.foundAnIssue' | translate}}?
+    <a href="https://github.com/teodorachiosa/slides/issues">{{'ui.reportAnIssue' | translate}}</a>!
+  </p>
+  <p>
+    {{'ui.iconsCredit' | translate}}: <a href="https://lucide.dev/" lang="en">Lucide Icons</a>.
+  </p>
+</footer>

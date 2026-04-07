@@ -229,7 +229,7 @@ Există două legi relevante pentru mediul digital (în Europa):
 
 Legislația cere ca site-urile să respecte **minimul** cerințelor din **[Ghidul pentru Conținut Web Accesibil](https://www.w3.org/TR/WCAG22/)** (<span lang="en">WCAG</span>).
 
-Conținutul trebuie să fie:
+Conținutul unui site trebuie să fie:
 
 <img class="pour-img" src="img/wcag/pour.png" alt="">
 

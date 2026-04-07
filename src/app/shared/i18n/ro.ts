@@ -23,7 +23,10 @@ const ro = {
     present: '\\Prezintă',
     notFoundTitle: '\\Pagina nu a fost găsită',
     notFoundSubtitle: '\\Încearcă una din paginile din meniu',
-    creditsBy: '\\Conținut creat de',
+    humanDisclaimer: '\\Acest site a fost creat și este menținut de către o persoană',
+    foundAnIssue: '\\Ai întâmpinat o problemă',
+    reportAnIssue: '\\Raportează o problemă pe GitHub',
+    iconsCredit: '\\Iconițe',
     external: '\\extern',
     disclaimerTitle: '\\Notă',
     disclaimerBody: '\\Acest site este în curs de dezvoltare!'

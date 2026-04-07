@@ -43,12 +43,28 @@
     & > ::ng-deep *:last-child {
       flex-grow: 1;
     }
+  }
 
-    .credit {
-      text-align: center;
-      font-size: 0.9em;
-      margin: calc(1.5 * var(--spacing)) var(--spacing);
-      line-height: 1.5;
+  footer {
+    border-top: 1px solid var(--light-grey);
+    font-size: 0.9em;
+    margin: calc(0.8 * var(--spacing)) 0;
+    margin-bottom: 0;
+    padding: calc(0.8 * var(--spacing)) var(--spacing);
+    line-height: 1.5;
+
+    p {
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      app-smile-icon {
+        display: inline-flex;
+        align-self: center;
+        width: 0.8rem;
+      }
     }
   }
 }
