@@ -140,9 +140,9 @@ Assistive technology includes software or hardware which **helps persons with di
 
 Examples:
 
-- <span aria-hidden="true" class="decorative">🔊</span> **Screen readers** - transforms text to speech
-- <span aria-hidden="true" class="decorative">🔍</span> **Lupa** - makes displayed content larger but more zoomed in
-- <span aria-hidden="true" class="decorative">🗣️</span> **Recunoașterea vocală** - transforms vocal commands to interactions
+- <span aria-hidden="true" class="decorative">🔊</span> **Screen readers** - transform text to speech
+- <span aria-hidden="true" class="decorative">🔍</span> **Magnifier** - makes displayed content larger and more zoomed in
+- <span aria-hidden="true" class="decorative">🗣️</span> **Speech recognition** - transforms vocal commands into interactions
       `,
     },
     {
@@ -218,7 +218,7 @@ There two main laws relevant for the digital world (in Europe):
       backgroundColor: '\\var(--violet)',
       content: md`
 2. [EU Directive 2019/882](https://eur-lex.europa.eu/legal-content/RO/TXT/HTML/?uri=CELEX:32019L0882) - accessability requirements for products and services
-   - Also known as **European Accessibility Act**
+   - Also known as the **European Accessibility Act**
    - Came into effect in 2025 and covers:
      - <span aria-hidden="true" class="decorative smaller">💻</span> PCs, smartphones and operating systems
      - <span aria-hidden="true" class="decorative smaller">💵</span> ATMs, self-pay terminals
