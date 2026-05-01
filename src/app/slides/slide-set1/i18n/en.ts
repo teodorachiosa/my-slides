@@ -248,17 +248,40 @@ Website content must be:
     },
     {
       content: md`
-### POUR: Perceivable
+#### Perceivable
+
+- Alternative text for images
+- Captions for videos
+- Transcriptions for podcasts and videos
       `,
     },
     {
       content: md`
-### POUR: Perceivable (example)
+<img class="cloud-img" src="img/website/cloudy.png" alt="a screenshot with the text: 10 degrees celsius, 19% chance of rain, humidity 49%, wind 10 kilometers per hour. The screenshot also includes an illustration of a cloud">
+
+Example: Alternative text for the cloud image?
+
+"Cloudy".
       `,
     },
     {
       content: md`
-### POUR: Operable
+<img class="fullscreen" src="img/disabilities/captions-transcripts-en.png" alt="screenshot of a video on Youtube. The red border shows the location of the button used to toggle captions. Captions are shown in the bottom center part of the video. Another red border highlights the panel with the transcription of the video.">
+      `,
+    },
+    {
+      content: md`
+#### Operable
+
+- Interactions without barriers when using a keyboard
+- Enough time for interactions
+- No flashes that could cause epileptic seizures
+- Easy navigation in the page:
+  - Page title is present
+  - Headings are used to ...
+  - Search fields
+  - Focus de la tastatură vizibil
+  - Butoane destul de mari
       `,
     },
     {

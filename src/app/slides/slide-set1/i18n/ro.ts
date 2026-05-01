@@ -194,7 +194,6 @@ O persoană cu dizabilități nu ar trebui să întâmpine bariere atunci când:
 - cumpără bilete la muzeu
 - interoghează un cont bancar
 - etc.
-
       `,
     },
     {
@@ -246,10 +245,11 @@ Conținutul unui site trebuie să fie:
 - Text alternativ la imagini
 - Subtitrări la clipuri video
 - Transcrieri la podcasturi și clipuri video
-
-</br>
-
-<img class="cloud-img" src="img/website/cloudy.png" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Caputa de ecran include de asemenea și o ilustrație cu un nor">
+      `,
+    },
+    {
+      content: md`
+<img class="cloud-img" src="img/website/cloudy.png" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Captura de ecran include de asemenea și o ilustrație cu un nor">
 
 Exemplu: Text alternativ pentru imaginea cu norul?
 
@@ -266,8 +266,8 @@ Exemplu: Text alternativ pentru imaginea cu norul?
 #### Operabil
 
 - Interacțiune fără bariere folosind tastatura
-- Destul timp la dispoziție pentru interacțiune (excepție: examen)
-- Fără flash-uri care pot provoca crize în cazul persoanelor epileptice, de exemplu
+- Destul timp la dispoziție pentru interacțiune
+- Fără flash-uri care pot provoca crize în cazul persoanelor epileptice
 - Navigarea ușoară în pagină:
   - Titlul paginii
   - Titluri pentru delimitarea conținutului
