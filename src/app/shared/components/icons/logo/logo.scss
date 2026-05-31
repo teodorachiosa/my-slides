@@ -2,8 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  a {
+    min-height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   svg {
-    height: 1.8rem;
+    height: 1.1rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.85rem;
   }
 }
