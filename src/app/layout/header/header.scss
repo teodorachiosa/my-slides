@@ -9,7 +9,7 @@
   top: 0;
   box-shadow: 0 0 var(--shadow-spread) 0 var(--shadow-color);
   background: var(--surface-background-transparent);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(30px);
   padding: calc(var(--spacing) / 4);
 
   .left-container,
