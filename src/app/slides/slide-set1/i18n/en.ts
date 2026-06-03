@@ -19,7 +19,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
 
   <div class="footer">
     <span class="presenters">
-      <img src="img/ced-logo.webp" class="ced-logo" width="480" height="100" alt="CED Romania - Center of Excellence Through Diversity">
+      <img fetchpriority="high" src="img/ced-logo.webp" class="ced-logo" width="480" height="100" alt="CED Romania - Center of Excellence Through Diversity">
        and <strong>Teodora Chiosa</strong>
     </span>
     <span>March 23<sup>rd</sup> 2026</span>
@@ -34,7 +34,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
 ## About the speakers: </br> <span class="f-w-normal">Teodora Chiosa</span>
 
 <div class="about-me-images">
-  <img src="img/was.webp" width="1" height="1" alt="the Web Accessibility Specialist badge">
+  <img fetchpriority="high" src="img/was.webp" width="1" height="1" alt="the Web Accessibility Specialist badge">
 </div>
 
 - [Web Accessibility Specialist](https://www.credly.com/badges/8c7936b4-35be-4aa2-9064-eb57ce746db3/public_url) Web Accessibility Specialist, certified by the International Association of Accessibility Professionals (IAAP)
@@ -64,12 +64,12 @@ const enSlideSet1Translations: TranslatedSlideSet = {
     },
     {
       content: md`
-<img class="fullscreen" src="img/environment/braille-buttons.webp" alt="elevator buttons using the braille system">
+<img loading="lazy" class="fullscreen" src="img/environment/braille-buttons.webp" alt="elevator buttons using the braille system">
       `,
     },
     {
       content: md`
-<img class="fullscreen" src="img/environment/wheelchair-ramp.webp" alt="a person in a wheelchair using a van's ramp">
+<img loading="lazy" class="fullscreen" src="img/environment/wheelchair-ramp.webp" alt="a person in a wheelchair using a van's ramp">
       `,
     },
     {
@@ -116,8 +116,8 @@ We could imagine a website's structure as a box with various other boxes inside.
       backgroundColor: '\\var(--orange)',
       content: md`
 <div class="side-by-side">
-  <img src="img/website/boxes.webp" alt="cardboard boxes arranged chaotically and without labels">
-  <img src="img/website/boxes-labelled-en.webp" alt="labelled cardboard boxes. On most of the boxes there is a label: cables, clothes, books, documents, photos">
+  <img loading="lazy" src="img/website/boxes.webp" alt="cardboard boxes arranged chaotically and without labels">
+  <img loading="lazy" src="img/website/boxes-labelled-en.webp" alt="labelled cardboard boxes. On most of the boxes there is a label: cables, clothes, books, documents, photos">
 </div>
       `,
     },
@@ -128,7 +128,7 @@ We could imagine a website's structure as a box with various other boxes inside.
   How does a person with disabilities use a website?
 </h2>
 
-<img class="interaction-diagram" src="img/website/user-interaction-en.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
+<img loading="lazy" class="interaction-diagram" src="img/website/user-interaction-en.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
       `,
     },
     {
@@ -237,7 +237,7 @@ The laws require that websites apply the **minimum** requirements of the **[Web 
 
 Website content must be:
 
-<img class="pour-img" src="img/wcag/pour.webp" alt="">
+<img loading="lazy" class="pour-img" src="img/wcag/pour.webp" alt="">
 
 - **P**erceivable
 - **O**perable
@@ -256,7 +256,7 @@ Website content must be:
     },
     {
       content: md`
-<img class="cloud-img" src="img/website/cloudy.webp" alt="a screenshot with the text: 10 degrees celsius, 19% chance of rain, humidity 49%, wind 10 kilometers per hour. The screenshot also includes an illustration of a cloud">
+<img loading="lazy" class="cloud-img" src="img/website/cloudy.webp" alt="a screenshot with the text: 10 degrees celsius, 19% chance of rain, humidity 49%, wind 10 kilometers per hour. The screenshot also includes an illustration of a cloud">
 
 Example: Alternative text for the cloud image?
 
@@ -265,7 +265,7 @@ Example: Alternative text for the cloud image?
     },
     {
       content: md`
-<img class="fullscreen" src="img/disabilities/captions-transcripts-en.webp" alt="screenshot of a video on Youtube. The red border shows the location of the button used to toggle captions. Captions are shown in the bottom center part of the video. Another red border highlights the panel with the transcription of the video.">
+<img loading="lazy" class="fullscreen" src="img/disabilities/captions-transcripts-en.webp" alt="screenshot of a video on Youtube. The red border shows the location of the button used to toggle captions. Captions are shown in the bottom center part of the video. Another red border highlights the panel with the transcription of the video.">
       `,
     },
     {
@@ -300,14 +300,14 @@ Example: Alternative text for the cloud image?
 </h3>
 
 <div class="center-pyramid">
-  <img src="img/wcag/levels-en.webp" alt="Pyramid diagram showing WCAG levels: Level A - Essential support, Level AA - Ideal support - the minimum adopted by legislation, and Level AAA - Specialized support">
+  <img loading="lazy" src="img/wcag/levels-en.webp" alt="Pyramid diagram showing WCAG levels: Level A - Essential support, Level AA - Ideal support - the minimum adopted by legislation, and Level AAA - Specialized support">
 </div>
       `,
     },
     {
       backgroundColor: '\\var(--blue)',
       content: md`
-<img class="float-overlay" src="img/website/overlay.webp" alt="">
+<img loading="lazy" class="float-overlay" src="img/website/overlay.webp" alt="">
 
 ## Quick fixes... </br><span class="f-w-normal">Are they effective?</span>
 
@@ -335,7 +335,7 @@ They usually look like a button that goes on top of the website's content.
     },
     {
       content: md`
-<img class="fullscreen" src="img/website/lawsuit.webp" alt="a screenshot of an article with the title: FTC orders AI accessibility startup accessiBe to pay $1M for misleading advertising">
+<img loading="lazy" class="fullscreen" src="img/website/lawsuit.webp" alt="a screenshot of an article with the title: FTC orders AI accessibility startup accessiBe to pay $1M for misleading advertising">
       `,
     },
     {
@@ -378,7 +378,7 @@ When accessibility is truly taken into consideration:
       content: md`
 ## <span aria-hidden="true" class="decorative">💭</span> Questions and answers
 
-<img class="q-and-a-img" src="img/q-and-a.webp" alt="">
+<img loading="lazy" class="q-and-a-img" src="img/q-and-a.webp" alt="">
       `,
     },
   ],
