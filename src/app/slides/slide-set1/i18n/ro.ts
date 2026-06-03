@@ -84,10 +84,9 @@ const roSlideSetTranslations: TranslatedSlideSet = {
 
 <br/>
 
-> Unele persoane pot avea:
->
-> - **multiple dizabilități**
-> - **dizabilități invizibile**
+> Unele persoane au **dizabilități multiple**.
+
+> Unele dizabilități sunt **invizibile**.
       `,
     },
     {

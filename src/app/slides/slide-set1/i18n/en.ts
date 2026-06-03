@@ -57,7 +57,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       content: md`
 ## What is Accessibility?
 
-> The design of products, devices, services, vehicles, or environments to be usable by disabled people.
+> The design of products, devices, services, vehicles, or environments to be usable by people with disabilities.
 >
 > [Accessibility - Wikipedia](https://en.wikipedia.org/wiki/Accessibility)
       `,
@@ -84,10 +84,9 @@ const enSlideSet1Translations: TranslatedSlideSet = {
 
 <br/>
 
-> Some people have:
->
-> - **multiple disabilities**
-> - **invisible disabilities**
+> Some people have **multiple disabilities**.
+
+> Some disabilities are **invisible**.
       `,
     },
     {
