@@ -32,6 +32,8 @@
 
   ::ng-deep * {
     text-wrap: balance;
+    word-break: break-word;
+    flex-wrap: wrap;
   }
 
   ::ng-deep markdown {
