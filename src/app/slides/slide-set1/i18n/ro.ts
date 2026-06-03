@@ -64,12 +64,12 @@ const roSlideSetTranslations: TranslatedSlideSet = {
     },
     {
       content: md`
-<img class="fullscreen" src="img/environment/braille-buttons.png" alt="butoane de lift care folosesc sistemul braille">
+<img class="fullscreen" src="img/environment/braille-buttons.webp" alt="butoane de lift care folosesc sistemul braille">
       `,
     },
     {
       content: md`
-<img class="fullscreen" src="img/environment/wheelchair-ramp.jpg" alt="o persoană în scaun rulant folosind o rampă de autoturism">
+<img class="fullscreen" src="img/environment/wheelchair-ramp.webp" alt="o persoană în scaun rulant folosind o rampă de autoturism">
       `,
     },
     {
@@ -116,8 +116,8 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
       backgroundColor: '\\var(--orange)',
       content: md`
 <div class="side-by-side">
-  <img src="img/website/boxes.jpg" alt="cutii de carton aranjate haotic și fără etichete">
-  <img src="img/website/boxes-labelled-ro.png" alt="cutii de carton cu etichete. Pe majoritatea cutiilor există etichete: cabluri, haine, cărți, documente, poze">
+  <img src="img/website/boxes.webp" alt="cutii de carton aranjate haotic și fără etichete">
+  <img src="img/website/boxes-labelled-ro.webp" alt="cutii de carton cu etichete. Pe majoritatea cutiilor există etichete: cabluri, haine, cărți, documente, poze">
 </div>
       `,
     },
@@ -128,7 +128,7 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
   Cum folosește o persoană cu dizabilități un site?
 </h2>
 
-<img class="interaction-diagram" src="img/website/user-interaction-ro.png" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
+<img class="interaction-diagram" src="img/website/user-interaction-ro.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
 <div class="sr-only">
   <p>În partea stângă se află un chenar care reprezintă o fereastră de browser. </p>
   <p>Înăuntrul acestei ferestre se află alte 2 chenare: unul arată reprezentarea vizuală a unui site web, iar cealaltă arată structura arborescentă a aceluiași site - sub formă de cutii.</p>
@@ -242,7 +242,7 @@ Legislația cere ca site-urile să respecte **minimul** cerințelor din **[Ghidu
 
 Conținutul unui site trebuie să fie:
 
-<img class="pour-img" src="img/wcag/pour.png" alt="">
+<img class="pour-img" src="img/wcag/pour.webp" alt="">
 
 - **P**erceptibil
 - **O**perabil
@@ -261,7 +261,7 @@ Conținutul unui site trebuie să fie:
     },
     {
       content: md`
-<img class="cloud-img" src="img/website/cloudy.png" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Captura de ecran include de asemenea și o ilustrație cu un nor">
+<img class="cloud-img" src="img/website/cloudy.webp" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Captura de ecran include de asemenea și o ilustrație cu un nor">
 
 Exemplu: Text alternativ pentru imaginea cu norul?
 
@@ -270,7 +270,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
     },
     {
       content: md`
-<img class="fullscreen" src="img/disabilities/captions-transcripts-ro.png" alt="o captură de ecran a unui video pe Youtube. Chenare roșii indică butonul de activare a subtitrărilor și subtitrările în sine afișate în josul clipului video. Un alt chenar roșu indică și panoul cu transcrierea clipului video.">
+<img class="fullscreen" src="img/disabilities/captions-transcripts-ro.webp" alt="o captură de ecran a unui video pe Youtube. Chenare roșii indică butonul de activare a subtitrărilor și subtitrările în sine afișate în josul clipului video. Un alt chenar roșu indică și panoul cu transcrierea clipului video.">
       `,
     },
     {
@@ -303,7 +303,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
 
 - Respectarea **standardelor** pentru a îmbunătăți **compatibiltatea** cu tehnologiile asistive („etichetarea cutiilor”)
 
-<img class="interaction-diagram" style="width: 47%" src="img/website/user-interaction-ro.png" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
+<img class="interaction-diagram" style="width: 47%" src="img/website/user-interaction-ro.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
 <div class="sr-only">
   <p>În partea stângă se află un chenar care reprezintă o fereastră de browser. </p>
   <p>Înăuntrul acestei ferestre se află alte 2 chenare: unul arată reprezentarea vizuală a unui site web, iar cealaltă arată structura arborescentă a aceluiași site - sub formă de cutii.</p>
@@ -318,14 +318,14 @@ Exemplu: Text alternativ pentru imaginea cu norul?
 </h3>
 
 <div class="center-pyramid">
-  <img src="img/wcag/levels-ro.png" alt="Diagramă sub formă de piramidă: Nivel A - Suport de bază, Nivel AA - Suport ideal - minimul adoptat de legislație, Nivel AAA - Suport specializat">
+  <img src="img/wcag/levels-ro.webp" alt="Diagramă sub formă de piramidă: Nivel A - Suport de bază, Nivel AA - Suport ideal - minimul adoptat de legislație, Nivel AAA - Suport specializat">
 </div>
       `,
     },
     {
       backgroundColor: '\\var(--blue)',
       content: md`
-<img class="float-overlay" src="img/website/overlay.png" alt="">
+<img class="float-overlay" src="img/website/overlay.webp" alt="">
 
 ## Soluțiile accesibile rapide... </br><span class="f-w-normal">Sunt ele eficiente?</span>
 
@@ -353,7 +353,7 @@ Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui sit
     },
     {
       content: md`
-<img class="fullscreen" src="img/website/lawsuit.png" alt="o captură de ecran a unui articol cu titlul: Comisia Federală pentru Comerț ordonă startup-ului de accesibilitate prin inteligență artificială accessiBe să plătească 1 milion de dolari pentru publicitate înșelătoare">
+<img class="fullscreen" src="img/website/lawsuit.webp" alt="o captură de ecran a unui articol cu titlul: Comisia Federală pentru Comerț ordonă startup-ului de accesibilitate prin inteligență artificială accessiBe să plătească 1 milion de dolari pentru publicitate înșelătoare">
       `,
     },
     {
@@ -396,7 +396,7 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
       content: md`
 ## <span aria-hidden="true" class="decorative">💭</span> Întrebări și răspunsuri
 
-<img class="q-and-a-img" src="img/q-and-a.png" alt="">
+<img class="q-and-a-img" src="img/q-and-a.webp" alt="">
       `,
     },
   ],
