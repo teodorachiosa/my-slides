@@ -128,7 +128,7 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
   Cum folosește o persoană cu dizabilități un site?
 </h2>
 
-<img loading="lazy" class="interaction-diagram" src="img/website/user-interaction-ro.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
+<img loading="lazy" class="interaction-diagram" width="422" height="319" src="img/website/user-interaction-ro.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
 <div class="sr-only">
   <p>În partea stângă se află un chenar care reprezintă o fereastră de browser. </p>
   <p>Înăuntrul acestei ferestre se află alte 2 chenare: unul arată reprezentarea vizuală a unui site web, iar cealaltă arată structura arborescentă a aceluiași site - sub formă de cutii.</p>
@@ -318,7 +318,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
 </h3>
 
 <div class="center-pyramid">
-  <img loading="lazy" src="img/wcag/levels-ro.webp" alt="Diagramă sub formă de piramidă: Nivel A - Suport de bază, Nivel AA - Suport ideal - minimul adoptat de legislație, Nivel AAA - Suport specializat">
+  <img loading="lazy" width="827" height="321" src="img/wcag/levels-ro.webp" alt="Diagramă sub formă de piramidă: Nivel A - Suport de bază, Nivel AA - Suport ideal - minimul adoptat de legislație, Nivel AAA - Suport specializat">
 </div>
       `,
     },
@@ -396,7 +396,7 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
       content: md`
 ## <span aria-hidden="true" class="decorative">💭</span> Întrebări și răspunsuri
 
-<img loading="lazy" class="q-and-a-img" src="img/q-and-a.webp" alt="">
+<img loading="lazy" width="298" height="298" class="q-and-a-img" src="img/q-and-a.webp" alt="">
       `,
     },
   ],

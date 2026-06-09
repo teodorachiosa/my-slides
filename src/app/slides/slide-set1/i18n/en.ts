@@ -128,7 +128,7 @@ We could imagine a website's structure as a box with various other boxes inside.
   How does a person with disabilities use a website?
 </h2>
 
-<img loading="lazy" class="interaction-diagram" src="img/website/user-interaction-en.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
+<img loading="lazy" class="interaction-diagram" width="422" height="319" src="img/website/user-interaction-en.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
       `,
     },
     {
@@ -300,7 +300,7 @@ Example: Alternative text for the cloud image?
 </h3>
 
 <div class="center-pyramid">
-  <img loading="lazy" src="img/wcag/levels-en.webp" alt="Pyramid diagram showing WCAG levels: Level A - Essential support, Level AA - Ideal support - the minimum adopted by legislation, and Level AAA - Specialized support">
+  <img loading="lazy" width="827" height="321" src="img/wcag/levels-en.webp" alt="Pyramid diagram showing WCAG levels: Level A - Essential support, Level AA - Ideal support - the minimum adopted by legislation, and Level AAA - Specialized support">
 </div>
       `,
     },
@@ -378,7 +378,7 @@ When accessibility is truly taken into consideration:
       content: md`
 ## <span aria-hidden="true" class="decorative">💭</span> Questions and answers
 
-<img loading="lazy" class="q-and-a-img" src="img/q-and-a.webp" alt="">
+<img loading="lazy" width="298" height="298" class="q-and-a-img" src="img/q-and-a.webp" alt="">
       `,
     },
   ],
