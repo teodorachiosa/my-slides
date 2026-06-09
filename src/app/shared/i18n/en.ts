@@ -16,6 +16,7 @@ const en = {
     maxWidth: '\\Maximum width',
     decreaseMaxWidth: '\\Decrease maximum width',
     increaseMaxWidth: '\\Increase maximum width',
+    reset: '\\Reset',
     darkMode: '\\Dark mode',
     language: '\\Language',
     present: '\\Present',

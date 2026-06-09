@@ -137,6 +137,12 @@ export class Header implements OnInit, AfterViewInit {
     this.updateMaxWidth();
   }
 
+  resetWidth(): void {
+    if (!this.maxWidth) return;
+    this.maxWidth = 100;
+    this.updateMaxWidth();
+  }
+
   async present(): Promise<void> {
     if (!document.fullscreenElement) {
       await document.documentElement.requestFullscreen();

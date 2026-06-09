@@ -16,6 +16,7 @@ const ro = {
     maxWidth: '\\Lățime maximă',
     decreaseMaxWidth: '\\Micșorează lățimea maximă',
     increaseMaxWidth: '\\Mărește lățimea maximă',
+    reset: '\\Resetează',
     darkMode: '\\Mod întunecat',
     language: '\\Limba',
     present: '\\Prezintă',
@@ -27,10 +28,10 @@ const ro = {
     iconsCredit: '\\Iconițe',
     external: '\\extern',
     disclaimerTitle: '\\Notă',
-    disclaimerBody: '\\Acest site este în curs de dezvoltare!'
+    disclaimerBody: '\\Acest site este în curs de dezvoltare!',
   },
   sets: {
-    set1: roSlideSetTranslations
+    set1: roSlideSetTranslations,
   },
 };
 
