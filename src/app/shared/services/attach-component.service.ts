@@ -15,10 +15,12 @@ export class AttachComponentService {
 
     const environmentInjector = this.applicationRef.injector;
 
-    for (const hostElement of hostElements) {
-      const componentRef = createComponent(component, { hostElement, environmentInjector });
-      this.applicationRef.attachView(componentRef.hostView);
-      componentRef.changeDetectorRef.detectChanges();
+    if (hostElements) {
+      for (const hostElement of hostElements) {
+        const componentRef = createComponent(component, { hostElement, environmentInjector });
+        this.applicationRef.attachView(componentRef.hostView);
+        componentRef.changeDetectorRef.detectChanges();
+      }
     }
   }
 }
