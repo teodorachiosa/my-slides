@@ -307,7 +307,7 @@ Example: Alternative text for the cloud image?
     {
       backgroundColor: '\\var(--blue)',
       content: md`
-<img loading="lazy" class="float-overlay" src="img/website/overlay.webp" alt="">
+<img loading="lazy" width="262" height="328" class="float-overlay" src="img/website/overlay.webp" alt="">
 
 ## Quick fixes... </br><span class="f-w-normal">Are they effective?</span>
 

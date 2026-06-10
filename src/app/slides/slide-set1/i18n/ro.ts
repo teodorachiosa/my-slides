@@ -325,7 +325,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
     {
       backgroundColor: '\\var(--blue)',
       content: md`
-<img loading="lazy" class="float-overlay" src="img/website/overlay.webp" alt="">
+<img loading="lazy" width="262" height="328" class="float-overlay" src="img/website/overlay.webp" alt="">
 
 ## Soluțiile accesibile rapide... </br><span class="f-w-normal">Sunt ele eficiente?</span>
 
