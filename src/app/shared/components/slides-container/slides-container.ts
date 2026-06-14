@@ -38,7 +38,8 @@ export class SlidesContainer implements AfterViewInit {
     this.observeSlides();
   }
 
-  @HostBinding('style.width') get maxWidth() {
+  @HostBinding('style.width')
+  get maxWidth() {
     return this.stateService.getState().maxWidth && !this.stateService.getState().isFullscreen
       ? `${this.stateService.getState().maxWidth}%`
       : '100%';

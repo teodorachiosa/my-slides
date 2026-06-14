@@ -13,7 +13,8 @@ export class Slide {
   @HostBinding('attr.role')
   slideRole = 'article';
 
-  @HostBinding('attr.tabindex') get tabindex() {
+  @HostBinding('attr.tabindex')
+  get tabindex() {
     return this.stateService.getState().view === 'web' || !this.stateService.getState().isFullscreen
       ? null
       : '-1';
@@ -27,7 +28,8 @@ export class Slide {
   @Input()
   padding: string = 'calc(5.1 * var(--unit))';
 
-  @HostBinding('style.boxShadow') get boxShadow() {
+  @HostBinding('style.boxShadow')
+  get boxShadow() {
     return this.stateService.getState().isFullscreen
       ? 'none'
       : '0 0 var(--shadow-spread) 0 var(--shadow-color)';
