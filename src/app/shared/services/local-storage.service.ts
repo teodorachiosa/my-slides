@@ -2,7 +2,7 @@
 import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { State } from '@shared/models/state.model';
 
-const LOCAL_STORAGE_ITEM_NAME = 'tcSlidesSettings';
+export const LOCAL_STORAGE_ITEM_NAME = 'tcSlidesSettings';
 
 @Injectable({
   providedIn: 'root',
@@ -21,10 +21,8 @@ export class LocalStorageService {
     return null;
   }
 
-  clearLocalStorage(): void {
-    if (typeof window != 'undefined') {
-      localStorage.clear();
-    }
+  removeFromLocalStorage(key: string): void {
+    localStorage.removeItem(key);
   }
 
   setToLocalStorage(newSettings: State): void {

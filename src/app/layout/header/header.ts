@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, Routes } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
-import { State, View } from '@shared/models/state.model';
+import { State, Theme, View } from '@shared/models/state.model';
 import { ContentLanguage } from '@shared/models/content-language.model';
 import { StateService } from '@shared/services/state.service';
 import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
@@ -19,7 +19,10 @@ import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-ic
 import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
 import { routes } from 'app/app.routes';
 import { Logo } from '@shared/components/icons/logo/logo';
-import { LocalStorageService } from '@shared/services/local-storage.service';
+import {
+  LOCAL_STORAGE_ITEM_NAME,
+  LocalStorageService,
+} from '@shared/services/local-storage.service';
 
 const WIDTH_STEP = 10;
 const WIDTH_MIN = 10;
@@ -52,7 +55,7 @@ export class Header implements OnInit, AfterViewInit {
   view?: View;
   maxWidth?: number;
   darkModeMediaQuery?: MediaQueryList;
-  isDarkMode?: boolean;
+  theme?: Theme = 'system';
   language: ContentLanguage = 'en';
   rootElement?: HTMLElement | null;
   routes: Routes;
@@ -84,30 +87,12 @@ export class Header implements OnInit, AfterViewInit {
     }
     this.updateMaxWidth(true);
 
-    if (typeof window !== 'undefined') {
-      this.darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      this.isDarkMode = this.darkModeMediaQuery.matches;
-      this.changeDetector.markForCheck();
-
-      if (
-        typeof this.localStorageService.getLocalStorage()?.isDarkMode === 'undefined' &&
-        typeof this.stateService.getState().isDarkMode === 'undefined'
-      ) {
-        this.darkModeMediaQuery?.addEventListener('change', (event: MediaQueryListEvent) => {
-          this.isDarkMode = event.matches;
-          console.log(this.isDarkMode);
-
-          this.changeDetector.markForCheck();
-        });
-      }
-    }
-
-    if (typeof this.localStorageService.getLocalStorage()?.isDarkMode !== 'undefined') {
-      this.isDarkMode = this.localStorageService.getLocalStorage()?.isDarkMode;
+    if (typeof this.localStorageService.getLocalStorage()?.theme !== 'undefined') {
+      this.theme = this.localStorageService.getLocalStorage()?.theme;
       this.updateDarkMode(true);
     } else {
-      if (this.stateService.getState().isDarkMode) {
-        this.isDarkMode = this.stateService.getState().isDarkMode;
+      if (this.stateService.getState().theme) {
+        this.theme = this.stateService.getState().theme;
         this.updateDarkMode(true);
       }
     }
@@ -161,25 +146,25 @@ export class Header implements OnInit, AfterViewInit {
     if (typeof document !== 'undefined') {
       document.documentElement.style.setProperty(
         'color-scheme',
-        this.isDarkMode ? 'dark' : 'light',
+        this.theme === 'dark' ? 'dark' : this.theme === 'light' ? 'light' : 'light dark',
       );
     }
   }
 
-  toggleDarkMode(): void {
-    this.isDarkMode = !this.isDarkMode;
+  updateTheme(theme: Theme): void {
+    this.theme = theme;
     this.updateDarkMode();
   }
 
   updateDarkMode(noLocalStorageChanges: boolean = false): void {
-    this.state['isDarkMode'] = this.isDarkMode;
+    this.state['theme'] = this.theme;
     this.stateService.setState(this.state);
 
     if (!noLocalStorageChanges) {
-      this.localStorageService.setToLocalStorage({ isDarkMode: this.isDarkMode });
+      this.localStorageService.setToLocalStorage({ theme: this.theme });
     }
 
-    if (typeof this.isDarkMode !== 'undefined') {
+    if (typeof this.theme !== 'undefined') {
       this.setColorScheme();
     }
   }
@@ -204,20 +189,16 @@ export class Header implements OnInit, AfterViewInit {
     this.updateMaxWidth();
   }
 
-  resetAll(): void {
-    this.view = this.stateService.getDefaultState().view;
-    this.updateView(true);
+  resetWidth(): void {
+    if (!this.maxWidth) return;
 
-    this.maxWidth = this.stateService.getDefaultState().maxWidth;
+    this.maxWidth = 100;
     this.updateMaxWidth(true);
 
-    this.isDarkMode = this.darkModeMediaQuery?.matches;
-    this.updateDarkMode(true);
-
-    this.language = this.stateService.getDefaultState().language as ContentLanguage;
-    this.updateLanguage(this.language, true);
-
-    this.localStorageService.clearLocalStorage();
+    this.localStorageService.removeFromLocalStorage(LOCAL_STORAGE_ITEM_NAME);
+    const stateWithoutMaxWidth = this.state;
+    delete stateWithoutMaxWidth.maxWidth;
+    this.localStorageService.setToLocalStorage(stateWithoutMaxWidth);
   }
 
   async present(): Promise<void> {

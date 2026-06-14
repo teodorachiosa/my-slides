@@ -97,28 +97,6 @@
       }
     }
 
-    #dark-mode {
-      appearance: none;
-      border: 2px solid var(--shadow-color);
-      border-radius: var(--radius);
-      width: var(--min-height-controls-smaller);
-      height: var(--min-height-controls-smaller);
-      margin: 0;
-
-      &:checked {
-        &::after {
-          content: '✓' / '';
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 17px;
-          font-weight: 700;
-        }
-      }
-    }
-
     .radio-group {
       display: inline-flex;
       border: 2px solid var(--shadow-color);

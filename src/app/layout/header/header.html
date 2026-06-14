@@ -121,29 +121,49 @@
           <span aria-hidden="true">+</span>
         </button>
         <output class="margin-left">{{maxWidth}}%</output>
+        @if (maxWidth !== 100) {
+        <button (click)="resetWidth()">
+          <span>{{'ui.reset' | translate}}</span>
+        </button>
+        }
       </span>
     </div>
 
-    <div class="option">
+    <div role="group"
+         class="option">
       <span class="span-label"
-            id="dark-mode-title">{{'ui.darkMode' | translate}}</span>
-      <span class="inline-group">
-        <input id="dark-mode"
-               type="checkbox"
-               aria-labelledby="dark-mode-title"
-               [checked]="isDarkMode"
-               (change)="toggleDarkMode()">
-        <output aria-hidden="true"
-                for="dark-mode"
-                class="margin-left">({{isDarkMode}})</output>
-      </span>
-    </div>
-
-    <div class="option">
-      <span class="span-label"></span>
-      <button (click)="resetAll()">
-        <span>{{ 'ui.reset' | translate}}</span>
-      </button>
+            id="theme-title">{{'ui.theme' | translate}}</span>
+      <div role="group"
+           aria-labelledby="theme-title"
+           class="radio-group">
+        <div class="radio">
+          <input type="radio"
+                 id="light-theme"
+                 value="light"
+                 name="theme"
+                 [(ngModel)]="theme"
+                 (ngModelChange)="updateTheme($event)" />
+          <label for="light-theme">{{'ui.light' | translate}}</label>
+        </div>
+        <div class="radio">
+          <input type="radio"
+                 id="dark-theme"
+                 value="dark"
+                 name="theme"
+                 [(ngModel)]="theme"
+                 (ngModelChange)="updateTheme($event)" />
+          <label for="dark-theme">{{'ui.dark' | translate}}</label>
+        </div>
+        <div class="radio">
+          <input type="radio"
+                 id="system-theme"
+                 value="system"
+                 name="theme"
+                 [(ngModel)]="theme"
+                 (ngModelChange)="updateTheme($event)" />
+          <label for="system-theme">{{'ui.system' | translate}}</label>
+        </div>
+      </div>
     </div>
 
   </dialog>
