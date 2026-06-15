@@ -35,8 +35,18 @@
   }
 }
 
-:host-context(.fullscreen) {
+:host-context(.fullscreen.slide-view) {
   :host {
     --slides-spacing: 0;
+
+    .slides-container {
+      display: grid;
+      align-items: center;
+      grid-auto-rows: 100vh;
+
+      ::ng-deep app-slide:focus-visible {
+        outline: none;
+      }
+    }
   }
 }
