@@ -18,11 +18,11 @@ import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
 import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-icon';
 import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
 import { routes } from 'app/app.routes';
-import { Logo } from '@shared/components/icons/logo/logo';
 import {
   LOCAL_STORAGE_ITEM_NAME,
   LocalStorageService,
 } from '@shared/services/local-storage.service';
+import { Logo } from './logo/logo';
 
 const WIDTH_STEP = 10;
 const WIDTH_MIN = 10;
