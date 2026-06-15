@@ -17,9 +17,7 @@ import { TranslatedSlide } from '@shared/models/translation.model';
 
 const SHAMEFUL_TIMEOUT = 300;
 
-@Directive({
-  selector: '[slide-set]',
-})
+@Directive()
 export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   setName = '';
   attachComponentService = inject(AttachComponentService);

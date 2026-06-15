@@ -26,7 +26,7 @@ export class SlidesContainer implements AfterViewInit {
   document = inject(DOCUMENT);
   allSlides?: NodeListOf<HTMLElement>;
   state: State = {};
-  currentSlide: number = 0;
+  currentSlide = 0;
 
   ngAfterViewInit(): void {
     if (typeof this.document !== 'undefined') {

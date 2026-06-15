@@ -43,7 +43,7 @@ export class MarkdownCompiler extends TranslateCompiler {
           },
         };
 
-        const highlightedMarked: Marked<string, string> = new Marked();
+        const highlightedMarked = new Marked<string, string>();
         highlightedMarked.use(highlightExtension, { renderer: customRenderer });
 
         return highlightedMarked.parse(value) as string;

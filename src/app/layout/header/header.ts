@@ -119,7 +119,7 @@ export class Header implements OnInit, AfterViewInit {
     }
   }
 
-  updateView(noLocalStorageChanges: boolean = false): void {
+  updateView(noLocalStorageChanges = false): void {
     this.state['view'] = this.view;
     this.stateService.setState(this.state);
 
@@ -133,7 +133,7 @@ export class Header implements OnInit, AfterViewInit {
     });
   }
 
-  updateMaxWidth(noLocalStorageChanges: boolean = false): void {
+  updateMaxWidth(noLocalStorageChanges = false): void {
     this.state['maxWidth'] = this.maxWidth;
     this.stateService.setState(this.state);
 
@@ -156,7 +156,7 @@ export class Header implements OnInit, AfterViewInit {
     this.updateDarkMode();
   }
 
-  updateDarkMode(noLocalStorageChanges: boolean = false): void {
+  updateDarkMode(noLocalStorageChanges = false): void {
     this.state['theme'] = this.theme;
     this.stateService.setState(this.state);
 
@@ -230,7 +230,7 @@ export class Header implements OnInit, AfterViewInit {
     this.stateService.setState(this.state);
   }
 
-  updateLanguage(language: ContentLanguage, noLocalStorageChanges: boolean = false): void {
+  updateLanguage(language: ContentLanguage, noLocalStorageChanges = false): void {
     this.translateService.use(language);
     this.document.documentElement.setAttribute('lang', language);
 

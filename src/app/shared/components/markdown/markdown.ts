@@ -8,5 +8,5 @@ import { SafeHtmlPipe } from '@shared/pipes/safe-html.pipe';
   styleUrl: './markdown.scss',
 })
 export class Markdown {
-  @Input() data: string = '';
+  @Input() data = '';
 }

@@ -1,4 +1,4 @@
-import { Component, HostBinding, inject, Input } from '@angular/core';
+import { Component, HostBinding, inject } from '@angular/core';
 import { StateService } from '@shared/services/state.service';
 
 @Component({
