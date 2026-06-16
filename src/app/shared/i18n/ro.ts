@@ -21,7 +21,7 @@ const ro = {
     light: '\\Luminos',
     dark: '\\Întunecat',
     system: '\\Sistem',
-    language: '\\Limba',
+    language: '\\Limbă',
     present: '\\Prezintă',
     notFoundTitle: '\\Pagina nu a fost găsită',
     notFoundSubtitle: '\\Încearcă una din paginile din meniu',
