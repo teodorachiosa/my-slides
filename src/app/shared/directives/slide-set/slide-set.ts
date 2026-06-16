@@ -6,8 +6,6 @@ import {
   Directive,
   WritableSignal,
   Type,
-  effect,
-  Injector,
   ChangeDetectorRef,
 } from '@angular/core';
 
@@ -30,7 +28,6 @@ export class SlideSet implements AfterViewInit, OnDestroy {
   translationsSubscription = Subscription.EMPTY;
   languageChangeSubscription = Subscription.EMPTY;
   previousTranslationData: LangChangeEvent = { lang: '', translations: {} };
-  private injector = inject(Injector);
 
   ngAfterViewInit(): void {
     this.translationsSubscription = this.translateService
@@ -43,13 +40,9 @@ export class SlideSet implements AfterViewInit, OnDestroy {
         }
 
         if (this.components?.length) {
-          effect(
-            () => {
-              this.attachComponents();
-            },
-            { injector: this.injector },
-          );
-          this.changeDetector.detectChanges();
+          setTimeout(() => {
+            this.attachComponents();
+          });
         }
       });
   }
