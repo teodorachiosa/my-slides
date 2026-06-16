@@ -43,6 +43,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 ## About the speakers: </br> <span class="f-w-normal">Constantin Cristache</span>
 
@@ -132,6 +133,7 @@ We could imagine a website's structure as a box with various other boxes inside.
       `,
     },
     {
+      backgroundColor: '\\var(--pink)',
       content: md`
 ## What is assistive technology?
 
@@ -230,6 +232,7 @@ There two main laws relevant for the digital world (in Europe):
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 ### The accessibility guidelines
 
@@ -246,6 +249,7 @@ Website content must be:
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 #### Perceivable
 
@@ -255,6 +259,7 @@ Website content must be:
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 <img loading="lazy" width="145" height="65" class="cloud-img" src="img/website/cloudy.webp" alt="a screenshot with the text: 10 degrees celsius, 19% chance of rain, humidity 49%, wind 10 kilometers per hour. The screenshot also includes an illustration of a cloud">
 
@@ -264,11 +269,13 @@ Example: Alternative text for the cloud image?
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 <img loading="lazy" class="fullscreen" src="img/disabilities/captions-transcripts-en.webp" alt="screenshot of a video on Youtube. The red border shows the location of the button used to toggle captions. Captions are shown in the bottom center part of the video. Another red border highlights the panel with the transcription of the video.">
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 #### Operable
 
@@ -284,16 +291,19 @@ Example: Alternative text for the cloud image?
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 ### POUR: Understandable
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 ### POUR: Robust
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 <h3 style="text-align: center">
   <span class="f-w-normal">"The </span>minimum <span class="f-w-normal">requirements of the Web Content Accessibility Guidelines"?</span>
