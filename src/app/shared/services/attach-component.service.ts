@@ -8,8 +8,7 @@ export class AttachComponentService {
   document = inject(DOCUMENT);
 
   attachComponent(component: Type<unknown>): void {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const componentName = (component as any).name.slice(1);
+    const componentName = (component).name.slice(1);
 
     const hostElements = this.document.querySelectorAll<Element>(`.${componentName}`);
 
