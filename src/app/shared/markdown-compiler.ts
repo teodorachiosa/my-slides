@@ -43,7 +43,7 @@ export class MarkdownCompiler extends TranslateCompiler {
           },
         };
 
-        const highlightedMarked: Marked<string, string> = new Marked();
+        const highlightedMarked = new Marked<string, string>();
         highlightedMarked.use(highlightExtension, { renderer: customRenderer });
 
         return highlightedMarked.parse(value) as string;
@@ -52,13 +52,18 @@ export class MarkdownCompiler extends TranslateCompiler {
   }
 
   compileTranslations(translations: any, lang: string): any {
+    const compiled = this.compileNestedTranslations(translations, lang);
+    return compiled;
+  }
+
+  compileNestedTranslations(translations: any, lang: string): any {
     const compiled: any = {};
 
     for (const key in translations) {
       if (translations.hasOwnProperty(key)) {
         const value = translations[key];
         if (typeof value === 'object' && value !== null) {
-          compiled[key] = this.compileTranslations(value, lang);
+          compiled[key] = this.compileNestedTranslations(value, lang);
         } else {
           compiled[key] = this.compile(value, lang);
         }

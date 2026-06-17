@@ -172,6 +172,7 @@
 <app-logo></app-logo>
 
 <div class="right-container">
+  @if(view === 'slide') {
   <button (click)="present()"
           id="present"
           class="header-option">
@@ -181,4 +182,5 @@
           class="kbd-shortcut">(<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
     </span>
   </button>
+  }
 </div>

@@ -1,6 +1,4 @@
 :host {
-  --menu-width: 200px;
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -39,7 +37,7 @@
   .main-container {
     display: flex;
 
-    /* route */
+    /* Let route content grow */
     & > ::ng-deep *:last-child {
       flex-grow: 1;
     }
@@ -58,12 +56,6 @@
 
       &:first-child {
         margin-top: 0;
-      }
-
-      app-smile-icon {
-        display: inline-flex;
-        align-self: center;
-        width: 0.8rem;
       }
     }
   }

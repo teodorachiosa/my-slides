@@ -1,4 +1,4 @@
-import { Component, HostBinding, inject, Input } from '@angular/core';
+import { Component, HostBinding, inject } from '@angular/core';
 import { StateService } from '@shared/services/state.service';
 
 @Component({
@@ -13,20 +13,13 @@ export class Slide {
   @HostBinding('attr.role')
   slideRole = 'article';
 
+  /* Allow programmatic focus in fullscreen mode (for keyboard interaction) */
   @HostBinding('attr.tabindex')
   get tabindex() {
     return this.stateService.getState().view === 'web' || !this.stateService.getState().isFullscreen
       ? null
       : '-1';
   }
-
-  @HostBinding('style.background')
-  @Input()
-  background: string = '';
-
-  @HostBinding('style.padding')
-  @Input()
-  padding: string = 'calc(5.1 * var(--unit))';
 
   @HostBinding('style.boxShadow')
   get boxShadow() {

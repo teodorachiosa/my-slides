@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { State } from '@shared/models/state.model';
 

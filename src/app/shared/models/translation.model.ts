@@ -1,9 +1,9 @@
-export type TranslatedSlideSet = {
+export interface TranslatedSlideSet {
   title?: string;
   slides?: TranslatedSlide[];
-};
+}
 
-export type TranslatedSlide = {
+export interface TranslatedSlide {
   backgroundColor?: string;
   content: string;
-};
+}

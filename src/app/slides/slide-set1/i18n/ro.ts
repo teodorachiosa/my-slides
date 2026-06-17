@@ -43,6 +43,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 ## Despre prezentatori: </br> <span class="f-w-normal">Constantin Cristache</span>
 
@@ -137,6 +138,7 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
       `,
     },
     {
+      backgroundColor: '\\var(--pink)',
       content: md`
 ## Ce este tehnologia asistivă?
 
@@ -235,6 +237,7 @@ Există două legi relevante pentru mediul digital (în Europa):
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 ### Ghidul de accesibilitate
 
@@ -251,6 +254,7 @@ Conținutul unui site trebuie să fie:
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 #### Perceptibil
 
@@ -260,6 +264,7 @@ Conținutul unui site trebuie să fie:
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 <img loading="lazy" width="145" height="65" class="cloud-img" src="img/website/cloudy.webp" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Captura de ecran include de asemenea și o ilustrație cu un nor">
 
@@ -269,11 +274,13 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 <img loading="lazy" class="fullscreen" src="img/disabilities/captions-transcripts-ro.webp" alt="o captură de ecran a unui video pe Youtube. Chenare roșii indică butonul de activare a subtitrărilor și subtitrările în sine afișate în josul clipului video. Un alt chenar roșu indică și panoul cu transcrierea clipului video.">
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 #### Operabil
 
@@ -289,6 +296,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 #### Ușor de înțeles
 
@@ -298,6 +306,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 #### Robust
 
@@ -312,6 +321,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
+      backgroundColor: '\\var(--violet)',
       content: md`
 <h3 style="text-align: center">
   <span class="f-w-normal">„</span>Minimul <span class="f-w-normal">cerințelor din Ghidul pentru Conținut Web Accesibil”?</span>

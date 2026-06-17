@@ -18,11 +18,11 @@ import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
 import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-icon';
 import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
 import { routes } from 'app/app.routes';
-import { Logo } from '@shared/components/icons/logo/logo';
 import {
   LOCAL_STORAGE_ITEM_NAME,
   LocalStorageService,
 } from '@shared/services/local-storage.service';
+import { Logo } from './logo/logo';
 
 const WIDTH_STEP = 10;
 const WIDTH_MIN = 10;
@@ -119,7 +119,7 @@ export class Header implements OnInit, AfterViewInit {
     }
   }
 
-  updateView(noLocalStorageChanges: boolean = false): void {
+  updateView(noLocalStorageChanges = false): void {
     this.state['view'] = this.view;
     this.stateService.setState(this.state);
 
@@ -133,7 +133,7 @@ export class Header implements OnInit, AfterViewInit {
     });
   }
 
-  updateMaxWidth(noLocalStorageChanges: boolean = false): void {
+  updateMaxWidth(noLocalStorageChanges = false): void {
     this.state['maxWidth'] = this.maxWidth;
     this.stateService.setState(this.state);
 
@@ -156,7 +156,7 @@ export class Header implements OnInit, AfterViewInit {
     this.updateDarkMode();
   }
 
-  updateDarkMode(noLocalStorageChanges: boolean = false): void {
+  updateDarkMode(noLocalStorageChanges = false): void {
     this.state['theme'] = this.theme;
     this.stateService.setState(this.state);
 
@@ -230,7 +230,7 @@ export class Header implements OnInit, AfterViewInit {
     this.stateService.setState(this.state);
   }
 
-  updateLanguage(language: ContentLanguage, noLocalStorageChanges: boolean = false): void {
+  updateLanguage(language: ContentLanguage, noLocalStorageChanges = false): void {
     this.translateService.use(language);
     this.document.documentElement.setAttribute('lang', language);
 
