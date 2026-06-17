@@ -7,13 +7,13 @@ import roTranslations from '@shared/i18n/ro';
 
 @Injectable()
 export class CustomTranslationsLoader implements TranslateLoader {
-  private translations: Record<string, unknown> = {
-    'en': enTranslations,
-    'ro': roTranslations
+  private translations = {
+    en: enTranslations,
+    ro: roTranslations,
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getTranslation(lang: string): Observable<any> {
+  getTranslation(lang: keyof typeof this.translations): Observable<any> {
     const translation = this.translations[lang];
 
     if (translation) {
