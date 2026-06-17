@@ -1,17 +1,20 @@
 {
   "workbench.colorCustomizations": {
     "editorIndentGuide.background1": "#00000001",
-    "activityBar.background": "#5a052f",
-    "titleBar.activeBackground": "#800b45",
-    "titleBar.activeForeground": "#fcf5f9",
-    "titleBar.inactiveBackground": "#800b45",
-    "titleBar.inactiveForeground": "#FDF9FC",
-    "statusBar.background": "#800b45",
-    "statusBar.foreground": "#FDF9FC",
-    "statusBar.debuggingBackground": "#800b45",
-    "statusBar.debuggingForeground": "#FDF9FC",
-    "statusBar.noFolderBackground": "#800b45",
-    "statusBar.noFolderForeground": "#FDF9FC"
+    "editorIndentGuide.activeBackground1": "#ffdd6e",
+    "editorBracketMatch.background": "#ffdd6e50",
+    "editorBracketMatch.border": "#ffdd6e",
+    "activityBar.background": "#594905",
+    "titleBar.activeBackground": "#7D6607",
+    "titleBar.activeForeground": "#FEFBEC",
+    "titleBar.inactiveBackground": "#594905",
+    "titleBar.inactiveForeground": "#FEFBEC",
+    "statusBar.background": "#594905",
+    "statusBar.foreground": "#FEFBEC",
+    "statusBar.debuggingBackground": "#594905",
+    "statusBar.debuggingForeground": "#FEFBEC",
+    "statusBar.noFolderBackground": "#594905",
+    "statusBar.noFolderForeground": "#FEFBEC"
   },
   "html.format.wrapAttributes": "force-aligned",
   "[html]": {
