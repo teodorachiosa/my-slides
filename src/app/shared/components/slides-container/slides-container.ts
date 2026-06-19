@@ -53,7 +53,7 @@ export class SlidesContainer implements AfterViewInit {
 
     if (
       !this.allSlides ||
-      this.stateService.getState().view === 'web' ||
+      this.stateService.getState().layout === 'flexible' ||
       !this.stateService.getState().isFullscreen ||
       !allowedKeys.includes(event.key)
     )

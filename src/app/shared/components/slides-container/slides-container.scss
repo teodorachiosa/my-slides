@@ -29,13 +29,13 @@
   }
 }
 
-:host-context(.slide-view) {
+:host-context(.fixed-layout) {
   :host {
     --slides-spacing: 3cqi;
   }
 }
 
-:host-context(.fullscreen.slide-view) {
+:host-context(.fullscreen.fixed-layout) {
   :host {
     --slides-spacing: 0;
 

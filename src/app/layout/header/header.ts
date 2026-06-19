@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, Routes } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
-import { State, Theme, View } from '@shared/models/state.model';
+import { State, Theme, Layout } from '@shared/models/state.model';
 import { ContentLanguage } from '@shared/models/content-language.model';
 import { StateService } from '@shared/services/state.service';
 import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
@@ -54,7 +54,7 @@ export class Header implements OnInit, AfterViewInit {
   router = inject(Router);
   state: State = {};
   localStorageSettings: State = {};
-  view?: View;
+  layout?: Layout;
   maxWidth?: number;
   darkModeMediaQuery?: MediaQueryList;
   theme?: Theme = 'system';
@@ -64,7 +64,7 @@ export class Header implements OnInit, AfterViewInit {
 
   @HostListener('document:keydown', ['$event'])
   handlePresentKeys(event: KeyboardEvent) {
-    if (this.stateService.getState().view === 'slide' && event.ctrlKey && event.key === 'F5') {
+    if (this.stateService.getState().layout === 'fixed' && event.ctrlKey && event.key === 'F5') {
       event.preventDefault();
       this.present();
     }
@@ -75,12 +75,12 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    if (this.localStorageService.getLocalStorage()?.view) {
-      this.view = this.localStorageService.getLocalStorage()?.view;
+    if (this.localStorageService.getLocalStorage()?.layout) {
+      this.layout = this.localStorageService.getLocalStorage()?.layout;
     } else {
-      this.view = this.stateService.getState().view;
+      this.layout = this.stateService.getState().layout;
     }
-    this.updateView(true);
+    this.updateLayout(true);
 
     if (this.localStorageService.getLocalStorage()?.maxWidth) {
       this.maxWidth = this.localStorageService.getLocalStorage()?.maxWidth;
@@ -111,8 +111,8 @@ export class Header implements OnInit, AfterViewInit {
     if (typeof document !== 'undefined') {
       this.rootElement = document.documentElement;
 
-      if (this.view) {
-        this.rootElement?.classList.add(`${this.view}-view`);
+      if (this.layout) {
+        this.rootElement?.classList.add(`${this.layout}-layout`);
       }
 
       document.addEventListener('fullscreenchange', () => {
@@ -121,17 +121,17 @@ export class Header implements OnInit, AfterViewInit {
     }
   }
 
-  updateView(noLocalStorageChanges = false): void {
-    this.state['view'] = this.view;
+  updateLayout(noLocalStorageChanges = false): void {
+    this.state['layout'] = this.layout;
     this.stateService.setState(this.state);
 
     if (!noLocalStorageChanges) {
-      this.localStorageService.setToLocalStorage({ view: this.view });
+      this.localStorageService.setToLocalStorage({ layout: this.layout });
     }
 
     setTimeout(() => {
-      this.rootElement?.classList.remove(this.view === 'slide' ? 'web-view' : 'slide-view');
-      this.rootElement?.classList.add(this.view === 'slide' ? 'slide-view' : 'web-view');
+      this.rootElement?.classList.remove(this.layout === 'fixed' ? 'flexible-layout' : 'fixed-layout');
+      this.rootElement?.classList.add(this.layout === 'fixed' ? 'fixed-layout' : 'flexible-layout');
     });
   }
 
