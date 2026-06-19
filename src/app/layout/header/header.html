@@ -37,10 +37,10 @@
 
   <dialog popover
           aria-labelledby="dialog-title"
-          aria-describedby="disclaimer-description"
+          aria-describedby="note-description"
           id="settings-menu">
-    <div class="disclaimer"
-         id="disclaimer-description">
+    <div class="note"
+         id="note-description">
       <strong>{{'ui.noteTitle' | translate}}:</strong>
       {{'ui.noteText' | translate}}.
     </div>
@@ -48,27 +48,37 @@
          class="option">
       <span class="span-label"
             id="content-view-title">{{'ui.contentView' | translate}}</span>
-      <div role="group"
-           aria-labelledby="content-view-title"
-           class="radio-group">
-        <div class="radio">
-          <input type="radio"
-                 id="slide-view"
-                 value="slide"
-                 name="view"
-                 [(ngModel)]="view"
-                 (ngModelChange)="updateView()" />
-          <label for="slide-view">{{'ui.slideView' | translate}}</label>
+      <div>
+        <div role="group"
+             aria-labelledby="content-view-title"
+             class="radio-group">
+          <div class="radio">
+            <input type="radio"
+                   id="slide-view"
+                   value="slide"
+                   name="view"
+                   aria-describedby="slide-view-description"
+                   [(ngModel)]="view"
+                   (ngModelChange)="updateView()" />
+            <label for="slide-view">{{'ui.slideView' | translate}}</label>
+          </div>
+          <div class="radio">
+            <input type="radio"
+                   id="web-view"
+                   value="web"
+                   name="view"
+                   aria-describedby="web-view-description"
+                   [(ngModel)]="view"
+                   (ngModelChange)="updateView()" />
+            <label for="web-view">{{'ui.webView' | translate}}</label>
+          </div>
         </div>
-        <div class="radio">
-          <input type="radio"
-                 id="web-view"
-                 value="web"
-                 name="view"
-                 [(ngModel)]="view"
-                 (ngModelChange)="updateView()" />
-          <label for="web-view">{{'ui.webView' | translate}}</label>
-        </div>
+        <p [hidden]="view !== 'slide'"
+           class="hint"
+           id="slide-view-description">{{'ui.slideViewDescription' | translate}}</p>
+        <p [hidden]="view !== 'web'"
+           class="hint"
+           id="web-view-description">{{'ui.webViewDescription' | translate}}</p>
       </div>
     </div>
 
