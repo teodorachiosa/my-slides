@@ -47,7 +47,7 @@
     <div role="group"
          class="option">
       <span class="span-label"
-            id="content-view-title">{{'ui.contentView' | translate}}</span>
+            id="content-view-title">{{'ui.layout' | translate}}</span>
       <div>
         <div role="group"
              aria-labelledby="content-view-title"
@@ -60,7 +60,7 @@
                    aria-describedby="slide-view-description"
                    [(ngModel)]="view"
                    (ngModelChange)="updateView()" />
-            <label for="slide-view">{{'ui.slideView' | translate}}</label>
+            <label for="slide-view">{{'ui.fixedLayout' | translate}}</label>
           </div>
           <div class="radio">
             <input type="radio"
@@ -70,15 +70,15 @@
                    aria-describedby="web-view-description"
                    [(ngModel)]="view"
                    (ngModelChange)="updateView()" />
-            <label for="web-view">{{'ui.webView' | translate}}</label>
+            <label for="web-view">{{'ui.flexibleLayout' | translate}}</label>
           </div>
         </div>
         <p [hidden]="view !== 'slide'"
            class="hint"
-           id="slide-view-description">{{'ui.slideViewDescription' | translate}}</p>
+           id="slide-view-description">{{'ui.fixedLayoutDescription' | translate}}</p>
         <p [hidden]="view !== 'web'"
            class="hint"
-           id="web-view-description">{{'ui.webViewDescription' | translate}}</p>
+           id="web-view-description">{{'ui.flexibleLayoutDescription' | translate}}</p>
       </div>
     </div>
 
