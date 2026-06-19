@@ -7,6 +7,7 @@ import {
   ElementRef,
   DOCUMENT,
   Renderer2,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { State } from '@shared/models/state.model';
 import { StateService } from '@shared/services/state.service';
@@ -17,6 +18,7 @@ const INTERSECTION_RATIO = 0.75;
   selector: 'app-slides-container',
   imports: [],
   templateUrl: './slides-container.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './slides-container.scss',
 })
 export class SlidesContainer implements AfterViewInit {

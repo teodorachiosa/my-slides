@@ -6,6 +6,7 @@ import {
   HostListener,
   inject,
   OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, Routes } from '@angular/router';
@@ -41,6 +42,7 @@ const WIDTH_MAX = 100;
     Logo,
   ],
   templateUrl: './header.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './header.scss',
 })
 export class Header implements OnInit, AfterViewInit {

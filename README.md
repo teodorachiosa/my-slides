@@ -14,7 +14,7 @@ A way to make multi-lingual presentations, using Markdown and Angular components
   - `Home` for going to the first slide and `End` for going to the last slide, in fullscreen mode
 - Theme options (light, dark, system)
 - Slide number (upper-left corner of the slide)
-- Card view (Web view) that is zoom-able
+- Web view (zoom-able)
 - Max width settings
 - Routing (switch between slide sets)
 - Language switcher and i18n setup (translations) - only 2 languages for now
