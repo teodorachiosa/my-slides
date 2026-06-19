@@ -121,7 +121,7 @@
   }
 }
 
-:host-context(.web-view) {
+:host-context(.flexible-layout) {
   :host {
     --unit: 0.5em;
     border-radius: var(--radius);
@@ -131,6 +131,18 @@
       object-fit: cover;
     }
 
+    ::ng-deep .side-by-side {
+      height: 100%;
+
+      img {
+        width: 100%;
+
+        &:not(:last-child){
+          border-bottom: calc(var(--unit) * 1.5) solid transparent;
+        }
+      }
+    }
+
     &:has(img.fullscreen),
     &:has(.side-by-side) {
       padding: 0 !important;
@@ -138,7 +150,7 @@
   }
 }
 
-:host-context(.slide-view) {
+:host-context(.fixed-layout) {
   :host {
     --unit: 1cqi;
     font-size: calc(2.2 * var(--unit));

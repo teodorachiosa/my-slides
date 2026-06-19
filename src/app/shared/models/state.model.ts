@@ -1,8 +1,8 @@
-export type View = 'web' | 'slide';
-export type Theme = 'light' | 'dark' | 'system'
+export type Layout = 'fixed' | 'flexible';
+export type Theme = 'light' | 'dark' | 'system';
 
 export interface State {
-  view?: View;
+  layout?: Layout;
   maxWidth?: number;
   theme?: Theme;
   isFullscreen?: boolean;

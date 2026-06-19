@@ -3,7 +3,7 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 import { State } from '@shared/models/state.model';
 
 const DEFAULT_STATE: State = {
-  view: 'slide',
+  layout: 'fixed',
   maxWidth: 100,
   isFullscreen: false,
   currentSlide: 0,

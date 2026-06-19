@@ -17,7 +17,7 @@ export class Slide {
   /* Allow programmatic focus in fullscreen mode (for keyboard interaction) */
   @HostBinding('attr.tabindex')
   get tabindex() {
-    return this.stateService.getState().view === 'web' || !this.stateService.getState().isFullscreen
+    return this.stateService.getState().layout === 'flexible' || !this.stateService.getState().isFullscreen
       ? null
       : '-1';
   }

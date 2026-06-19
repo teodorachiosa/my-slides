@@ -47,38 +47,38 @@
     <div role="group"
          class="option">
       <span class="span-label"
-            id="content-view-title">{{'ui.layout' | translate}}</span>
+            id="layout-title">{{'ui.layout' | translate}}</span>
       <div>
         <div role="group"
-             aria-labelledby="content-view-title"
+             aria-labelledby="layout-title"
              class="radio-group">
           <div class="radio">
             <input type="radio"
-                   id="slide-view"
-                   value="slide"
-                   name="view"
-                   aria-describedby="slide-view-description"
-                   [(ngModel)]="view"
-                   (ngModelChange)="updateView()" />
-            <label for="slide-view">{{'ui.fixedLayout' | translate}}</label>
+                   id="fixed-layout"
+                   value="fixed"
+                   name="layout"
+                   aria-describedby="fixed-layout-description"
+                   [(ngModel)]="layout"
+                   (ngModelChange)="updateLayout()" />
+            <label for="fixed-layout">{{'ui.fixedLayout' | translate}}</label>
           </div>
           <div class="radio">
             <input type="radio"
-                   id="web-view"
-                   value="web"
-                   name="view"
-                   aria-describedby="web-view-description"
-                   [(ngModel)]="view"
-                   (ngModelChange)="updateView()" />
-            <label for="web-view">{{'ui.flexibleLayout' | translate}}</label>
+                   id="flexible-layout"
+                   value="flexible"
+                   name="layout"
+                   aria-describedby="flexible-layout-description"
+                   [(ngModel)]="layout"
+                   (ngModelChange)="updateLayout()" />
+            <label for="flexible-layout">{{'ui.flexibleLayout' | translate}}</label>
           </div>
         </div>
-        <p [hidden]="view !== 'slide'"
+        <p [hidden]="layout !== 'fixed'"
            class="hint"
-           id="slide-view-description">{{'ui.fixedLayoutDescription' | translate}}</p>
-        <p [hidden]="view !== 'web'"
+           id="fixed-layout-description">{{'ui.fixedLayoutDescription' | translate}}</p>
+        <p [hidden]="layout !== 'flexible'"
            class="hint"
-           id="web-view-description">{{'ui.flexibleLayoutDescription' | translate}}</p>
+           id="flexible-layout-description">{{'ui.flexibleLayoutDescription' | translate}}</p>
       </div>
     </div>
 
@@ -182,7 +182,7 @@
 <app-logo></app-logo>
 
 <div class="right-container">
-  @if(view === 'slide') {
+  @if(layout === 'fixed') {
   <button (click)="present()"
           id="present"
           class="header-option">
