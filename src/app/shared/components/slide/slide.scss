@@ -20,7 +20,7 @@
   ::ng-deep .slide-number {
     position: absolute;
     top: 0;
-    left: -4px;
+    left: calc(var(--spacing) / -6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +141,7 @@
       img {
         width: 100%;
 
-        &:not(:last-child){
+        &:not(:last-child) {
           border-bottom: calc(var(--unit) * 1.5) solid transparent;
         }
       }
