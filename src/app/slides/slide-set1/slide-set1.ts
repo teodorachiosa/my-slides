@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Slide } from '@shared/components/slide/slide';
 import { SlidesContainer } from '@shared/components/slides-container/slides-container';
@@ -13,7 +13,6 @@ import { RemoveButtonRo } from './examples/ro/remove-button/remove-button';
   selector: 'app-slide-set1',
   imports: [SlidesContainer, Slide, Markdown],
   templateUrl: './slide-set1.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './slide-set1.scss',
 })
 export class SlideSet1 extends SlideSet {

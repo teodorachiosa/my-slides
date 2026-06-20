@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, DOCUMENT, inject, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DOCUMENT,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import {
   RouterLink,
@@ -15,6 +24,7 @@ import { Subscription } from 'rxjs';
 import { StateService } from '@shared/services/state.service';
 import { Header } from '@layout/header/header';
 import { CurrentRouteService } from '@shared/services/current-route.service';
+import { State } from './shared/models/state.model';
 
 const ANCHOR_SCROLL_OFFSET = 200;
 
@@ -22,7 +32,6 @@ const ANCHOR_SCROLL_OFFSET = 200;
   selector: 'app-root',
   imports: [Header, RouterLink, RouterOutlet, TranslatePipe],
   templateUrl: './app.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.scss',
 })
 export class App implements OnInit, AfterViewInit, OnDestroy {
@@ -31,6 +40,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   document = inject(DOCUMENT);
   translateService = inject(TranslateService);
   stateService = inject(StateService);
+  state: WritableSignal<State> = signal({});
   viewportScroller = inject(ViewportScroller);
   titleService = inject(Title);
   currentRouteService = inject(CurrentRouteService);
@@ -42,6 +52,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.translateService.setFallbackLang('en');
+    this.state = this.stateService.getState();
   }
 
   ngAfterViewInit(): void {

@@ -20,14 +20,18 @@
   ::ng-deep .slide-number {
     position: absolute;
     top: 0;
-    left: 0;
+    left: calc(var(--spacing) / -6);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.7em;
-    padding: 0 0.6em;
+    font-size: 0.8em;
+    padding: 0 0.4em;
     translate: -100%;
     z-index: -1;
+    background: var(--inverted-text);
+    border: 1px solid var(--dark-grey);
+    border-radius: var(--spacing);
+    opacity: 0.8;
   }
 
   ::ng-deep * {
@@ -137,7 +141,7 @@
       img {
         width: 100%;
 
-        &:not(:last-child){
+        &:not(:last-child) {
           border-bottom: calc(var(--unit) * 1.5) solid transparent;
         }
       }

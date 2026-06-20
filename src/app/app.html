@@ -1,6 +1,8 @@
 <div class="skip-links sr-only">
+  @if(state().layout === 'fixed') {
   <a [routerLink]="currentRoute"
      fragment="present">{{'ui.skipToPresent' | translate}}</a>
+  }
   <a [routerLink]="currentRoute"
      fragment="menu-title">{{'ui.skipToNavigation' | translate}}</a>
   <a [routerLink]="currentRoute"

@@ -5,8 +5,7 @@ import {
   DOCUMENT,
   HostListener,
   inject,
-  OnInit,
-  ChangeDetectionStrategy
+  OnInit
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, Routes } from '@angular/router';
@@ -42,7 +41,6 @@ const WIDTH_MAX = 100;
     Logo,
   ],
   templateUrl: './header.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './header.scss',
 })
 export class Header implements OnInit, AfterViewInit {
@@ -64,7 +62,7 @@ export class Header implements OnInit, AfterViewInit {
 
   @HostListener('document:keydown', ['$event'])
   handlePresentKeys(event: KeyboardEvent) {
-    if (this.stateService.getState().layout === 'fixed' && event.ctrlKey && event.key === 'F5') {
+    if (this.stateService.getState()().layout === 'fixed' && event.ctrlKey && event.key === 'F5') {
       event.preventDefault();
       this.present();
     }
@@ -78,14 +76,14 @@ export class Header implements OnInit, AfterViewInit {
     if (this.localStorageService.getLocalStorage()?.layout) {
       this.layout = this.localStorageService.getLocalStorage()?.layout;
     } else {
-      this.layout = this.stateService.getState().layout;
+      this.layout = this.stateService.getState()().layout;
     }
     this.updateLayout(true);
 
     if (this.localStorageService.getLocalStorage()?.maxWidth) {
       this.maxWidth = this.localStorageService.getLocalStorage()?.maxWidth;
     } else {
-      this.maxWidth = this.stateService.getState().maxWidth;
+      this.maxWidth = this.stateService.getState()().maxWidth;
     }
     this.updateMaxWidth(true);
 
@@ -93,8 +91,8 @@ export class Header implements OnInit, AfterViewInit {
       this.theme = this.localStorageService.getLocalStorage()?.theme;
       this.updateDarkMode(true);
     } else {
-      if (this.stateService.getState().theme) {
-        this.theme = this.stateService.getState().theme;
+      if (this.stateService.getState()().theme) {
+        this.theme = this.stateService.getState()().theme;
         this.updateDarkMode(true);
       }
     }
@@ -102,7 +100,7 @@ export class Header implements OnInit, AfterViewInit {
     if (this.localStorageService.getLocalStorage()?.language) {
       this.language = this.localStorageService.getLocalStorage()?.language as ContentLanguage;
     } else {
-      this.language = this.stateService.getState().language as ContentLanguage;
+      this.language = this.stateService.getState()().language as ContentLanguage;
     }
     this.updateLanguage(this.language, true);
   }
@@ -211,7 +209,7 @@ export class Header implements OnInit, AfterViewInit {
       setTimeout(() => {
         this.document
           .querySelectorAll<HTMLElement>('app-slide')
-          [this.stateService.getState().currentSlide ?? 0]?.focus();
+          [this.stateService.getState()().currentSlide ?? 0]?.focus();
       });
     }
   }
@@ -224,7 +222,7 @@ export class Header implements OnInit, AfterViewInit {
 
     this.document
       .querySelectorAll<HTMLElement>('app-slide')
-      [this.stateService.getState().currentSlide ?? 0]?.focus();
+      [this.stateService.getState()().currentSlide ?? 0]?.focus();
   }
 
   updateFullscreenStateAndUI(isFullscreen: boolean): void {

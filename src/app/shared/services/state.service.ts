@@ -16,8 +16,8 @@ const DEFAULT_STATE: State = {
 export class StateService {
   private state: WritableSignal<State> = signal(DEFAULT_STATE);
 
-  getState(): State {
-    return this.state();
+  getState(): WritableSignal<State> {
+    return this.state;
   }
 
   setState(newState: State): void {
