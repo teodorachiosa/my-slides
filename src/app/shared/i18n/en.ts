@@ -16,7 +16,6 @@ const en = {
     flexibleLayout: '\\Flexible',
     flexibleLayoutDescription: '\\Allow web page behavior (content can be zoomed).',
     maxWidth: '\\Maximum width',
-    reset: '\\Reset',
     decreaseMaxWidth: '\\Decrease maximum width',
     increaseMaxWidth: '\\Increase maximum width',
     theme: '\\Theme',

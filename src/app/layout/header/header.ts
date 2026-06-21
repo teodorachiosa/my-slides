@@ -189,18 +189,6 @@ export class Header implements OnInit, AfterViewInit {
     this.updateMaxWidth();
   }
 
-  resetWidth(): void {
-    if (!this.maxWidth) return;
-
-    this.maxWidth = 100;
-    this.updateMaxWidth(true);
-
-    this.localStorageService.removeFromLocalStorage(LOCAL_STORAGE_ITEM_NAME);
-    const stateWithoutMaxWidth = this.state;
-    delete stateWithoutMaxWidth.maxWidth;
-    this.localStorageService.setToLocalStorage(stateWithoutMaxWidth);
-  }
-
   async present(): Promise<void> {
     if (!document.fullscreenElement) {
       await document.documentElement.requestFullscreen();

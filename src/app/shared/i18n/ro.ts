@@ -16,7 +16,6 @@ const ro = {
     flexibleLayout: '\\Flexibil',
     flexibleLayoutDescription: '\\Permite un comportament de pagină web (se poate da zoom).',
     maxWidth: '\\Lățime maximă',
-    reset: '\\Resetează',
     decreaseMaxWidth: '\\Micșorează lățimea maximă',
     increaseMaxWidth: '\\Mărește lățimea maximă',
     theme: '\\Temă',
