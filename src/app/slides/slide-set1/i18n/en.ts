@@ -334,8 +334,8 @@ They usually look like a button that goes on top of the website's content.
 ### <span aria-hidden="true" class="decorative">❌</span> The problem with overlays
 
 - They **make promises they can't keep**.
-  - They don't handle all the criteria required by legislation
-  - They can't repair the structure or content of the web page, instead focusing mostly on visual improvements
+  - They don't handle all the criteria required by legislation.
+  - They can't repair the structure or content of the web page, instead focusing mostly on visual improvements.
 - They promote **poor standardization and compatibility** because each overlay product is different.
 - Overlay functionalities can be **hard to reach** (e.g. unlabeled button, overlay button as one of the last elements in the page).
 - They can create new barriers.
@@ -351,7 +351,7 @@ They usually look like a button that goes on top of the website's content.
     {
       backgroundColor: '\\var(--red)',
       content: md`
-### A website with an overlay <br> <span class="nu">doesn't</span> mean an accessible website!
+### A website with an overlay <br> <span class="nu">doesn't</span> necessarily mean an accessible website!
 
 When accessibility is truly taken into consideration:
 

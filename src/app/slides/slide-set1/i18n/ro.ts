@@ -369,7 +369,7 @@ Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui sit
     {
       backgroundColor: '\\var(--red)',
       content: md`
-### Un site cu overlay <br> <span class="nu">nu</span> înseamnă un site accesibil!
+### Un site cu overlay <br> <span class="nu">nu</span> înseamnă neapărat un site accesibil!
 
 Atunci când accesibilitatea este luată în considerare cu adevărat:
 
