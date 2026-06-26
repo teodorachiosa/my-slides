@@ -5,7 +5,7 @@ import {
   DOCUMENT,
   HostListener,
   inject,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, Routes } from '@angular/router';
@@ -18,10 +18,7 @@ import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
 import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-icon';
 import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
 import { routes } from 'app/app.routes';
-import {
-  LOCAL_STORAGE_ITEM_NAME,
-  LocalStorageService,
-} from '@shared/services/local-storage.service';
+import { LocalStorageService } from '@shared/services/local-storage.service';
 import { Logo } from './logo/logo';
 
 const WIDTH_STEP = 10;
@@ -114,7 +111,9 @@ export class Header implements OnInit, AfterViewInit {
       }
 
       document.addEventListener('fullscreenchange', () => {
-        this.exitFullscreen();
+        if (this.document.fullscreenElement === null) {
+          this.exitFullscreen();
+        }
       });
     }
   }
@@ -128,7 +127,9 @@ export class Header implements OnInit, AfterViewInit {
     }
 
     setTimeout(() => {
-      this.rootElement?.classList.remove(this.layout === 'fixed' ? 'flexible-layout' : 'fixed-layout');
+      this.rootElement?.classList.remove(
+        this.layout === 'fixed' ? 'flexible-layout' : 'fixed-layout',
+      );
       this.rootElement?.classList.add(this.layout === 'fixed' ? 'fixed-layout' : 'flexible-layout');
     });
   }
@@ -136,6 +137,8 @@ export class Header implements OnInit, AfterViewInit {
   updateMaxWidth(noLocalStorageChanges = false): void {
     this.state['maxWidth'] = this.maxWidth;
     this.stateService.setState(this.state);
+
+    this.focusCurrentSlide();
 
     if (!noLocalStorageChanges) {
       this.localStorageService.setToLocalStorage({ maxWidth: this.maxWidth });
@@ -189,40 +192,44 @@ export class Header implements OnInit, AfterViewInit {
     this.updateMaxWidth();
   }
 
-  resetWidth(): void {
-    if (!this.maxWidth) return;
-
-    this.maxWidth = 100;
-    this.updateMaxWidth(true);
-
-    this.localStorageService.removeFromLocalStorage(LOCAL_STORAGE_ITEM_NAME);
-    const stateWithoutMaxWidth = this.state;
-    delete stateWithoutMaxWidth.maxWidth;
-    this.localStorageService.setToLocalStorage(stateWithoutMaxWidth);
-  }
-
   async present(): Promise<void> {
     if (!document.fullscreenElement) {
+      const currentSlide = this.stateService.getState()().currentSlide;
+
       await document.documentElement.requestFullscreen();
       this.rootElement?.classList.add('fullscreen');
       this.updateFullscreenStateAndUI(true);
       setTimeout(() => {
         this.document
           .querySelectorAll<HTMLElement>('app-slide')
-          [this.stateService.getState()().currentSlide ?? 0]?.focus();
+          [currentSlide ?? 0]?.focus();
       });
     }
   }
 
   exitFullscreen(): void {
-    if (document.fullscreenElement) return;
-
     this.rootElement?.classList.remove('fullscreen');
     this.updateFullscreenStateAndUI(false);
 
-    this.document
-      .querySelectorAll<HTMLElement>('app-slide')
-      [this.stateService.getState()().currentSlide ?? 0]?.focus();
+    if (this.document.fullscreenElement === null) {
+      this.focusCurrentSlide();
+    }
+  }
+
+  focusCurrentSlide(): void {
+    const currentSlide = this.stateService.getState()().currentSlide ?? 0;
+
+    const currentSlideElement =
+      this.document.querySelectorAll<HTMLElement>('app-slide')[currentSlide];
+
+    if (currentSlideElement) {
+      setTimeout(() => {
+        currentSlideElement.setAttribute('tabindex', '0');
+        currentSlideElement.focus();
+        currentSlideElement.scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});
+        currentSlideElement.removeAttribute('tabindex');
+      });
+    }
   }
 
   updateFullscreenStateAndUI(isFullscreen: boolean): void {

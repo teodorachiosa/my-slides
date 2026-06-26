@@ -73,12 +73,13 @@
             <label for="flexible-layout">{{'ui.flexibleLayout' | translate}}</label>
           </div>
         </div>
-        <p [hidden]="layout !== 'fixed'"
-           class="hint"
+        @if(layout === 'fixed') {
+        <p class="hint"
            id="fixed-layout-description">{{'ui.fixedLayoutDescription' | translate}}</p>
-        <p [hidden]="layout !== 'flexible'"
-           class="hint"
+        } @else {
+        <p class="hint"
            id="flexible-layout-description">{{'ui.flexibleLayoutDescription' | translate}}</p>
+        }
       </div>
     </div>
 
@@ -131,11 +132,6 @@
           <span aria-hidden="true">+</span>
         </button>
         <output class="margin-left">{{maxWidth}}%</output>
-        @if (maxWidth !== 100) {
-        <button (click)="resetWidth()">
-          <span>{{'ui.reset' | translate}}</span>
-        </button>
-        }
       </span>
     </div>
 

@@ -11,7 +11,7 @@ import {
 import { State } from '@shared/models/state.model';
 import { StateService } from '@shared/services/state.service';
 
-const INTERSECTION_RATIO = 0.75;
+const INTERSECTION_RATIO = 0.9;
 
 @Component({
   selector: 'app-slides-container',
@@ -27,6 +27,7 @@ export class SlidesContainer implements AfterViewInit {
   allSlides?: NodeListOf<HTMLElement>;
   state: State = {};
   currentSlide = 0;
+  visibleIndices = new Set<number>();
 
   ngAfterViewInit(): void {
     if (typeof this.document !== 'undefined') {
@@ -114,14 +115,30 @@ export class SlidesContainer implements AfterViewInit {
     if (typeof window !== 'undefined') {
       const slidesObserver = new IntersectionObserver(
         (entries) => {
-          const match = entries[0];
-          if (match.intersectionRatio >= INTERSECTION_RATIO) {
+          for (const entry of entries) {
+            const match = entry;
             const currentIndex = match.target.id.split('-')[1];
 
-            this.currentSlide = Number(currentIndex) - 1;
-            this.state['currentSlide'] = this.currentSlide;
-            this.stateService.setState(this.state);
+            if (entry.isIntersecting) {
+              this.visibleIndices.add(Number(currentIndex) - 1);
+            } else {
+              this.visibleIndices.delete(Number(currentIndex) - 1);
+            }
           }
+
+          let middleIndex;
+
+          if (this.visibleIndices.has(0)) {
+            middleIndex = 0;
+          } else if (this.allSlides && this.visibleIndices.has(this.allSlides.length - 1)) {
+            middleIndex = this.allSlides.length - 1;
+          } else {
+            middleIndex = Math.floor(this.average(this.visibleIndices));
+          }
+
+          this.currentSlide = middleIndex;
+          this.state['currentSlide'] = this.currentSlide;
+          this.stateService.setState(this.state);
         },
         {
           threshold: [INTERSECTION_RATIO],
@@ -132,5 +149,16 @@ export class SlidesContainer implements AfterViewInit {
         slidesObserver.observe(slide);
       });
     }
+  }
+
+  average(numbers: Set<number>): number {
+    const numbersArray = Array.from(numbers);
+
+    let total = 0;
+    for (const number of numbersArray) {
+      total += number;
+    }
+
+    return total / numbersArray.length;
   }
 }
