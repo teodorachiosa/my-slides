@@ -20,6 +20,8 @@ import { CurrentRouteService } from 'app/shared/services/current-route.service';
 import { StateService } from 'app/shared/services/state.service';
 import { Subscription } from 'rxjs';
 
+const SCROLL_MARGIN_OFFSET = 100;
+
 @Component({
   selector: 'app-table-of-contents',
   imports: [RouterLink],
@@ -43,15 +45,13 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
     effect(() => {
       const activeHeadingId = this.state().activeHeading?.id;
       const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
-      const activeTOCLink = this.document.querySelector(hrefSelector);
+      const activeTOCLink = this.document.querySelector<HTMLElement>(hrefSelector);
+      const scrollContainer = this.document.querySelector<HTMLElement>('app-table-of-contents');
 
       if (typeof window !== 'undefined') {
         const mobileMedia = window.matchMedia('(width <= 500px)');
-        if (!mobileMedia.matches) {
-          activeTOCLink?.scrollIntoView({
-            behavior: 'instant',
-            block: 'nearest',
-          });
+        if (!mobileMedia.matches && activeTOCLink) {
+          scrollContainer!.scrollTop = activeTOCLink.offsetTop - SCROLL_MARGIN_OFFSET;
         }
       }
     });
