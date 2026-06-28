@@ -19,7 +19,6 @@ import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-ic
 import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
 import { routes } from 'app/app.routes';
 import { LocalStorageService } from '@shared/services/local-storage.service';
-import { Logo } from './logo/logo';
 
 const WIDTH_STEP = 10;
 const WIDTH_MIN = 10;
@@ -34,8 +33,7 @@ const WIDTH_MAX = 100;
     RouterLinkActive,
     MenuIcon,
     SettingsIcon,
-    PresentationIcon,
-    Logo,
+    PresentationIcon
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -244,7 +242,6 @@ export class Header implements OnInit, AfterViewInit {
         currentSlideElement.scrollIntoView({
           behavior: 'instant',
           block: 'center',
-          inline: 'center',
         });
         currentSlideElement.removeAttribute('tabindex');
       });

@@ -8,14 +8,12 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
 import {
   RouterLink,
   RouterOutlet,
   Router,
   NavigationEnd,
-  ActivatedRoute,
-  Scroll,
+  ActivatedRoute
 } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -26,7 +24,6 @@ import { Header } from '@layout/header/header';
 import { CurrentRouteService } from '@shared/services/current-route.service';
 import { State } from './shared/models/state.model';
 
-const ANCHOR_SCROLL_OFFSET = 200;
 
 @Component({
   selector: 'app-root',
@@ -41,7 +38,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   translateService = inject(TranslateService);
   stateService = inject(StateService);
   state: WritableSignal<State> = signal({});
-  viewportScroller = inject(ViewportScroller);
   titleService = inject(Title);
   currentRouteService = inject(CurrentRouteService);
   routerEventsSubscription: Subscription = Subscription.EMPTY;
@@ -66,15 +62,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
         this.languageChangeSubscription = this.translateService.onLangChange.subscribe(() => {
           this.onRouteChange();
         });
-      }
-
-      // Angular bug: https://github.com/angular/angular/issues/55383
-      if (navigationEvent instanceof Scroll) {
-        const element = this.document.querySelector(`#${navigationEvent.anchor}`);
-
-        if (element) {
-          this.viewportScroller.setOffset([0, ANCHOR_SCROLL_OFFSET]);
-        }
       }
     });
   }

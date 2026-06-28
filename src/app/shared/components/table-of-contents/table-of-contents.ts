@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -30,6 +31,7 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   document = inject(DOCUMENT);
   renderer = inject(Renderer2);
   stateService = inject(StateService);
+  viewportScroller = inject(ViewportScroller);
   translateService = inject(TranslateService);
   currentRouteService = inject(CurrentRouteService);
   allHeadings: WritableSignal<HTMLHeadingElement[]> = signal([]);
@@ -43,12 +45,15 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
       const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
       const activeTOCLink = this.document.querySelector(hrefSelector);
 
-      // Angular bug: https://github.com/angular/angular/issues/55383
-      activeTOCLink?.scrollIntoView({
-        behavior: 'instant',
-        block: 'nearest',
-        inline: 'nearest',
-      });
+      if (typeof window !== 'undefined') {
+        const mobileMedia = window.matchMedia('(width <= 500px)');
+        if (!mobileMedia.matches) {
+          activeTOCLink?.scrollIntoView({
+            behavior: 'instant',
+            block: 'nearest',
+          });
+        }
+      }
     });
   }
 
