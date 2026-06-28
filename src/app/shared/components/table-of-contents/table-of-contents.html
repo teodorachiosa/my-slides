@@ -12,4 +12,8 @@
     <span class="heading-title">{{heading.innerText.replace(/\p{RGI_Emoji}/gv, '').trim()}}</span>
   </a>
   }
+
+  @if (allHeadings().length === 0) {
+  <span>No headings to display...</span>
+  }
 </nav>
