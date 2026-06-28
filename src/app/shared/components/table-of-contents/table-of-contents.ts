@@ -1,7 +1,9 @@
+import { ViewportScroller } from '@angular/common';
 import {
   AfterViewInit,
   Component,
   DOCUMENT,
+  effect,
   inject,
   Input,
   OnDestroy,
@@ -12,8 +14,10 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { State } from 'app/shared/models/state.model';
 import { TranslatedSlide } from 'app/shared/models/translation.model';
 import { CurrentRouteService } from 'app/shared/services/current-route.service';
+import { StateService } from 'app/shared/services/state.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -26,15 +30,37 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   @Input() contents = signal<TranslatedSlide[]>([]);
   document = inject(DOCUMENT);
   renderer = inject(Renderer2);
+  stateService = inject(StateService);
+  viewportScroller = inject(ViewportScroller);
   translateService = inject(TranslateService);
   currentRouteService = inject(CurrentRouteService);
   allHeadings: WritableSignal<HTMLHeadingElement[]> = signal([]);
   languageChangeSubscription: Subscription = Subscription.EMPTY;
   currentRoute = '';
+  state: WritableSignal<State> = signal({});
+
+  constructor() {
+    effect(() => {
+      const activeHeadingId = this.state().activeHeading?.id;
+      const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
+      const activeTOCLink = this.document.querySelector(hrefSelector);
+
+      if (typeof window !== 'undefined') {
+        const mobileMedia = window.matchMedia('(width <= 500px)');
+        if (!mobileMedia.matches) {
+          activeTOCLink?.scrollIntoView({
+            behavior: 'instant',
+            block: 'nearest',
+          });
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.currentRoute = this.currentRouteService.getCurrentRoute();
     this.watchForPositionChanges();
+    this.state = this.stateService.getState();
   }
 
   ngAfterViewInit(): void {

@@ -8,4 +8,5 @@ export interface State {
   isFullscreen?: boolean;
   currentSlide?: number;
   language?: string;
+  activeHeading?: Element;
 }

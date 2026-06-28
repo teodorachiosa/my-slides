@@ -28,6 +28,7 @@ export class SlidesContainer implements AfterViewInit {
   state: State = {};
   currentSlide = 0;
   visibleIndices = new Set<number>();
+  previousActiveHeading?: Element;
 
   ngAfterViewInit(): void {
     if (typeof this.document !== 'undefined') {
@@ -139,6 +140,10 @@ export class SlidesContainer implements AfterViewInit {
           this.currentSlide = middleIndex;
           this.state['currentSlide'] = this.currentSlide;
           this.stateService.setState(this.state);
+
+          if(typeof this.allSlides !== 'undefined') {
+            this.rememberActiveHeading(this.allSlides[this.currentSlide]);
+          }
         },
         {
           threshold: [INTERSECTION_RATIO],
@@ -160,5 +165,18 @@ export class SlidesContainer implements AfterViewInit {
     }
 
     return total / numbersArray.length;
+  }
+
+  rememberActiveHeading(element: HTMLElement): void {
+    const newActiveHeading = element?.querySelector('h1,h2,h3,h4,h5,h6');
+
+    if (newActiveHeading !== null) {
+      this.state['activeHeading'] = newActiveHeading;
+      this.previousActiveHeading = newActiveHeading;
+    } else {
+      this.state['activeHeading'] = this.previousActiveHeading;
+    }
+
+    this.stateService.setState(this.state);
   }
 }

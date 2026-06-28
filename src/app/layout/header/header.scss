@@ -12,6 +12,21 @@
   backdrop-filter: blur(var(--blur));
   padding: calc(var(--spacing) / 4);
 
+  .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .logo-title {
+      font-weight: 700;
+    }
+
+    .logo-subtitle {
+      font-size: 0.85em;
+    }
+  }
+
   .left-container,
   .right-container {
     display: flex;

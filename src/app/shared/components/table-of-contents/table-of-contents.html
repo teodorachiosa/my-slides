@@ -5,6 +5,7 @@
   <a class="toc-link"
      [routerLink]="currentRoute"
      [fragment]="heading.id"
+     [class.active-heading]="state().activeHeading?.id === heading.id"
      [style.paddingLeft]="`calc((${heading.tagName.slice(-1)} - 1) * var(--spacing) / 2)`">
     <span aria-hidden="true"
           class="heading-level">{{heading.tagName}}</span>
