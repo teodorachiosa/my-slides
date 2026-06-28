@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   DOCUMENT,
+  effect,
   inject,
   Input,
   OnDestroy,
@@ -35,6 +36,21 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   languageChangeSubscription: Subscription = Subscription.EMPTY;
   currentRoute = '';
   state: WritableSignal<State> = signal({});
+
+  constructor() {
+    effect(() => {
+      const activeHeadingId = this.state().activeHeading?.id;
+      const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
+      const activeTOCLink = this.document.querySelector(hrefSelector);
+
+      // Angular bug: https://github.com/angular/angular/issues/55383
+      activeTOCLink?.scrollIntoView({
+        behavior: 'instant',
+        block: 'nearest',
+        inline: 'nearest',
+      });
+    });
+  }
 
   ngOnInit(): void {
     this.currentRoute = this.currentRouteService.getCurrentRoute();
