@@ -54,3 +54,13 @@
     }
   }
 }
+
+@media screen and (width <= 500px) {
+  :host {
+    .main-container {
+      main {
+        flex-direction: column;
+      }
+    }
+  }
+}

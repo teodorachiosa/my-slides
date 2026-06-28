@@ -8,6 +8,7 @@
   overflow: auto;
   background: var(--surface-background-transparent);
   box-shadow: 0 0 var(--shadow-spread) 0 var(--shadow-color);
+  height: 100vh;
 
   .title {
     font-weight: 700;
@@ -19,7 +20,6 @@
       margin: calc(var(--spacing) / 3) 0;
       text-decoration: none;
       align-items: baseline;
-
 
       .heading-level {
         display: inline-block;
@@ -46,8 +46,12 @@
   }
 }
 
-@media screen and (height <= 500px) {
+@media screen and (width <= 500px) {
   :host {
+    position: static;
     top: 0 !important;
+    width: 100%;
+    max-width: unset;
+    height: 50vh !important;
   }
 }
