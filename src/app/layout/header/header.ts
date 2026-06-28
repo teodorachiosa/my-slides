@@ -70,45 +70,15 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    if (this.localStorageService.getLocalStorage()?.layout) {
-      this.layout = this.localStorageService.getLocalStorage()?.layout;
-    } else {
-      this.layout = this.stateService.getState()().layout;
-    }
-    this.updateLayout(true);
-
-    if (this.localStorageService.getLocalStorage()?.maxWidth) {
-      this.maxWidth = this.localStorageService.getLocalStorage()?.maxWidth;
-    } else {
-      this.maxWidth = this.stateService.getState()().maxWidth;
-    }
-    this.updateMaxWidth(true);
-
-    if (typeof this.localStorageService.getLocalStorage()?.theme !== 'undefined') {
-      this.theme = this.localStorageService.getLocalStorage()?.theme;
-      this.updateDarkMode(true);
-    } else {
-      if (this.stateService.getState()().theme) {
-        this.theme = this.stateService.getState()().theme;
-        this.updateDarkMode(true);
-      }
-    }
-
-    if (this.localStorageService.getLocalStorage()?.language) {
-      this.language = this.localStorageService.getLocalStorage()?.language as ContentLanguage;
-    } else {
-      this.language = this.stateService.getState()().language as ContentLanguage;
-    }
-    this.updateLanguage(this.language, true);
+    this.setInitialLayout();
+    this.setInitialMaxWidth();
+    this.setInitialTheme();
+    this.setInitialLanguage();
   }
 
   ngAfterViewInit(): void {
     if (typeof document !== 'undefined') {
       this.rootElement = document.documentElement;
-
-      if (this.layout) {
-        this.rootElement?.classList.add(`${this.layout}-layout`);
-      }
 
       document.addEventListener('fullscreenchange', () => {
         if (this.document.fullscreenElement === null) {
@@ -116,6 +86,62 @@ export class Header implements OnInit, AfterViewInit {
         }
       });
     }
+  }
+
+  exitFullscreen(): void {
+    this.rootElement?.classList.remove('fullscreen');
+    this.updateFullscreenStateAndUI(false);
+
+    if (this.document.fullscreenElement === null) {
+      this.focusCurrentSlide();
+    }
+  }
+
+  setInitialLayout(): void {
+    const initialLayoutLocalStorage = this.localStorageService.getLocalStorage()?.layout;
+
+    if (initialLayoutLocalStorage) {
+      this.layout = initialLayoutLocalStorage;
+    } else {
+      this.layout = this.stateService.getState()().layout;
+    }
+    this.updateLayout(true);
+  }
+
+  setInitialMaxWidth(): void {
+    const initialMaxWidthLocalStorage = this.localStorageService.getLocalStorage()?.maxWidth;
+
+    if (initialMaxWidthLocalStorage) {
+      this.maxWidth = initialMaxWidthLocalStorage;
+    } else {
+      this.maxWidth = this.stateService.getState()().maxWidth;
+    }
+    this.updateMaxWidth(true);
+  }
+
+  setInitialTheme(): void {
+    const initialThemeLocalStorage = this.localStorageService.getLocalStorage()?.theme;
+
+    if (typeof initialThemeLocalStorage !== 'undefined') {
+      this.theme = initialThemeLocalStorage;
+      this.updateDarkMode(true);
+    } else {
+      const initialThemeState = this.stateService.getState()().theme;
+      if (initialThemeState) {
+        this.theme = initialThemeState;
+        this.updateDarkMode(true);
+      }
+    }
+  }
+
+  setInitialLanguage(): void {
+    const initialLanguageLocalStorage = this.localStorageService.getLocalStorage()?.language;
+    if (initialLanguageLocalStorage) {
+      this.language = initialLanguageLocalStorage as ContentLanguage;
+    } else {
+      this.language = this.stateService.getState()().language as ContentLanguage;
+    }
+    this.updateLanguage(this.language, true);
   }
 
   updateLayout(noLocalStorageChanges = false): void {
@@ -145,15 +171,6 @@ export class Header implements OnInit, AfterViewInit {
     }
   }
 
-  setColorScheme(): void {
-    if (typeof document !== 'undefined') {
-      document.documentElement.style.setProperty(
-        'color-scheme',
-        this.theme === 'dark' ? 'dark' : this.theme === 'light' ? 'light' : 'light dark',
-      );
-    }
-  }
-
   updateTheme(theme: Theme): void {
     this.theme = theme;
     this.updateDarkMode();
@@ -169,6 +186,15 @@ export class Header implements OnInit, AfterViewInit {
 
     if (typeof this.theme !== 'undefined') {
       this.setColorScheme();
+    }
+  }
+
+  setColorScheme(): void {
+    if (typeof document !== 'undefined') {
+      document.documentElement.style.setProperty(
+        'color-scheme',
+        this.theme === 'dark' ? 'dark' : this.theme === 'light' ? 'light' : 'light dark',
+      );
     }
   }
 
@@ -200,19 +226,8 @@ export class Header implements OnInit, AfterViewInit {
       this.rootElement?.classList.add('fullscreen');
       this.updateFullscreenStateAndUI(true);
       setTimeout(() => {
-        this.document
-          .querySelectorAll<HTMLElement>('app-slide')
-          [currentSlide ?? 0]?.focus();
+        this.document.querySelectorAll<HTMLElement>('app-slide')[currentSlide ?? 0]?.focus();
       });
-    }
-  }
-
-  exitFullscreen(): void {
-    this.rootElement?.classList.remove('fullscreen');
-    this.updateFullscreenStateAndUI(false);
-
-    if (this.document.fullscreenElement === null) {
-      this.focusCurrentSlide();
     }
   }
 
@@ -226,7 +241,11 @@ export class Header implements OnInit, AfterViewInit {
       setTimeout(() => {
         currentSlideElement.setAttribute('tabindex', '0');
         currentSlideElement.focus();
-        currentSlideElement.scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});
+        currentSlideElement.scrollIntoView({
+          behavior: 'instant',
+          block: 'center',
+          inline: 'center',
+        });
         currentSlideElement.removeAttribute('tabindex');
       });
     }

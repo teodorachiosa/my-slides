@@ -45,6 +45,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   titleService = inject(Title);
   currentRouteService = inject(CurrentRouteService);
   routerEventsSubscription: Subscription = Subscription.EMPTY;
+  languageChangeSubscription: Subscription = Subscription.EMPTY;
   mainHeading?: HTMLHeadingElement;
   previousUrlNoFragment?: string;
   pageTitle = '';
@@ -62,7 +63,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       if (navigationEvent instanceof NavigationEnd) {
         this.onRouteChange();
 
-        this.translateService.onLangChange.subscribe(() => {
+        this.languageChangeSubscription = this.translateService.onLangChange.subscribe(() => {
           this.onRouteChange();
         });
       }
@@ -80,6 +81,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.routerEventsSubscription.unsubscribe();
+    this.languageChangeSubscription.unsubscribe();
   }
 
   onRouteChange(): void {

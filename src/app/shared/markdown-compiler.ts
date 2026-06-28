@@ -4,7 +4,7 @@
 
 import { Injectable } from '@angular/core';
 import { TranslateCompiler } from '@ngx-translate/core';
-import { Marked, MarkedExtension } from 'marked';
+import { Marked, MarkedExtension, Tokens } from 'marked';
 import { markedHighlight, SynchronousOptions } from 'marked-highlight';
 import hljs from 'highlight.js/lib/common';
 
@@ -34,12 +34,16 @@ export class MarkdownCompiler extends TranslateCompiler {
         const highlightExtension: MarkedExtension = markedHighlight(highlightOptions);
 
         const customRenderer = {
-          html({ text }: { text: string }): string {
+          html({ text }: Tokens.HTML | Tokens.Tag): string {
             return text.replace(
               COMPONENT_NAME_REGEX,
               (_, componentName: string) =>
                 `<div class="${componentName} angular-component"></div>`,
             );
+          },
+          heading({ text, depth }: Tokens.Heading) {
+            const id = text.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
+            return `<h${depth} id="${id}">${text}</h${depth}>`;
           },
         };
 

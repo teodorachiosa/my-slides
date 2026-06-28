@@ -1,5 +1,6 @@
-<app-slides-container>
+<app-table-of-contents [contents]="slidesContent"></app-table-of-contents>
 
+<app-slides-container>
   @for (item of slidesContent(); track $index; let i = $index) {
   <app-slide [id]="`slide-${i + 1}`"
              [style]="`--background-color: ${item.backgroundColor}`">

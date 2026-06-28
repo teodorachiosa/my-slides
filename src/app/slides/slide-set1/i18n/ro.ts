@@ -125,9 +125,8 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
     {
       backgroundColor: '\\var(--pink)',
       content: md`
-<h2 style="text-align: center">
-  Cum folosește o persoană cu dizabilități un site?
-</h2>
+
+## Cum folosește o persoană cu dizabilități un site?
 
 <img loading="lazy" class="interaction-diagram" width="422" height="319" src="img/website/user-interaction-ro.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
 <div class="sr-only">
@@ -323,9 +322,9 @@ Exemplu: Text alternativ pentru imaginea cu norul?
     {
       backgroundColor: '\\var(--violet)',
       content: md`
-<h3 style="text-align: center">
-  <span class="f-w-normal">„</span>Minimul <span class="f-w-normal">cerințelor din Ghidul pentru Conținut Web Accesibil”?</span>
-</h3>
+
+### <span class="f-w-normal">„</span>Minimul <span class="f-w-normal">cerințelor din Ghidul pentru Conținut Web Accesibil”?</span>
+
 
 <div class="center-pyramid">
   <img loading="lazy" width="827" height="321" src="img/wcag/levels-ro.webp" alt="Diagramă sub formă de piramidă: Nivel A - Suport de bază, Nivel AA - Suport ideal - minimul adoptat de legislație, Nivel AAA - Suport specializat">

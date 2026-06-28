@@ -1,0 +1,14 @@
+<p class="title"
+   id="toc-label">Table of Contents</p>
+<nav aria-labelledby="toc-label">
+  @for (heading of allHeadings(); track heading.innerText) {
+  <a class="toc-link"
+     [routerLink]="currentRoute"
+     [fragment]="heading.id"
+     [style.paddingLeft]="`calc((${heading.tagName.slice(-1)} - 1) * var(--spacing) / 2)`">
+    <span aria-hidden="true"
+          class="heading-level">{{heading.tagName}}</span>
+    <span class="heading-title">{{heading.innerText.replace(/\p{Emoji}/gu, '')}}</span>
+  </a>
+  }
+</nav>
