@@ -9,7 +9,11 @@
      [style.paddingLeft]="`calc((${heading.tagName.slice(-1)} - 1) * var(--spacing) / 2)`">
     <span aria-hidden="true"
           class="heading-level">{{heading.tagName}}</span>
-    <span class="heading-title">{{heading.innerText.replace(/\p{Emoji}/gu, '')}}</span>
+    <span class="heading-title">{{heading.innerText.replace(/\p{RGI_Emoji}/gv, '').trim()}}</span>
   </a>
+  }
+
+  @if (allHeadings().length === 0) {
+  <span>No headings to display...</span>
   }
 </nav>
