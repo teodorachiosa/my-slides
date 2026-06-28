@@ -26,7 +26,6 @@ export class SlideSet implements AfterViewInit, OnDestroy {
   destroyed = signal<boolean>(false);
   baseTranslation: WritableSignal<TranslatedSlide[]> = signal<TranslatedSlide[]>([]);
   translationsSubscription = Subscription.EMPTY;
-  languageChangeSubscription = Subscription.EMPTY;
   previousTranslationData: LangChangeEvent = { lang: '', translations: {} };
 
   ngAfterViewInit(): void {
@@ -49,7 +48,6 @@ export class SlideSet implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.translationsSubscription.unsubscribe();
-    this.languageChangeSubscription.unsubscribe();
     this.destroyed.set(true);
   }
 

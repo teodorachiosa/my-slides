@@ -1,0 +1,53 @@
+:host {
+  position: sticky;
+  padding: calc(var(--spacing) / 4) calc(var(--spacing) / 1.5);
+  border-right: 1px solid var(--light-grey);
+  align-self: flex-start;
+  max-width: 30ch;
+  height: 50vh;
+  overflow: auto;
+  background: var(--surface-background-transparent);
+  box-shadow: 0 0 var(--shadow-spread) 0 var(--shadow-color);
+
+  .title {
+    font-weight: 700;
+  }
+
+  nav {
+    a.toc-link {
+      display: flex;
+      margin: calc(var(--spacing) / 3) 0;
+      text-decoration: none;
+      align-items: baseline;
+
+
+      .heading-level {
+        display: inline-block;
+        margin-right: 6px;
+        padding: 4px;
+        font-size: 0.8em;
+        border-radius: var(--spacing);
+        background: var(--background);
+        user-select: none;
+      }
+
+      &:hover {
+        .heading-title {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+:host-context(.fullscreen) {
+  :host {
+    display: none;
+  }
+}
+
+@media screen and (height <= 500px) {
+  :host {
+    top: 0 !important;
+  }
+}

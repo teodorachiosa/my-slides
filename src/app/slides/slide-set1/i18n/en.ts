@@ -125,9 +125,7 @@ We could imagine a website's structure as a box with various other boxes inside.
     {
       backgroundColor: '\\var(--pink)',
       content: md`
-<h2 style="text-align: center">
-  How does a person with disabilities use a website?
-</h2>
+## How does a person with disabilities use a website?
 
 <img loading="lazy" class="interaction-diagram" width="422" height="319" src="img/website/user-interaction-en.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
       `,
@@ -305,9 +303,9 @@ Example: Alternative text for the cloud image?
     {
       backgroundColor: '\\var(--violet)',
       content: md`
-<h3 style="text-align: center">
-  <span class="f-w-normal">"The </span>minimum <span class="f-w-normal">requirements of the Web Content Accessibility Guidelines"?</span>
-</h3>
+
+### <span class="f-w-normal">"The </span>minimum <span class="f-w-normal">requirements of the Web Content Accessibility Guidelines"?</span>
+
 
 <div class="center-pyramid">
   <img loading="lazy" width="827" height="321" src="img/wcag/levels-en.webp" alt="Pyramid diagram showing WCAG levels: Level A - Essential support, Level AA - Ideal support - the minimum adopted by legislation, and Level AAA - Specialized support">

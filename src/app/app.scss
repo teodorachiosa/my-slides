@@ -28,18 +28,22 @@
   .main-container {
     display: flex;
 
-    /* Let route content grow */
-    & > ::ng-deep *:last-child {
+    main {
+      display: flex;
       flex-grow: 1;
+
+      & > ::ng-deep * {
+        display: contents;
+      }
     }
   }
 
   footer {
+    z-index: 2;
     border-top: 1px solid var(--light-grey);
-    margin: calc(1.5 * var(--spacing)) 0;
-    margin-bottom: 0;
     padding: calc(1.5 * var(--spacing)) var(--spacing);
     line-height: 1.5;
+    background: var(--background);
 
     p {
       margin-bottom: 0;
