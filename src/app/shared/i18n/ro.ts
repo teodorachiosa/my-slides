@@ -30,9 +30,12 @@ const ro = {
     foundAnIssue: '\\Ai întâmpinat o problemă',
     reportAnIssue: '\\Raportează o problemă pe GitHub',
     iconsCredit: '\\Iconițe',
+    external: '\\extern',
     disclaimerTitle: '\\Notă',
     disclaimerBody: '\\Acest site este în curs de dezvoltare!',
-    external: '\\extern',
+    noSlides: '\\Nu există conținut de afișat...',
+    tableOfContents: '\\Cuprins',
+    noHeadings: '\\Nu există titluri de afișat...'
   },
   sets: {
     set1: roSlideSetTranslations,

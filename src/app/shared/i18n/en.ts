@@ -33,6 +33,9 @@ const en = {
     external: '\\external',
     disclaimerTitle: '\\Note',
     disclaimerBody: '\\This website is a work in progress!',
+    noSlides: '\\No slides to display...',
+    tableOfContents: '\\Table of Contents',
+    noHeadings: '\\No headings to display...'
   },
   sets: {
     set1: enSlideSet1Translations,

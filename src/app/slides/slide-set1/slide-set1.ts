@@ -9,10 +9,11 @@ import { RemoveButtonBad } from './examples/remove-button-bad/remove-button-bad'
 import { RemoveButtonEn } from './examples/en/remove-button/remove-button';
 import { RemoveButtonRo } from './examples/ro/remove-button/remove-button';
 import { TableOfContents } from 'app/shared/components/table-of-contents/table-of-contents';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-slide-set1',
-  imports: [SlidesContainer, Slide, Markdown, TableOfContents],
+  imports: [SlidesContainer, Slide, Markdown, TableOfContents, TranslatePipe],
   templateUrl: './slide-set1.html',
   styleUrl: './slide-set1.scss',
 })
