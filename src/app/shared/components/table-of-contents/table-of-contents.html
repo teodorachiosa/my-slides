@@ -1,5 +1,5 @@
 <p class="title"
-   id="toc-label">Table of Contents</p>
+   id="toc-label">{{'ui.tableOfContents' | translate}}</p>
 <nav aria-labelledby="toc-label">
   @for (heading of allHeadings(); track heading.innerText) {
   <a class="toc-link"
@@ -14,6 +14,6 @@
   }
 
   @if (allHeadings().length === 0) {
-  <span>No headings to display...</span>
+  <span>{{'ui.noHeadings' | translate}}</span>
   }
 </nav>

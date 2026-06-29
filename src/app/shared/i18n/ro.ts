@@ -28,7 +28,10 @@ const ro = {
     notFoundSubtitle: '\\Încearcă una din paginile din meniu',
     footerText: '\\Conținut personalizat pentru subsol aici...',
     iconsCredit: '\\Iconițe',
-    external: '\\extern'
+    external: '\\extern',
+    noSlides: '\\Nu există conținut de afișat...',
+    tableOfContents: '\\Cuprins',
+    noHeadings: '\\Nu există titluri de afișat...'
   },
   sets: {
     set1: roSlideSetTranslations,

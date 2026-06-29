@@ -13,7 +13,7 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { State } from 'app/shared/models/state.model';
 import { TranslatedSlide } from 'app/shared/models/translation.model';
 import { CurrentRouteService } from 'app/shared/services/current-route.service';
@@ -24,7 +24,7 @@ const SCROLL_MARGIN_OFFSET = 100;
 
 @Component({
   selector: 'app-table-of-contents',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './table-of-contents.html',
   styleUrl: './table-of-contents.scss',
 })

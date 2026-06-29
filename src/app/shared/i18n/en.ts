@@ -28,7 +28,10 @@ const en = {
     notFoundSubtitle: '\\Try one of the pages from the menu instead',
     footerText: '\\Custom footer content goes here...',
     iconsCredit: '\\Icons by',
-    external: '\\external'
+    external: '\\external',
+    noSlides: '\\No slides to display...',
+    tableOfContents: '\\Table of Contents',
+    noHeadings: '\\No headings to display...'
   },
   sets: {
     set1: enSlideSet1Translations,
