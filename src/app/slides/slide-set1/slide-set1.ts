@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 import { Slide } from '@shared/components/slide/slide';
 import { SlidesContainer } from '@shared/components/slides-container/slides-container';
+import { SlideSet } from 'app/shared/components/slide-set/slide-set';
 import { Markdown } from '@shared/components/markdown/markdown';
-import { SlideSet } from '@shared/directives/slide-set/slide-set';
 import { A11yIcon } from '@shared/components/icons/a11y-icon/a11y-icon';
 import { RemoveButtonBad } from './examples/remove-button-bad/remove-button-bad';
 import { RemoveButtonEn } from './examples/en/remove-button/remove-button';

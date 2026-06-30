@@ -12,10 +12,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
 
 <!--A11yIcon-->
 
-  <h1>
-    <span>Web Accessibility</span>
-    <span>for Everyone</span>
-  </h1>
+# Web Accessibility&#10;for Everyone
 
   <div class="footer">
     <span class="presenters">
@@ -303,9 +300,7 @@ Example: Alternative text for the cloud image?
     {
       backgroundColor: '\\var(--violet)',
       content: md`
-
 ### <span class="f-w-normal">"The </span>minimum <span class="f-w-normal">requirements of the Web Content Accessibility Guidelines"?</span>
-
 
 <div class="center-pyramid">
   <img loading="lazy" width="827" height="321" src="img/wcag/levels-en.webp" alt="Pyramid diagram showing WCAG levels: Level A - Essential support, Level AA - Ideal support - the minimum adopted by legislation, and Level AAA - Specialized support">

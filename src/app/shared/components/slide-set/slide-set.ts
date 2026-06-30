@@ -3,10 +3,10 @@ import {
   signal,
   AfterViewInit,
   OnDestroy,
-  Directive,
   WritableSignal,
   Type,
-  ChangeDetectorRef,
+  Component,
+  afterRenderEffect,
 } from '@angular/core';
 
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
@@ -15,18 +15,28 @@ import { Subscription } from 'rxjs';
 import { AttachComponentService } from '@shared/services/attach-component.service';
 import { TranslatedSlide } from '@shared/models/translation.model';
 
-@Directive()
+@Component({
+  selector: 'app-slide-set',
+  template: ``,
+})
 export class SlideSet implements AfterViewInit, OnDestroy {
   setName = '';
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
-  changeDetector = inject(ChangeDetectorRef);
   components: Type<unknown>[] = [];
   slidesContent = signal<TranslatedSlide[]>([]);
   destroyed = signal<boolean>(false);
-  baseTranslation: WritableSignal<TranslatedSlide[]> = signal<TranslatedSlide[]>([]);
   translationsSubscription = Subscription.EMPTY;
-  previousTranslationData: LangChangeEvent = { lang: '', translations: {} };
+
+  constructor() {
+    afterRenderEffect({
+      read: () => {
+        if (this.components?.length && this.slidesContent()) {
+          this.attachComponents();
+        }
+      },
+    });
+  }
 
   ngAfterViewInit(): void {
     this.translationsSubscription = this.translateService
@@ -36,12 +46,6 @@ export class SlideSet implements AfterViewInit, OnDestroy {
 
         if (Array.isArray(newTranslation)) {
           this.slidesContent.set(newTranslation);
-        }
-
-        if (this.components?.length) {
-          setTimeout(() => {
-            this.attachComponents();
-          });
         }
       });
   }

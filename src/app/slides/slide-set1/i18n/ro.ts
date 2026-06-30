@@ -12,10 +12,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
 
 <!--A11yIcon-->
 
-  <h1>
-    <span>Accesibilitatea web</span>
-    <span>pe înțelesul tuturor</span>
-  </h1>
+# Accesibilitatea web&#10;pe înțelesul tuturor
 
   <div class="footer">
     <span class="presenters">
@@ -125,7 +122,6 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
     {
       backgroundColor: '\\var(--pink)',
       content: md`
-
 ## Cum folosește o persoană cu dizabilități un site?
 
 <img loading="lazy" class="interaction-diagram" width="422" height="319" src="img/website/user-interaction-ro.webp" alt="Diagramă care prezintă în mod simplificat metodele de interacțiune dintre utilizatori și site-uri web. Detalii mai jos.">
@@ -322,9 +318,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
     {
       backgroundColor: '\\var(--violet)',
       content: md`
-
 ### <span class="f-w-normal">„</span>Minimul <span class="f-w-normal">cerințelor din Ghidul pentru Conținut Web Accesibil”?</span>
-
 
 <div class="center-pyramid">
   <img loading="lazy" width="827" height="321" src="img/wcag/levels-ro.webp" alt="Diagramă sub formă de piramidă: Nivel A - Suport de bază, Nivel AA - Suport ideal - minimul adoptat de legislație, Nivel AAA - Suport specializat">

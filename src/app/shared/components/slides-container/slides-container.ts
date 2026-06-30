@@ -83,7 +83,7 @@ export class SlidesContainer implements AfterViewInit {
 
     this.goToSlide(this.currentSlide);
 
-    this.state['currentSlide'] = this.currentSlide;
+    this.state.currentSlide = this.currentSlide;
     this.stateService.setState(this.state);
   }
 
@@ -95,7 +95,7 @@ export class SlidesContainer implements AfterViewInit {
       nextSlide.focus();
     }
 
-    this.state['currentSlide'] = slideNumber;
+    this.state.currentSlide = slideNumber;
     this.stateService.setState(this.state);
   }
 
@@ -138,7 +138,7 @@ export class SlidesContainer implements AfterViewInit {
           }
 
           this.currentSlide = middleIndex;
-          this.state['currentSlide'] = this.currentSlide;
+          this.state.currentSlide = this.currentSlide;
           this.stateService.setState(this.state);
 
           if(typeof this.allSlides !== 'undefined') {
@@ -171,10 +171,10 @@ export class SlidesContainer implements AfterViewInit {
     const newActiveHeading = element?.querySelector('h1,h2,h3,h4,h5,h6');
 
     if (newActiveHeading !== null) {
-      this.state['activeHeading'] = newActiveHeading;
+      this.state.activeHeading = newActiveHeading;
       this.previousActiveHeading = newActiveHeading;
     } else {
-      this.state['activeHeading'] = this.previousActiveHeading;
+      this.state.activeHeading = this.previousActiveHeading;
     }
 
     this.stateService.setState(this.state);

@@ -1,4 +1,4 @@
-import { DOCUMENT, inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { State } from '@shared/models/state.model';
 
 export const LOCAL_STORAGE_ITEM_NAME = 'tcSlidesSettings';
@@ -7,8 +7,6 @@ export const LOCAL_STORAGE_ITEM_NAME = 'tcSlidesSettings';
   providedIn: 'root',
 })
 export class LocalStorageService {
-  document = inject(DOCUMENT);
-
   getLocalStorage(): State | null {
     if (typeof window != 'undefined') {
       const settings = localStorage.getItem(LOCAL_STORAGE_ITEM_NAME);

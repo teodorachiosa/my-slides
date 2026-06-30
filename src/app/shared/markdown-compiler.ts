@@ -43,7 +43,7 @@ export class MarkdownCompiler extends TranslateCompiler {
           },
           heading({ text, depth }: Tokens.Heading) {
             const id = text.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
-            return `<h${depth} id="${id}">${text}</h${depth}>`;
+            return `<h${depth} tabindex="-1" id="${depth === 1 ? 'slides-start' : id}">${text}</h${depth}>`;
           },
         };
 
