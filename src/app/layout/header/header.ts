@@ -147,7 +147,7 @@ export class Header implements OnInit, AfterViewInit {
     this.state.maxWidth = this.maxWidth;
     this.stateService.setState(this.state);
 
-    this.focusCurrentSlide();
+    this.focusCurrentSlide(false, true);
 
     if (!noLocalStorageChanges) {
       this.localStorageService.setToLocalStorage({ maxWidth: this.maxWidth });
@@ -211,7 +211,7 @@ export class Header implements OnInit, AfterViewInit {
     }
   }
 
-  focusCurrentSlide(isPresentMode = false): void {
+  focusCurrentSlide(isPresentMode = false, isScrollOnly = false): void {
     const currentSlide = this.stateService.getState()().currentSlide ?? 0;
 
     const currentSlideElement =
@@ -219,13 +219,17 @@ export class Header implements OnInit, AfterViewInit {
 
     if (currentSlideElement) {
       requestAnimationFrame(() => {
-        currentSlideElement.setAttribute('tabindex', '0');
-        currentSlideElement.focus();
+        if(!isScrollOnly) {
+          currentSlideElement.setAttribute('tabindex', '0');
+          currentSlideElement.focus();
+        }
+
         currentSlideElement.scrollIntoView({
           behavior: 'instant',
           block: 'center',
         });
-        if (!isPresentMode) {
+
+        if (!isPresentMode && !isScrollOnly) {
           currentSlideElement.removeAttribute('tabindex');
         }
       });
