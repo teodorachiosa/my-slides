@@ -1,11 +1,4 @@
-import {
-  ApplicationRef,
-  DOCUMENT,
-  Injectable,
-  Type,
-  createComponent,
-  inject,
-} from '@angular/core';
+import { ApplicationRef, DOCUMENT, Injectable, Type, createComponent, inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +9,7 @@ export class AttachComponentService {
 
   attachComponent(component: Type<unknown>): void {
     const componentName = component.name.slice(1);
+    if (!componentName) return;
 
     const hostElements = Array.from(this.document.querySelectorAll<Element>(`.${componentName}`));
 

@@ -3,13 +3,12 @@ import {
   signal,
   AfterViewInit,
   OnDestroy,
-  WritableSignal,
   Type,
   Component,
   afterRenderEffect,
 } from '@angular/core';
 
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 import { AttachComponentService } from '@shared/services/attach-component.service';

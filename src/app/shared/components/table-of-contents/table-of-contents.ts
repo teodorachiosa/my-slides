@@ -45,7 +45,7 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
         this.currentRoute = this.currentRouteService.getCurrentRoute();
         this.getUpdatedHeadings();
 
-        if (this.allHeadings()) {
+        if (this.allHeadings() && this.document) {
           const activeHeadingId = this.state().activeHeading?.id;
           const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
           const activeTOCLink = this.document.querySelector<HTMLElement>(hrefSelector);
@@ -73,6 +73,7 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
     this.getUpdatedHeadings();
 
     this.languageChangeSubscription = this.translateService.onLangChange.subscribe(() => {
+      this.currentRoute = this.currentRouteService.getCurrentRoute();
       this.getUpdatedHeadings();
     });
   }
