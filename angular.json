@@ -37,7 +37,7 @@
               "entry": "src/server.ts"
             },
             "security": {
-              "allowedHosts": ["localhost", "ngx-md-slides.vercel.app"]
+              "allowedHosts": ["localhost", "ngx-md-slides.vercel.app", "*.chiosa.dev"]
             }
           },
           "configurations": {
