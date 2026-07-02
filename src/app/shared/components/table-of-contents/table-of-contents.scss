@@ -24,11 +24,11 @@
       &.active-heading {
         .heading-level {
           background: var(--body);
-          box-shadow: 0 0 0 2px var(--dark-grey);
+          box-shadow: 0 0 0 1px currentcolor;
         }
 
         .heading-title {
-          font-weight: 700;
+          -webkit-text-stroke: .5px currentColor;
         }
       }
 
@@ -36,7 +36,7 @@
         display: inline-block;
         margin-right: 6px;
         padding: 4px;
-        font-size: 0.7em;
+        font-size: 0.8em;
         border-radius: var(--spacing);
         background: var(--background);
         user-select: none;

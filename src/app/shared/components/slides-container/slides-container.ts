@@ -3,15 +3,15 @@ import {
   HostBinding,
   HostListener,
   inject,
-  AfterViewInit,
-  ElementRef,
   DOCUMENT,
   Renderer2,
+  afterNextRender,
 } from '@angular/core';
 import { State } from '@shared/models/state.model';
 import { StateService } from '@shared/services/state.service';
 
-const INTERSECTION_RATIO = 0.9;
+const INTERSECTION_RATIO_MORE_VISIBLE = 0.9;
+const INTERSECTION_RATIO_LESS_VISIBLE = 0.6;
 
 @Component({
   selector: 'app-slides-container',
@@ -19,9 +19,8 @@ const INTERSECTION_RATIO = 0.9;
   templateUrl: './slides-container.html',
   styleUrl: './slides-container.scss',
 })
-export class SlidesContainer implements AfterViewInit {
+export class SlidesContainer {
   stateService = inject(StateService);
-  elementRef = inject(ElementRef);
   renderer = inject(Renderer2);
   document = inject(DOCUMENT);
   allSlides?: NodeListOf<HTMLElement>;
@@ -30,13 +29,17 @@ export class SlidesContainer implements AfterViewInit {
   visibleIndices = new Set<number>();
   previousActiveHeading?: Element;
 
-  ngAfterViewInit(): void {
-    if (typeof this.document !== 'undefined') {
-      this.allSlides = this.elementRef.nativeElement.querySelectorAll('app-slide');
-    }
+  constructor() {
+    afterNextRender({
+      read: () => {
+        if (typeof this.document !== 'undefined') {
+          this.allSlides = this.document.querySelectorAll('app-slide');
+        }
 
-    this.addSlideNumber();
-    this.watchForCurrentSlide();
+        this.addSlideNumber();
+        this.watchForCurrentSlide();
+      },
+    });
   }
 
   @HostBinding('style.width')
@@ -83,7 +86,7 @@ export class SlidesContainer implements AfterViewInit {
 
     this.goToSlide(this.currentSlide);
 
-    this.state['currentSlide'] = this.currentSlide;
+    this.state.currentSlide = this.currentSlide;
     this.stateService.setState(this.state);
   }
 
@@ -95,7 +98,7 @@ export class SlidesContainer implements AfterViewInit {
       nextSlide.focus();
     }
 
-    this.state['currentSlide'] = slideNumber;
+    this.state.currentSlide = slideNumber;
     this.stateService.setState(this.state);
   }
 
@@ -138,15 +141,15 @@ export class SlidesContainer implements AfterViewInit {
           }
 
           this.currentSlide = middleIndex;
-          this.state['currentSlide'] = this.currentSlide;
+          this.state.currentSlide = this.currentSlide;
           this.stateService.setState(this.state);
 
-          if(typeof this.allSlides !== 'undefined') {
+          if (typeof this.allSlides !== 'undefined') {
             this.rememberActiveHeading(this.allSlides[this.currentSlide]);
           }
         },
         {
-          threshold: [INTERSECTION_RATIO],
+          threshold: [INTERSECTION_RATIO_MORE_VISIBLE, INTERSECTION_RATIO_LESS_VISIBLE],
         },
       );
 
@@ -171,10 +174,10 @@ export class SlidesContainer implements AfterViewInit {
     const newActiveHeading = element?.querySelector('h1,h2,h3,h4,h5,h6');
 
     if (newActiveHeading !== null) {
-      this.state['activeHeading'] = newActiveHeading;
+      this.state.activeHeading = newActiveHeading;
       this.previousActiveHeading = newActiveHeading;
     } else {
-      this.state['activeHeading'] = this.previousActiveHeading;
+      this.state.activeHeading = this.previousActiveHeading;
     }
 
     this.stateService.setState(this.state);

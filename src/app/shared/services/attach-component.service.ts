@@ -9,6 +9,7 @@ export class AttachComponentService {
 
   attachComponent(component: Type<unknown>): void {
     const componentName = component.name.slice(1);
+    if (!componentName) return;
 
     const hostElements = Array.from(this.document.querySelectorAll<Element>(`.${componentName}`));
 

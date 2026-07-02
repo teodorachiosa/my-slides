@@ -1,14 +1,6 @@
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  DOCUMENT,
-  HostListener,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { AfterViewInit, Component, DOCUMENT, HostListener, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterLinkActive, Routes } from '@angular/router';
+import { RouterLink, RouterLinkActive, Routes } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 import { State, Theme, Layout } from '@shared/models/state.model';
@@ -33,7 +25,7 @@ const WIDTH_MAX = 100;
     RouterLinkActive,
     MenuIcon,
     SettingsIcon,
-    PresentationIcon
+    PresentationIcon,
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -42,17 +34,12 @@ export class Header implements OnInit, AfterViewInit {
   stateService = inject(StateService);
   document = inject(DOCUMENT);
   translateService = inject(TranslateService);
-  changeDetector = inject(ChangeDetectorRef);
   localStorageService = inject(LocalStorageService);
-  router = inject(Router);
   state: State = {};
-  localStorageSettings: State = {};
   layout?: Layout;
   maxWidth?: number;
-  darkModeMediaQuery?: MediaQueryList;
   theme?: Theme = 'system';
   language: ContentLanguage = 'en';
-  rootElement?: HTMLElement | null;
   routes: Routes;
 
   @HostListener('document:keydown', ['$event'])
@@ -75,10 +62,8 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (typeof document !== 'undefined') {
-      this.rootElement = document.documentElement;
-
-      document.addEventListener('fullscreenchange', () => {
+    if (typeof this.document !== 'undefined') {
+      this.document.addEventListener('fullscreenchange', () => {
         if (this.document.fullscreenElement === null) {
           this.exitFullscreen();
         }
@@ -87,7 +72,7 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   exitFullscreen(): void {
-    this.rootElement?.classList.remove('fullscreen');
+    this.document.documentElement.classList.remove('fullscreen');
     this.updateFullscreenStateAndUI(false);
 
     if (this.document.fullscreenElement === null) {
@@ -143,26 +128,26 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   updateLayout(noLocalStorageChanges = false): void {
-    this.state['layout'] = this.layout;
+    this.state.layout = this.layout;
     this.stateService.setState(this.state);
 
     if (!noLocalStorageChanges) {
       this.localStorageService.setToLocalStorage({ layout: this.layout });
     }
 
-    setTimeout(() => {
-      this.rootElement?.classList.remove(
-        this.layout === 'fixed' ? 'flexible-layout' : 'fixed-layout',
-      );
-      this.rootElement?.classList.add(this.layout === 'fixed' ? 'fixed-layout' : 'flexible-layout');
-    });
+    this.document.documentElement.classList.remove(
+      this.layout === 'fixed' ? 'flexible-layout' : 'fixed-layout',
+    );
+    this.document.documentElement.classList.add(
+      this.layout === 'fixed' ? 'fixed-layout' : 'flexible-layout',
+    );
   }
 
   updateMaxWidth(noLocalStorageChanges = false): void {
-    this.state['maxWidth'] = this.maxWidth;
+    this.state.maxWidth = this.maxWidth;
     this.stateService.setState(this.state);
 
-    this.focusCurrentSlide();
+    this.focusCurrentSlide(false, true);
 
     if (!noLocalStorageChanges) {
       this.localStorageService.setToLocalStorage({ maxWidth: this.maxWidth });
@@ -175,7 +160,7 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   updateDarkMode(noLocalStorageChanges = false): void {
-    this.state['theme'] = this.theme;
+    this.state.theme = this.theme;
     this.stateService.setState(this.state);
 
     if (!noLocalStorageChanges) {
@@ -188,8 +173,8 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   setColorScheme(): void {
-    if (typeof document !== 'undefined') {
-      document.documentElement.style.setProperty(
+    if (typeof this.document !== 'undefined') {
+      this.document.documentElement.style.setProperty(
         'color-scheme',
         this.theme === 'dark' ? 'dark' : this.theme === 'light' ? 'light' : 'light dark',
       );
@@ -217,39 +202,42 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   async present(): Promise<void> {
-    if (!document.fullscreenElement) {
-      const currentSlide = this.stateService.getState()().currentSlide;
-
-      await document.documentElement.requestFullscreen();
-      this.rootElement?.classList.add('fullscreen');
-      this.updateFullscreenStateAndUI(true);
-      setTimeout(() => {
-        this.document.querySelectorAll<HTMLElement>('app-slide')[currentSlide ?? 0]?.focus();
+    if (!this.document.fullscreenElement) {
+      await this.document.documentElement.requestFullscreen().then(() => {
+        this.document.documentElement.classList.add('fullscreen');
+        this.updateFullscreenStateAndUI(true);
+        this.focusCurrentSlide(true);
       });
     }
   }
 
-  focusCurrentSlide(): void {
+  focusCurrentSlide(isPresentMode = false, isScrollOnly = false): void {
     const currentSlide = this.stateService.getState()().currentSlide ?? 0;
 
     const currentSlideElement =
       this.document.querySelectorAll<HTMLElement>('app-slide')[currentSlide];
 
     if (currentSlideElement) {
-      setTimeout(() => {
-        currentSlideElement.setAttribute('tabindex', '0');
-        currentSlideElement.focus();
+      requestAnimationFrame(() => {
+        if(!isScrollOnly) {
+          currentSlideElement.setAttribute('tabindex', '0');
+          currentSlideElement.focus();
+        }
+
         currentSlideElement.scrollIntoView({
           behavior: 'instant',
           block: 'center',
         });
-        currentSlideElement.removeAttribute('tabindex');
+
+        if (!isPresentMode && !isScrollOnly) {
+          currentSlideElement.removeAttribute('tabindex');
+        }
       });
     }
   }
 
   updateFullscreenStateAndUI(isFullscreen: boolean): void {
-    this.state['isFullscreen'] = isFullscreen;
+    this.state.isFullscreen = isFullscreen;
     this.stateService.setState(this.state);
   }
 
@@ -257,7 +245,7 @@ export class Header implements OnInit, AfterViewInit {
     this.translateService.use(language);
     this.document.documentElement.setAttribute('lang', language);
 
-    this.state['language'] = language;
+    this.state.language = language;
     this.stateService.setState(this.state);
 
     if (!noLocalStorageChanges) {

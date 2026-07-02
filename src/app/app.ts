@@ -60,8 +60,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.routerEventsSubscription = this.router.events.subscribe((navigationEvent) => {
-      this.makeMainHeadingFocusable();
-
       if (navigationEvent instanceof NavigationEnd) {
         this.onRouteChange();
 
@@ -99,12 +97,5 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
   getPageTitle(): string {
     return `${this.translateService.instant(this.activatedRoute.firstChild?.snapshot.data['title'] ?? '.')} - ${this.translateService.instant('ui.siteTitle')}`;
-  }
-
-  makeMainHeadingFocusable(): void {
-    this.mainHeading = undefined;
-    this.mainHeading = this.document.getElementsByTagName('h1')[0];
-    this.mainHeading?.setAttribute('tabindex', '-1');
-    this.mainHeading?.setAttribute('id', 'slides-start');
   }
 }

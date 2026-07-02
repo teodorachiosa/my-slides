@@ -1,9 +1,8 @@
-import { ViewportScroller } from '@angular/common';
 import {
+  afterRenderEffect,
   AfterViewInit,
   Component,
   DOCUMENT,
-  effect,
   inject,
   Input,
   OnDestroy,
@@ -33,7 +32,6 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   document = inject(DOCUMENT);
   renderer = inject(Renderer2);
   stateService = inject(StateService);
-  viewportScroller = inject(ViewportScroller);
   translateService = inject(TranslateService);
   currentRouteService = inject(CurrentRouteService);
   allHeadings: WritableSignal<HTMLHeadingElement[]> = signal([]);
@@ -42,18 +40,26 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   state: WritableSignal<State> = signal({});
 
   constructor() {
-    effect(() => {
-      const activeHeadingId = this.state().activeHeading?.id;
-      const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
-      const activeTOCLink = this.document.querySelector<HTMLElement>(hrefSelector);
-      const scrollContainer = this.document.querySelector<HTMLElement>('app-table-of-contents');
+    afterRenderEffect({
+      read: () => {
+        this.currentRoute = this.currentRouteService.getCurrentRoute();
+        this.getUpdatedHeadings();
 
-      if (typeof window !== 'undefined') {
-        const mobileMedia = window.matchMedia('(width <= 500px)');
-        if (!mobileMedia.matches && activeTOCLink) {
-          scrollContainer!.scrollTop = activeTOCLink.offsetTop - SCROLL_MARGIN_OFFSET;
+        if (this.allHeadings() && this.document) {
+          const activeHeadingId = this.state().activeHeading?.id;
+          const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
+          const activeTOCLink = this.document.querySelector<HTMLElement>(hrefSelector);
+          const scrollContainer = this.document.querySelector<HTMLElement>('app-table-of-contents');
+
+          if (typeof window !== 'undefined') {
+            const smallerWidthMedia = window.matchMedia('(width <= 500px)');
+
+            if (!smallerWidthMedia.matches && activeTOCLink) {
+              scrollContainer!.scrollTop = activeTOCLink.offsetTop - SCROLL_MARGIN_OFFSET;
+            }
+          }
         }
-      }
+      },
     });
   }
 
@@ -64,10 +70,11 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.getHeadings();
+    this.getUpdatedHeadings();
 
     this.languageChangeSubscription = this.translateService.onLangChange.subscribe(() => {
-      this.getHeadings();
+      this.currentRoute = this.currentRouteService.getCurrentRoute();
+      this.getUpdatedHeadings();
     });
   }
 
@@ -83,8 +90,15 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
       const resizeObserver = new ResizeObserver((entries) => {
         for (const entry of entries) {
           const headerHeight = `${entry.borderBoxSize[0].blockSize}px`;
-          this.renderer.setStyle(tocElement, 'top', headerHeight);
-          this.renderer.setStyle(tocElement, 'height', `calc(100vh - ${headerHeight})`);
+          const smallerHeightMedia = window.matchMedia('(height <= 500px)');
+
+          if (smallerHeightMedia.matches) {
+            this.renderer.setStyle(tocElement, 'top', 0);
+            this.renderer.setStyle(tocElement, 'height', `100vh`);
+          } else {
+            this.renderer.setStyle(tocElement, 'top', headerHeight);
+            this.renderer.setStyle(tocElement, 'height', `calc(100vh - ${headerHeight})`);
+          }
         }
       });
 
@@ -94,11 +108,15 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  getHeadings(): void {
-    setTimeout(() => {
-      const allHeadingsQuery: NodeListOf<HTMLHeadingElement> =
-        this.document.querySelectorAll('h1,h2,h3,h4,h4,h6');
-      this.allHeadings.set(Array.from(allHeadingsQuery));
-    });
+  getUpdatedHeadings(): void {
+    const allHeadingsQuery: NodeListOf<HTMLHeadingElement> =
+      this.document.querySelectorAll('h1,h2,h3,h4,h4,h6');
+
+    let allHeadingsArray = Array.from(allHeadingsQuery);
+    allHeadingsArray = allHeadingsArray.filter(
+      (heading) => !heading.classList.contains('no-slides'),
+    );
+
+    this.allHeadings.set(allHeadingsArray);
   }
 }
