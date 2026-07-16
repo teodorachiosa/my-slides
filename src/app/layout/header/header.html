@@ -57,7 +57,7 @@
                    id="fixed-layout"
                    value="fixed"
                    name="layout"
-                   aria-describedby="fixed-layout-description"
+                   [attr.aria-describedby]="layout === 'fixed' ? 'fixed-layout-description' : null"
                    [(ngModel)]="layout"
                    (ngModelChange)="updateLayout()" />
             <label for="fixed-layout">{{'ui.fixedLayout' | translate}}</label>
@@ -67,7 +67,7 @@
                    id="flexible-layout"
                    value="flexible"
                    name="layout"
-                   aria-describedby="flexible-layout-description"
+                   [attr.aria-describedby]="layout === 'flexible' ? 'flexible-layout-description' : null"
                    [(ngModel)]="layout"
                    (ngModelChange)="updateLayout()" />
             <label for="flexible-layout">{{'ui.flexibleLayout' | translate}}</label>
@@ -115,24 +115,34 @@
 
     <div class="option">
       <span class="span-label"
-            id="max-width-label">{{'ui.maxWidth' | translate}}</span>
-      <span role="group"
-            class="inline-group"
-            aria-labelledby="max-width-label">
-        <button (click)="decreaseWidth()"
-                [disabled]="isDecreaseButtonDisabled()"
-                class="plus-minus-button">
-          <span class="sr-only">{{ 'ui.decreaseMaxWidth' | translate}}</span>
-          <span aria-hidden="true">-</span>
-        </button>
-        <button (click)="increaseWidth()"
-                [disabled]="isIncreaseButtonDisabled()"
-                class="plus-minus-button">
-          <span class="sr-only">{{ 'ui.increaseMaxWidth' | translate}}</span>
-          <span aria-hidden="true">+</span>
-        </button>
-        <output class="margin-left">{{maxWidth}}%</output>
-      </span>
+            id="width-label">{{'ui.width' | translate}}</span>
+      <div>
+        <div role="group"
+             class="inline-group"
+             aria-labelledby="width-label">
+          <button (click)="decreaseWidth()"
+                  class="plus-minus-button"
+                  [attr.aria-describedby]="isDecreaseButtonDisabled() ? 'decrease-button-disabled' : null">
+            <span class="sr-only">{{ 'ui.decreaseWidth' | translate}}</span>
+            <span aria-hidden="true">-</span>
+          </button>
+          <button (click)="increaseWidth()"
+                  class="plus-minus-button"
+                  [attr.aria-describedby]="isIncreaseButtonDisabled() ? 'increase-button-disabled' : null">
+            <span class="sr-only">{{ 'ui.increaseWidth' | translate}}</span>
+            <span aria-hidden="true">+</span>
+          </button>
+          <output class="margin-left">{{width}}%</output>
+        </div>
+        @if(isDecreaseButtonDisabled()) {
+        <p class="hint"
+           id="decrease-button-disabled">{{'ui.decreaseButtonDisabled' | translate}}</p>
+        }
+        @if(isIncreaseButtonDisabled()) {
+        <p class="hint"
+           id="increase-button-disabled">{{'ui.increaseButtonDisabled' | translate}}</p>
+        }
+      </div>
     </div>
 
     <div role="group"
@@ -186,11 +196,14 @@
   @if(layout === 'fixed') {
   <button (click)="present()"
           id="present"
-          class="header-option">
+          class="header-option"
+          aria-describedby="keyboard-shortcut-info">
     <app-presentation-icon class="icon"></app-presentation-icon>
     <span class="sr-only-mobile">{{'ui.present' | translate}}</span>
     <span aria-hidden="true"
-          class="kbd-shortcut">(<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
+          id="keyboard-shortcut-info"
+          class="tooltip">
+      {{'ui.press' | translate}} <kbd>Shift</kbd> + <kbd>F5</kbd> {{'ui.or' | translate}} <kbd>⌘</kbd> + <kbd>Return</kbd>
     </span>
   </button>
   }

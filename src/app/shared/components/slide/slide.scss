@@ -1,10 +1,11 @@
 :host {
-  --background-color: var(--surface-background);
+  --background-color: var(--inverted-text); /* default color for no inline background styling */
+
   --slide-text: color-mix(in hsl, var(--background-color), var(--text) 85%);
   --slides-link-hover: color-mix(in hsl, var(--background-color), var(--text) 70%);
-  --slides-borders: color-mix(in hsl, var(--background-color), var(--text) 30%);
-  --slides-table-headers: color-mix(in hsl, var(--background-color), var(--text) 12%);
-  --slides-background-light: color-mix(in hsl, var(--background-color), var(--inverted-text) 60%);
+  --slides-borders: color-mix(in hsl, var(--background-color), var(--text) 15%);
+  --slides-table-headers: color-mix(in hsl, var(--background-color), var(--text) 7%);
+  --slides-background-light: color-mix(in hsl, var(--background-color), var(--inverted-text) 50%);
 
   position: relative;
   display: flex;
@@ -13,181 +14,32 @@
   max-width: 100%;
   min-width: fit-content;
   margin: 0 auto;
-  padding: calc(5.1 * var(--unit));
+  padding: 2.2lh;
   background: var(--background-color);
   color: var(--slide-text);
-
-  ::ng-deep .slide-number {
-    position: absolute;
-    top: 0;
-    left: calc(var(--spacing) / -6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8em;
-    padding: 0 0.4em;
-    translate: -100%;
-    z-index: -1;
-    background: var(--inverted-text);
-    border: 1px solid var(--dark-grey);
-    border-radius: var(--spacing);
-    opacity: 0.8;
-  }
-
-  ::ng-deep * {
-    text-wrap: balance;
-    word-break: break-word;
-    flex-wrap: wrap;
-  }
-
-  ::ng-deep :first-child {
-    margin-top: 0;
-  }
-
-  ::ng-deep :last-child {
-    margin-bottom: 0;
-  }
-
-  ::ng-deep a {
-    color: var(--slide-text);
-    font-weight: 700;
-  }
-
-  ::ng-deep a:hover {
-    color: var(--slides-link-hover);
-  }
-
-  ::ng-deep hr {
-    border: 1px solid var(--slides-borders);
-    height: 1px;
-    border-radius: var(--radius);
-  }
-
-  ::ng-deep img {
-    width: 100%;
-    height: auto;
-  }
-
-  ::ng-deep blockquote {
-    border: 1px solid var(--slides-borders);
-    border-left: calc(1 * var(--unit)) solid var(--slides-borders);
-    margin: 0;
-    padding-block-start: calc(1 * var(--unit));
-    padding-block-end: calc(1 * var(--unit));
-    padding-inline-start: calc(2 * var(--unit));
-    padding-inline-end: calc(2 * var(--unit));
-    border-radius: var(--radius);
-    background: var(--slides-background-light);
-  }
-
-  ::ng-deep ul {
-    margin-block-start: calc(1.5 * var(--unit)) !important;
-    margin-block-end: calc(1.5 * var(--unit)) !important;
-    padding-inline-start: calc(3.5 * var(--unit)) !important;
-  }
-
-  ::ng-deep li {
-    margin-block-start: calc(0.5 * var(--unit)) !important;
-    margin-block-end: calc(0.5 * var(--unit)) !important;
-  }
-
-  ::ng-deep code.hljs {
-    background: oklch(0 0 347 / 0.87);
-    font-family: var(--code-font);
-    border-radius: var(--radius);
-  }
-
-  ::ng-deep code:not(.hljs) {
-    background: var(--slides-background-light);
-    font-family: var(--code-font);
-    padding: 0.2em;
-    border-radius: var(--radius);
-  }
-
-  ::ng-deep table {
-    border-collapse: collapse;
-    border: 2px solid var(--slides-borders);
-    background: var(--slides-background-light);
-  }
-
-  ::ng-deep table th {
-    background-color: var(--slides-table-headers);
-  }
-
-  ::ng-deep table th,
-  ::ng-deep table td {
-    padding: 0.4em 0.6em;
-    border: 2px solid var(--slides-borders);
-  }
-
-  &:focus-visible {
-    outline-offset: 4px;
-  }
 }
 
 :host-context(.flexible-layout) {
   :host {
-    --unit: 0.5em;
     border-radius: var(--radius);
-
-    ::ng-deep img.fullscreen {
-      display: flex;
-      object-fit: cover;
-    }
-
-    ::ng-deep .side-by-side {
-      height: 100%;
-
-      img {
-        width: 100%;
-
-        &:not(:last-child) {
-          border-bottom: calc(var(--unit) * 1.5) solid transparent;
-        }
-      }
-    }
-
-    &:has(img.fullscreen),
-    &:has(.side-by-side) {
-      padding: 0 !important;
-    }
   }
 }
 
 :host-context(.fixed-layout) {
   :host {
-    --unit: 1cqi;
-    font-size: calc(2.2 * var(--unit));
-
-    ::ng-deep .side-by-side {
-      height: 100%;
-    }
-
-    &:has(.side-by-side) {
-      padding: 0 !important;
-    }
-
-    ::ng-deep h1 {
-      font-size: calc(6 * var(--unit));
-    }
-
-    ::ng-deep h2 {
-      font-size: calc(3.5 * var(--unit));
-    }
-
-    ::ng-deep h3 {
-      font-size: calc(3 * var(--unit));
-    }
+    font-size: 2cqi;
 
     aspect-ratio: 16 / 9;
     overflow-x: visible;
     overflow-y: clip;
+  }
+}
 
-    ::ng-deep img.fullscreen {
-      aspect-ratio: 16 / 9;
-      position: absolute;
-      inset: 0;
-      object-fit: cover;
+:host-context(.fullscreen.fixed-layout) {
+  :host {
+    /* Hide focus outline of the main slide shown in fullscreen */
+    &:focus-visible {
+      outline: none;
     }
   }
 }

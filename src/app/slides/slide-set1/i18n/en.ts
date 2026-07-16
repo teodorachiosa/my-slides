@@ -4,6 +4,9 @@ const md = String.raw;
 
 const enSlideSet1Translations: TranslatedSlideSet = {
   title: '\\Web Accessibility for Everyone',
+  examples: {
+    removeButton: '\\Remove'
+  },
   slides: [
     {
       backgroundColor: '\\var(--violet)',
@@ -150,7 +153,7 @@ Best case scenario, the "boxes" have labels.
 
 A sighted user sees the "box" contents directly:
 
-<!--RemoveButtonEn-->
+<!--RemoveButton-->
 
 Screen reader users hear the label of the "box".
 

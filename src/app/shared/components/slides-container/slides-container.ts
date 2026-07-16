@@ -6,6 +6,7 @@ import {
   DOCUMENT,
   Renderer2,
   afterNextRender,
+  ElementRef,
 } from '@angular/core';
 import { State } from '@shared/models/state.model';
 import { StateService } from '@shared/services/state.service';
@@ -23,6 +24,7 @@ export class SlidesContainer {
   stateService = inject(StateService);
   renderer = inject(Renderer2);
   document = inject(DOCUMENT);
+  elementRef = inject(ElementRef);
   allSlides?: NodeListOf<HTMLElement>;
   state: State = {};
   currentSlide = 0;
@@ -32,8 +34,8 @@ export class SlidesContainer {
   constructor() {
     afterNextRender({
       read: () => {
-        if (typeof this.document !== 'undefined') {
-          this.allSlides = this.document.querySelectorAll('app-slide');
+        if (typeof this.elementRef !== 'undefined') {
+          this.allSlides = this.elementRef.nativeElement.querySelectorAll('app-slide');
         }
 
         this.addSlideNumber();
@@ -43,21 +45,45 @@ export class SlidesContainer {
   }
 
   @HostBinding('style.width')
-  get maxWidth() {
-    return this.stateService.getState()().maxWidth && !this.stateService.getState()().isFullscreen
-      ? `${this.stateService.getState()().maxWidth}%`
+  get width() {
+    return this.stateService.getState()().width && !this.stateService.getState()().isFullscreen
+      ? `${this.stateService.getState()().width}%`
       : '100%';
+  }
+
+  @HostListener('focusin')
+  handleFocusin() {
+    const activeElement = this.document.activeElement;
+
+    if (activeElement && activeElement.matches(':focus-visible')) {
+      this.state.activeElement = activeElement;
+      this.stateService.setState(this.state);
+
+      const closestSlide = activeElement?.closest('app-slide');
+
+      closestSlide?.scrollIntoView({
+        behavior: 'instant',
+        block: 'center',
+      });
+    }
   }
 
   @HostListener('keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    const allowedKeys = ['ArrowRight', 'ArrowLeft', 'Home', 'End', 'PageUp', 'PageDown'];
+    const allowedKeysInFullscreen = [
+      'ArrowRight',
+      'ArrowLeft',
+      'Home',
+      'End',
+      'PageUp',
+      'PageDown',
+    ];
 
     if (
       !this.allSlides ||
       this.stateService.getState()().layout === 'flexible' ||
       !this.stateService.getState()().isFullscreen ||
-      !allowedKeys.includes(event.key)
+      !allowedKeysInFullscreen.includes(event.key)
     )
       return;
 

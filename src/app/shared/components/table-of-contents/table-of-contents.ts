@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   Component,
   DOCUMENT,
+  ElementRef,
   inject,
   Input,
   OnDestroy,
@@ -30,6 +31,7 @@ const SCROLL_MARGIN_OFFSET = 100;
 export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   @Input() contents = signal<TranslatedSlide[]>([]);
   document = inject(DOCUMENT);
+  elementRef = inject(ElementRef);
   renderer = inject(Renderer2);
   stateService = inject(StateService);
   translateService = inject(TranslateService);
@@ -45,11 +47,12 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
         this.currentRoute = this.currentRouteService.getCurrentRoute();
         this.getUpdatedHeadings();
 
-        if (this.allHeadings() && this.document) {
+        if (this.allHeadings() && this.elementRef.nativeElement) {
           const activeHeadingId = this.state().activeHeading?.id;
           const hrefSelector = `.toc-link[href*="${activeHeadingId}"]`;
-          const activeTOCLink = this.document.querySelector<HTMLElement>(hrefSelector);
-          const scrollContainer = this.document.querySelector<HTMLElement>('app-table-of-contents');
+          const activeTOCLink: HTMLElement =
+            this.elementRef.nativeElement.querySelector(hrefSelector);
+          const scrollContainer: HTMLElement = this.elementRef.nativeElement;
 
           if (typeof window !== 'undefined') {
             const smallerWidthMedia = window.matchMedia('(width <= 500px)');
@@ -84,7 +87,7 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
 
   watchForPositionChanges(): void {
     const headerElement = this.document.querySelector('header');
-    const tocElement = this.document.querySelector('app-table-of-contents');
+    const tocElement = this.elementRef.nativeElement;
 
     if (typeof window !== 'undefined') {
       const resizeObserver = new ResizeObserver((entries) => {
@@ -109,8 +112,9 @@ export class TableOfContents implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getUpdatedHeadings(): void {
-    const allHeadingsQuery: NodeListOf<HTMLHeadingElement> =
-      this.document.querySelectorAll('h1,h2,h3,h4,h4,h6');
+    const allHeadingsQuery: NodeListOf<HTMLHeadingElement> = this.document.querySelectorAll(
+      '#slides :is(h1, h2, h3, h4, h5, h6)',
+    );
 
     let allHeadingsArray = Array.from(allHeadingsQuery);
     allHeadingsArray = allHeadingsArray.filter(

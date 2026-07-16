@@ -6,8 +6,7 @@ import { SlideSet } from 'app/shared/components/slide-set/slide-set';
 import { Markdown } from '@shared/components/markdown/markdown';
 import { A11yIcon } from '@shared/components/icons/a11y-icon/a11y-icon';
 import { RemoveButtonBad } from './examples/remove-button-bad/remove-button-bad';
-import { RemoveButtonEn } from './examples/en/remove-button/remove-button';
-import { RemoveButtonRo } from './examples/ro/remove-button/remove-button';
+import { RemoveButton } from './examples/remove-button/remove-button';
 import { TableOfContents } from 'app/shared/components/table-of-contents/table-of-contents';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -19,5 +18,5 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class SlideSet1 extends SlideSet {
   override setName = 'sets.set1.slides';
-  override components = [A11yIcon, RemoveButtonEn, RemoveButtonRo, RemoveButtonBad];
+  override components = [A11yIcon, RemoveButton, RemoveButtonBad];
 }

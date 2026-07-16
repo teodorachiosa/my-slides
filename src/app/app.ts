@@ -9,14 +9,7 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
-import {
-  RouterLink,
-  RouterOutlet,
-  Router,
-  NavigationEnd,
-  ActivatedRoute,
-  Scroll,
-} from '@angular/router';
+import { RouterLink, RouterOutlet, Router, NavigationEnd, ActivatedRoute, Scroll } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';

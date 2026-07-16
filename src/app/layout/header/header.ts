@@ -11,6 +11,8 @@ import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-ic
 import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
 import { routes } from 'app/app.routes';
 import { LocalStorageService } from '@shared/services/local-storage.service';
+import { NotificationService } from 'app/shared/services/notification.service';
+import { fromEvent } from 'rxjs';
 
 const WIDTH_STEP = 10;
 const WIDTH_MIN = 10;
@@ -34,17 +36,21 @@ export class Header implements OnInit, AfterViewInit {
   stateService = inject(StateService);
   document = inject(DOCUMENT);
   translateService = inject(TranslateService);
+  notificationService = inject(NotificationService);
   localStorageService = inject(LocalStorageService);
   state: State = {};
   layout?: Layout;
-  maxWidth?: number;
+  width?: number;
   theme?: Theme = 'system';
   language: ContentLanguage = 'en';
   routes: Routes;
 
   @HostListener('document:keydown', ['$event'])
   handlePresentKeys(event: KeyboardEvent) {
-    if (this.stateService.getState()().layout === 'fixed' && event.ctrlKey && event.key === 'F5') {
+    if (
+      this.stateService.getState()().layout === 'fixed' &&
+      ((event.shiftKey && event.key === 'F5') || (event.metaKey && event.key === 'Enter'))
+    ) {
       event.preventDefault();
       this.present();
     }
@@ -56,14 +62,14 @@ export class Header implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.setInitialLayout();
-    this.setInitialMaxWidth();
+    this.setInitialWidth();
     this.setInitialTheme();
     this.setInitialLanguage();
   }
 
   ngAfterViewInit(): void {
     if (typeof this.document !== 'undefined') {
-      this.document.addEventListener('fullscreenchange', () => {
+      fromEvent(this.document, 'fullscreenchange').subscribe(() => {
         if (this.document.fullscreenElement === null) {
           this.exitFullscreen();
         }
@@ -74,10 +80,8 @@ export class Header implements OnInit, AfterViewInit {
   exitFullscreen(): void {
     this.document.documentElement.classList.remove('fullscreen');
     this.updateFullscreenStateAndUI(false);
-
-    if (this.document.fullscreenElement === null) {
-      this.focusCurrentSlide();
-    }
+    this.focusCurrentSlide();
+    this.notificationService.notify(this.translateService.instant('ui.exitFullscreen'));
   }
 
   setInitialLayout(): void {
@@ -91,15 +95,15 @@ export class Header implements OnInit, AfterViewInit {
     this.updateLayout(true);
   }
 
-  setInitialMaxWidth(): void {
-    const initialMaxWidthLocalStorage = this.localStorageService.getLocalStorage()?.maxWidth;
+  setInitialWidth(): void {
+    const initialWidthLocalStorage = this.localStorageService.getLocalStorage()?.width;
 
-    if (initialMaxWidthLocalStorage) {
-      this.maxWidth = initialMaxWidthLocalStorage;
+    if (initialWidthLocalStorage) {
+      this.width = initialWidthLocalStorage;
     } else {
-      this.maxWidth = this.stateService.getState()().maxWidth;
+      this.width = this.stateService.getState()().width;
     }
-    this.updateMaxWidth(true);
+    this.updateWidth(true);
   }
 
   setInitialTheme(): void {
@@ -143,14 +147,14 @@ export class Header implements OnInit, AfterViewInit {
     );
   }
 
-  updateMaxWidth(noLocalStorageChanges = false): void {
-    this.state.maxWidth = this.maxWidth;
+  updateWidth(noLocalStorageChanges = false): void {
+    this.state.width = this.width;
     this.stateService.setState(this.state);
 
     this.focusCurrentSlide(false, true);
 
     if (!noLocalStorageChanges) {
-      this.localStorageService.setToLocalStorage({ maxWidth: this.maxWidth });
+      this.localStorageService.setToLocalStorage({ width: this.width });
     }
   }
 
@@ -182,23 +186,23 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   isDecreaseButtonDisabled(): boolean {
-    return !this.maxWidth || this.maxWidth < WIDTH_MIN + WIDTH_STEP;
+    return !this.width || this.width < WIDTH_MIN + WIDTH_STEP;
   }
 
   isIncreaseButtonDisabled(): boolean {
-    return !this.maxWidth || this.maxWidth > WIDTH_MAX - WIDTH_STEP;
+    return !this.width || this.width > WIDTH_MAX - WIDTH_STEP;
   }
 
   decreaseWidth(): void {
-    if (!this.maxWidth || this.isDecreaseButtonDisabled()) return;
-    this.maxWidth = this.maxWidth - WIDTH_STEP;
-    this.updateMaxWidth();
+    if (!this.width || this.isDecreaseButtonDisabled()) return;
+    this.width = this.width - WIDTH_STEP;
+    this.updateWidth();
   }
 
   increaseWidth(): void {
-    if (!this.maxWidth || this.isIncreaseButtonDisabled()) return;
-    this.maxWidth = this.maxWidth + WIDTH_STEP;
-    this.updateMaxWidth();
+    if (!this.width || this.isIncreaseButtonDisabled()) return;
+    this.width = this.width + WIDTH_STEP;
+    this.updateWidth();
   }
 
   async present(): Promise<void> {
@@ -207,31 +211,7 @@ export class Header implements OnInit, AfterViewInit {
         this.document.documentElement.classList.add('fullscreen');
         this.updateFullscreenStateAndUI(true);
         this.focusCurrentSlide(true);
-      });
-    }
-  }
-
-  focusCurrentSlide(isPresentMode = false, isScrollOnly = false): void {
-    const currentSlide = this.stateService.getState()().currentSlide ?? 0;
-
-    const currentSlideElement =
-      this.document.querySelectorAll<HTMLElement>('app-slide')[currentSlide];
-
-    if (currentSlideElement) {
-      requestAnimationFrame(() => {
-        if(!isScrollOnly) {
-          currentSlideElement.setAttribute('tabindex', '0');
-          currentSlideElement.focus();
-        }
-
-        currentSlideElement.scrollIntoView({
-          behavior: 'instant',
-          block: 'center',
-        });
-
-        if (!isPresentMode && !isScrollOnly) {
-          currentSlideElement.removeAttribute('tabindex');
-        }
+        this.notificationService.notify(this.translateService.instant('ui.requestFullscreen'));
       });
     }
   }
@@ -256,5 +236,39 @@ export class Header implements OnInit, AfterViewInit {
   closeMenuPopover(): void {
     const menuPopover = this.document.getElementById('main-menu');
     menuPopover?.hidePopover();
+  }
+
+  focusCurrentSlide(isRequestingFullscreen = false, isScrollOnly = false): void {
+    const activeElement = this.stateService.getState()().activeElement;
+    let currentSlideElement;
+
+    if (activeElement) {
+      currentSlideElement = activeElement?.closest('app-slide');
+    } else {
+      const currentSlide = this.stateService.getState()().currentSlide ?? 0;
+      currentSlideElement = this.document.querySelectorAll<HTMLElement>('app-slide')[currentSlide];
+    }
+
+    if (currentSlideElement) {
+      requestAnimationFrame(() => {
+        if (!isScrollOnly) {
+          if (activeElement) {
+            (activeElement as HTMLElement)?.focus();
+          } else {
+            currentSlideElement?.setAttribute('tabindex', '0');
+            (currentSlideElement as HTMLElement)?.focus();
+          }
+        }
+
+        currentSlideElement.scrollIntoView({
+          behavior: 'instant',
+          block: 'center',
+        });
+
+        if (!isRequestingFullscreen && !isScrollOnly) {
+          currentSlideElement.removeAttribute('tabindex');
+        }
+      });
+    }
   }
 }

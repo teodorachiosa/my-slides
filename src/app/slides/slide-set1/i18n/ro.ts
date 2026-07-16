@@ -4,6 +4,9 @@ const md = String.raw;
 
 const roSlideSetTranslations: TranslatedSlideSet = {
   title: '\\Accesibilitatea web pe înțelesul tuturor',
+  examples: {
+    removeButton: '\\Șterge',
+  },
   slides: [
     {
       backgroundColor: '\\var(--violet)',
@@ -155,7 +158,7 @@ Exemple:
 
 Persoanele văzătoare văd direct conținutul „cutiei”:
 
-<!--RemoveButtonRo-->
+<!--RemoveButton-->
 
 Utilizatorii de cititor de ecran vor auzi eticheta „cutiei”.
 

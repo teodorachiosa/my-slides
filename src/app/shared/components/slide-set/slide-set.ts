@@ -6,6 +6,8 @@ import {
   Type,
   Component,
   afterRenderEffect,
+  ElementRef,
+  Renderer2,
 } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -13,6 +15,7 @@ import { Subscription } from 'rxjs';
 
 import { AttachComponentService } from '@shared/services/attach-component.service';
 import { TranslatedSlide } from '@shared/models/translation.model';
+import { CurrentRouteService } from 'app/shared/services/current-route.service';
 
 @Component({
   selector: 'app-slide-set',
@@ -26,11 +29,15 @@ export class SlideSet implements AfterViewInit, OnDestroy {
   slidesContent = signal<TranslatedSlide[]>([]);
   destroyed = signal<boolean>(false);
   translationsSubscription = Subscription.EMPTY;
+  elementRef = inject(ElementRef);
+  renderer = inject(Renderer2);
+  currentRouteService = inject(CurrentRouteService);
 
   constructor() {
     afterRenderEffect({
       read: () => {
         if (this.components?.length && this.slidesContent()) {
+          this.updateSamePageLinks();
           this.attachComponents();
         }
       },
@@ -52,6 +59,24 @@ export class SlideSet implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.translationsSubscription.unsubscribe();
     this.destroyed.set(true);
+  }
+
+  updateSamePageLinks(): void {
+    const allLinks: HTMLLinkElement[] = Array.from(
+      this.elementRef.nativeElement.querySelectorAll('app-slides-container [href]'),
+    );
+
+    const samePageLinks = allLinks.filter((link: HTMLLinkElement) =>
+      link.getAttribute('href')?.startsWith('#'),
+    );
+
+    samePageLinks.forEach((link) => {
+      this.renderer.setAttribute(
+        link,
+        'href',
+        `${this.currentRouteService.getCurrentRoute()}${link.getAttribute('href')}`,
+      );
+    });
   }
 
   attachComponents(): void {

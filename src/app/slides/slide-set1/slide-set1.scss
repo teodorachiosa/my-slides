@@ -22,10 +22,10 @@
     }
 
     .angular-component {
-      --icon-size: calc(7 * var(--unit));
+      --icon-size: 2.5lh;
       width: var(--icon-size);
       height: var(--icon-size);
-      border: calc(0.5 * var(--unit)) solid;
+      border: 0.15lh solid;
       border-radius: 50%;
 
       svg {
@@ -39,20 +39,20 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: calc(1 * var(--unit));
+      gap: 0.5lh;
 
       .presenters {
         display: flex;
         align-items: center;
-        gap: calc(1 * var(--unit));
+        gap: 0.5lh;
 
         img {
-          width: calc(18 * var(--unit));
+          width: 7lh;
           height: auto;
-          padding: calc(1.1 * var(--unit));
+          padding: 0.3lh;
           background: #fff;
-          border-radius: calc(1 * var(--unit));
-          margin-right: calc(0.5 * var(--unit));
+          border-radius: 0.2lh;
+          margin-right: 0.1lh;
         }
       }
     }
@@ -63,11 +63,10 @@
   /*about speakers*/
   .about-me-images {
     display: inline-flex;
-    gap: calc(1 * var(--unit));
 
     img {
       border-radius: 50%;
-      width: calc(9 * var(--unit));
+      width: 3lh;
       height: auto;
     }
   }
@@ -79,7 +78,7 @@
     justify-content: space-between;
 
     img {
-      width: 49.5%;
+      width: 49.5% !important;
       object-fit: cover;
       object-position: top;
       min-height: 50px;
@@ -87,7 +86,7 @@
   }
 
   ::ng-deep .desktop-mobile-emoji {
-    font-size: calc(7 * var(--unit));
+    font-size: 3.5lh;
     margin-top: 5%;
   }
 
@@ -107,12 +106,12 @@
   ::ng-deep .interaction-diagram {
     display: flex;
     place-self: center;
-    width: 51%;
+    width: 61% !important;
   }
 
   ::ng-deep .package-emoji {
     text-align: center;
-    font-size: calc(15 * var(--unit));
+    font-size: 7lh;
     margin-top: 2%;
   }
 
@@ -124,57 +123,108 @@
 
   ::ng-deep .float-overlay {
     float: left;
-    width: 36%;
-    border-radius: calc(1 * var(--unit));
-    margin-right: calc(4 * var(--unit));
-  }
-
-  ::ng-deep :has(.smaller) {
-    font-size: calc(2.01 * var(--unit));
+    width: 36% !important;
+    border-radius: 0.5lh;
+    margin-right: 1lh;
   }
 
   ::ng-deep .cloud-img {
     float: left;
-    border-radius: calc(1 * var(--unit));
-    width: 20%;
-    margin-right: calc(2 * var(--unit));
+    border-radius: 0.5lh;
+    width: 20% !important;
+    margin-right: 1lh;
   }
 
   ::ng-deep .pour-img {
-    width: 50%;
+    width: 50% !important;
     float: left;
-    margin-right: calc(5 * var(--unit));
-    margin-bottom: calc(4 * var(--unit));
+    margin-right: 2lh;
+    margin-bottom: 1lh;
   }
 
   ::ng-deep .nu {
     text-transform: uppercase;
-    border: calc(0.4 * var(--unit)) solid var(--slides-borders);
-    border-radius: calc(0.5 * var(--unit));
-    padding: 0 calc(0.5 * var(--unit));
+    border: 0.15lh solid var(--slides-borders);
+    border-radius: 0.2lh;
+    padding: 0 0.1lh;
     background: var(--inverted-text);
   }
 
   ::ng-deep .qa {
-    font-size: 10cqi;
     text-align: center;
   }
 
   ::ng-deep .q-and-a-img {
-    width: 36%;
+    width: 36% !important;
     display: flex;
     place-self: center;
   }
 
   ::ng-deep .barrier {
     float: left;
-    font-size: calc(12 * var(--unit));
-    margin-bottom: calc(0.5 * var(--unit));
+    font-size: 4.3lh;
+    margin-bottom: 3lh;
   }
 
   ::ng-deep p:has(.barrier) {
     + ul {
-      margin-left: calc(17 * var(--unit));
+      margin-left: 6lh;
+    }
+  }
+}
+
+:host-context(.flexible-layout) {
+  :host {
+    border-radius: var(--radius);
+
+    ::ng-deep img.fullscreen {
+      display: flex;
+      object-fit: cover;
+    }
+
+    ::ng-deep .side-by-side {
+      height: 100%;
+
+      img {
+        width: 100% !important;
+
+        &:not(:last-child) {
+          border-bottom: 0.2lh solid transparent;
+        }
+      }
+    }
+
+    app-slide:has(img.fullscreen),
+    app-slide:has(.side-by-side) {
+      padding: 0 !important;
+    }
+  }
+}
+
+:host-context(.fixed-layout) {
+  :host {
+    ::ng-deep .side-by-side {
+      height: 100%;
+    }
+
+    app-slide:has(.side-by-side) {
+      padding: 0 !important;
+    }
+
+    ::ng-deep h1 {
+      font-size: 2.15lh;
+      line-height: 1.2;
+    }
+
+    aspect-ratio: 16 / 9;
+    overflow-x: visible;
+    overflow-y: clip;
+
+    ::ng-deep img.fullscreen {
+      aspect-ratio: 16 / 9;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
     }
   }
 }

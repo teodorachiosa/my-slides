@@ -3,10 +3,11 @@ export type Theme = 'light' | 'dark' | 'system';
 
 export interface State {
   layout?: Layout;
-  maxWidth?: number;
+  width?: number;
   theme?: Theme;
   isFullscreen?: boolean;
-  currentSlide?: number;
   language?: string;
+  currentSlide?: number;
   activeHeading?: Element;
+  activeElement?: Element;
 }

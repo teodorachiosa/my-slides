@@ -1,0 +1,111 @@
+:root {
+  --accent: light-dark(oklch(34.56% 0.23278 267.033), oklch(81.021% 0.09582 276.211));
+  --text: light-dark(black, white);
+  --inverted-text: light-dark(white, black);
+  --link-color: var(--accent);
+  --background: light-dark(rgb(230 230 240), rgb(15 15 25));
+  --light-grey: rgba(117 117 137 / 0.15);
+  --grey: rgb(127, 127, 137);
+  --background-transparent: light-dark(
+    rgba(255, 255, 255, var(--background-transparency)),
+    rgba(35, 35, 45, var(--background-transparency))
+  );
+  --shadow-color: light-dark(rgba(0 0 0 / 0.2), rgb(0 0 0));
+  --controls-border: light-dark(
+    color-mix(var(--grey), var(--background) 60%),
+    color-mix(var(--grey), var(--background) 40%)
+  );
+  --controls-hover: light-dark(
+    color-mix(var(--grey), var(--inverted-text) 87%),
+    color-mix(var(--grey), var(--background) 60%)
+  );
+  --controls-background: var(--background-transparent);
+  --checked-controls-background: light-dark(
+    oklch(from var(--grey) calc(l + 0.32) c h),
+    oklch(from var(--grey) calc(l - 0.45) c h)
+  );
+
+  /**  SLIDE BACKGROUND COLORS: **/
+  --slide-background-transparency: 87%;
+
+  --red: color-mix(
+    in srgb,
+    oklch(70% 0.3 25),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --orange: color-mix(
+    in srgb,
+    oklch(70% 0.27 70),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --yellow: color-mix(
+    in srgb,
+    oklch(75% 0.26 95),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --lime: color-mix(
+    in srgb,
+    oklch(72% 0.25 130),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --green: color-mix(
+    in srgb,
+    oklch(65% 0.21 145),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --emerald: color-mix(
+    in srgb,
+    oklch(62% 0.18 160),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --teal: color-mix(
+    in srgb,
+    oklch(60% 0.16 175),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --cyan: color-mix(
+    in srgb,
+    oklch(65% 0.14 195),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --azure: color-mix(
+    in srgb,
+    oklch(60% 0.16 215),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --blue: color-mix(
+    in srgb,
+    oklch(55% 0.27 250),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --indigo: color-mix(
+    in srgb,
+    oklch(50% 0.28 270),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --violet: color-mix(
+    in srgb,
+    oklch(52% 0.29 290),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --purple: color-mix(
+    in srgb,
+    oklch(50% 0.3 305),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --magenta: color-mix(
+    in srgb,
+    oklch(55% 0.31 320),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --pink: color-mix(
+    in srgb,
+    oklch(65% 0.31 345),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+  --rose: color-mix(
+    in srgb,
+    oklch(68% 0.3 5),
+    var(--inverted-text) var(--slide-background-transparency)
+  );
+}

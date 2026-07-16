@@ -4,10 +4,10 @@ import { State } from '@shared/models/state.model';
 
 const DEFAULT_STATE: State = {
   layout: 'fixed',
-  maxWidth: 70,
-  isFullscreen: false,
-  currentSlide: 0,
+  width: 70,
   language: 'en',
+  isFullscreen: false,
+  currentSlide: 0
 };
 
 @Injectable({

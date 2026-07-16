@@ -1,5 +1,5 @@
 :host {
-  --slides-spacing: 40px;
+  --slides-spacing: calc(var(--spacing) + 10px);
   container: slides / inline-size;
   display: flex;
   flex-direction: column;
@@ -18,10 +18,20 @@
     margin-bottom: calc(1.5 * var(--spacing)) 0;
   }
 
-  ::ng-deep app-slide {
-    markdown {
-      width: 100%;
-    }
+  .slide-number {
+    position: absolute;
+    top: 0;
+    left: calc(var(--spacing) / -6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    padding: 0 0.4em;
+    translate: -100%;
+    z-index: -1;
+    background: var(--inverted-text);
+    border-radius: var(--spacing);
+    opacity: 0.8;
   }
 }
 
@@ -39,10 +49,6 @@
       display: grid;
       align-items: center;
       grid-auto-rows: 100vh;
-
-      ::ng-deep app-slide:focus-visible {
-        outline: none;
-      }
     }
   }
 }

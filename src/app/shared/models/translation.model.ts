@@ -1,5 +1,6 @@
 export interface TranslatedSlideSet {
   title?: string;
+  examples?: Record<string, string>;
   slides?: TranslatedSlide[];
 }
 
