@@ -8,8 +8,8 @@ export const routes: Routes = [
   },
   {
     path: 'web-a11y-for-everyone',
-    loadComponent: () => import('./slides/slide-set1/slide-set1').then((m) => m.SlideSet1),
-    data: { title: 'sets.set1.title' },
+    loadComponent: () => import('./presentations/web-a11y-for-everyone/web-a11y-for-everyone').then((m) => m.WebA11yForEveryone),
+    data: { title: 'presentations.webA11yForEveryone.title' },
   },
   {
     path: '**',

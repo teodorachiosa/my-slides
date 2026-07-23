@@ -15,13 +15,13 @@ import { Subscription } from 'rxjs';
 
 import { AttachComponentService } from '@shared/services/attach-component.service';
 import { TranslatedSlide } from '@shared/models/translation.model';
-import { CurrentRouteService } from 'app/shared/services/current-route.service';
+import { CurrentRouteService } from '@shared/services/current-route.service';
 
 @Component({
-  selector: 'app-slide-set',
+  selector: 'app-presentation',
   template: ``,
 })
-export class SlideSet implements AfterViewInit, OnDestroy {
+export class Presentation implements AfterViewInit, OnDestroy {
   setName = '';
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
@@ -35,7 +35,7 @@ export class SlideSet implements AfterViewInit, OnDestroy {
 
   constructor() {
     afterRenderEffect({
-      read: () => {
+      write: () => {
         if (this.components?.length && this.slidesContent()) {
           this.updateSamePageLinks();
           this.attachComponents();

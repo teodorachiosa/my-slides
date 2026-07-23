@@ -33,7 +33,7 @@ export class SlidesContainer {
 
   constructor() {
     afterNextRender({
-      read: () => {
+      write: () => {
         if (typeof this.elementRef !== 'undefined') {
           this.allSlides = this.elementRef.nativeElement.querySelectorAll('app-slide');
         }
@@ -55,7 +55,7 @@ export class SlidesContainer {
   handleFocusin() {
     const activeElement = this.document.activeElement;
 
-    if (activeElement && activeElement.matches(':focus-visible')) {
+    if (activeElement?.matches(':focus-visible')) {
       this.state.activeElement = activeElement;
       this.stateService.setState(this.state);
 
@@ -168,6 +168,15 @@ export class SlidesContainer {
 
           this.currentSlide = middleIndex;
           this.state.currentSlide = this.currentSlide;
+
+          // Assume scrolling means you've abandoned keyboard navigation and you want to present the slide you're currently looking at:
+          if (
+            this.allSlides &&
+            this.stateService.getState()().activeElement?.closest('app-slide') !==
+              this.allSlides[this.currentSlide]
+          ) {
+            this.state.activeElement = undefined;
+          }
           this.stateService.setState(this.state);
 
           if (typeof this.allSlides !== 'undefined') {

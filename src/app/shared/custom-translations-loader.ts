@@ -7,7 +7,7 @@ import roTranslations from '@shared/i18n/ro';
 
 @Injectable()
 export class CustomTranslationsLoader implements TranslateLoader {
-  private translations = {
+  private readonly translations = {
     en: enTranslations,
     ro: roTranslations,
   };

@@ -14,7 +14,7 @@ const DEFAULT_STATE: State = {
   providedIn: 'root',
 })
 export class StateService {
-  private state: WritableSignal<State> = signal(DEFAULT_STATE);
+  private readonly state: WritableSignal<State> = signal(DEFAULT_STATE);
 
   getState(): WritableSignal<State> {
     return this.state;

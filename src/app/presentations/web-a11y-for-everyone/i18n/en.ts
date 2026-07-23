@@ -1,15 +1,14 @@
-import { TranslatedSlideSet } from '@shared/models/translation.model';
+import { TranslatedPresentation } from '@shared/models/translation.model';
+import md from '@shared/markdown-compiler';
 
-const md = String.raw;
-
-const enSlideSet1Translations: TranslatedSlideSet = {
-  title: '\\Web Accessibility for Everyone',
+const enSlideSet1Translations: TranslatedPresentation = {
+  title: 'Web Accessibility for Everyone',
   examples: {
-    removeButton: '\\Remove'
+    removeButton: 'Remove',
   },
   slides: [
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 <div class="title-slide">
 
@@ -29,7 +28,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## About the speakers: </br> <span class="f-w-normal">Teodora Chiosa</span>
 
@@ -43,7 +42,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## About the speakers: </br> <span class="f-w-normal">Constantin Cristache</span>
 
@@ -54,7 +53,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 ## What is Accessibility?
 
@@ -74,7 +73,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--blue)',
+      backgroundColor: 'var(--blue)',
       content: md`
 ## Types of disabilities
 
@@ -91,7 +90,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 ## What is Web Accessibility?
 
@@ -104,7 +103,7 @@ const enSlideSet1Translations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 ## What does a website look like "behind the scenes"?
 
@@ -114,7 +113,7 @@ We could imagine a website's structure as a box with various other boxes inside.
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 <div class="side-by-side">
   <img loading="lazy" src="img/website/boxes.webp" alt="cardboard boxes arranged chaotically and without labels">
@@ -123,7 +122,7 @@ We could imagine a website's structure as a box with various other boxes inside.
       `,
     },
     {
-      backgroundColor: '\\var(--pink)',
+      backgroundColor: 'var(--pink)',
       content: md`
 ## How does a person with disabilities use a website?
 
@@ -131,7 +130,7 @@ We could imagine a website's structure as a box with various other boxes inside.
       `,
     },
     {
-      backgroundColor: '\\var(--pink)',
+      backgroundColor: 'var(--pink)',
       content: md`
 ## What is assistive technology?
 
@@ -145,7 +144,7 @@ Examples:
       `,
     },
     {
-      backgroundColor: '\\var(--emerald)',
+      backgroundColor: 'var(--emerald)',
       content: md`
 ## <span aria-hidden="true" class="decorative">✅</span> Example: an accessible button
 
@@ -163,7 +162,7 @@ Screen reader users hear the label of the "box".
       `,
     },
     {
-      backgroundColor: '\\var(--red)',
+      backgroundColor: 'var(--red)',
       content: md`
 ## <span aria-hidden="true" class="decorative">❌</span> Example: an inaccessible button
 
@@ -183,7 +182,7 @@ Sometimes, the "boxes":
       `,
     },
     {
-      backgroundColor: '\\var(--yellow)',
+      backgroundColor: 'var(--yellow)',
       content: md`
 ## Why is web accessibility important?
 
@@ -202,7 +201,7 @@ A person with disabilities should not encounter barriers when:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## <span aria-hidden="true" class="decorative">⚖️</span> What does the law say?
 
@@ -214,7 +213,7 @@ There two main laws relevant for the digital world (in Europe):
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 2. [EU Directive 2019/882](https://eur-lex.europa.eu/legal-content/RO/TXT/HTML/?uri=CELEX:32019L0882) - accessability requirements for products and services
    - Also known as the **European Accessibility Act**
@@ -230,7 +229,7 @@ There two main laws relevant for the digital world (in Europe):
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ### The accessibility guidelines
 
@@ -247,7 +246,7 @@ Website content must be:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 #### Perceivable
 
@@ -257,7 +256,7 @@ Website content must be:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 <img loading="lazy" width="145" height="65" class="cloud-img" src="img/website/cloudy.webp" alt="a screenshot with the text: 10 degrees celsius, 19% chance of rain, humidity 49%, wind 10 kilometers per hour. The screenshot also includes an illustration of a cloud">
 
@@ -267,13 +266,13 @@ Example: Alternative text for the cloud image?
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 <img loading="lazy" class="fullscreen" src="img/disabilities/captions-transcripts-en.webp" alt="screenshot of a video on Youtube. The red border shows the location of the button used to toggle captions. Captions are shown in the bottom center part of the video. Another red border highlights the panel with the transcription of the video.">
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 #### Operable
 
@@ -289,19 +288,19 @@ Example: Alternative text for the cloud image?
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ### POUR: Understandable
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ### POUR: Robust
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ### <span class="f-w-normal">"The </span>minimum <span class="f-w-normal">requirements of the Web Content Accessibility Guidelines"?</span>
 
@@ -311,7 +310,7 @@ Example: Alternative text for the cloud image?
       `,
     },
     {
-      backgroundColor: '\\var(--blue)',
+      backgroundColor: 'var(--blue)',
       content: md`
 <img loading="lazy" width="262" height="328" class="float-overlay" src="img/website/overlay.webp" alt="">
 
@@ -325,7 +324,7 @@ They usually look like a button that goes on top of the website's content.
       `,
     },
     {
-      backgroundColor: '\\var(--red)',
+      backgroundColor: 'var(--red)',
       content: md`
 ### <span aria-hidden="true" class="decorative">❌</span> The problem with overlays
 
@@ -345,7 +344,7 @@ They usually look like a button that goes on top of the website's content.
       `,
     },
     {
-      backgroundColor: '\\var(--red)',
+      backgroundColor: 'var(--red)',
       content: md`
 ### A website with an overlay <br> <span class="nu">doesn't</span> necessarily mean an accessible website!
 
@@ -357,7 +356,7 @@ When accessibility is truly taken into consideration:
       `,
     },
     {
-      backgroundColor: '\\var(--green)',
+      backgroundColor: 'var(--green)',
       content: md`
 ## <span aria-hidden="true" class="decorative">💚</span> How to tell if a website is indeed accessible?
 
@@ -370,7 +369,7 @@ When accessibility is truly taken into consideration:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## Resources
 
@@ -380,7 +379,7 @@ When accessibility is truly taken into consideration:
       `,
     },
     {
-      backgroundColor: '\\var(--green)',
+      backgroundColor: 'var(--green)',
       content: md`
 ## <span aria-hidden="true" class="decorative">💭</span> Questions and answers
 

@@ -4,8 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-presentation-icon',
   imports: [],
   templateUrl: './presentation-icon.html',
-  styleUrl: './presentation-icon.scss',
 })
-export class PresentationIcon {
-
-}
+export class PresentationIcon {}

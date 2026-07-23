@@ -20,18 +20,22 @@
 
   .slide-number {
     position: absolute;
-    top: 0;
-    left: calc(var(--spacing) / -6);
+    top: calc(var(--spacing) / 4);
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.8em;
-    padding: 0 0.4em;
+    font-size: 0.75em;
+    padding: 0.1em 0.5em;
     translate: -100%;
     z-index: -1;
     background: var(--inverted-text);
-    border-radius: var(--spacing);
+    border-radius: var(--radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     opacity: 0.8;
+    border: 1px solid var(--border-color-transparent);
+    border-right: none;
   }
 }
 

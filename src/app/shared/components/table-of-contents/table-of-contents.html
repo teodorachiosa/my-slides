@@ -1,19 +1,45 @@
-<p class="title"
-   id="toc-label">{{'ui.tableOfContents' | translate}}</p>
-<nav aria-labelledby="toc-label">
-  @for (heading of allHeadings(); track heading.innerText) {
-  <a class="toc-link"
+<div class="toc-container">
+  <a class="sr-only"
      [routerLink]="currentRoute"
-     [fragment]="heading.id"
-     [class.active-heading]="state().activeHeading?.id === heading.id"
-     [style.paddingLeft]="`calc((${heading.tagName.slice(-1)} - 1) * var(--spacing) / 2)`">
-    <span aria-hidden="true"
-          class="heading-level">{{heading.tagName}}</span>
-    <span class="heading-title">{{heading.innerText.replace(/\p{RGI_Emoji}/gv, '').trim()}}</span>
-  </a>
-  }
+     fragment="slides-start">{{'ui.skipToSlides' | translate}}</a>
 
-  @if (allHeadings().length === 0) {
-  <span>{{'ui.noHeadings' | translate}}</span>
+  <p class="title"
+     id="toc-label">{{'ui.tableOfContents' | translate}}</p>
+  <nav aria-labelledby="toc-label"
+       id="toc-nav">
+    @for (heading of allHeadings(); track heading.innerText) {
+    <a class="toc-link"
+       [routerLink]="currentRoute"
+       [fragment]="heading.id"
+       [class.active-heading]="state().activeHeading?.id === heading.id"
+       [style.paddingLeft]="`calc((${heading.tagName.slice(-1)} - 1) * var(--spacing) / 2)`">
+      <span aria-hidden="true"
+            class="heading-level">{{heading.tagName}}</span>
+      <span class="heading-title">{{heading.innerText.replace(/\p{RGI_Emoji}/gv, '').trim()}}</span>
+    </a>
+    }
+
+    @if (allHeadings().length === 0) {
+    <span>{{'ui.noHeadings' | translate}}</span>
+    }
+  </nav>
+</div>
+
+<button class="toggle-toc"
+        (click)="toggleTOCVisibility()"
+        aria-labelledby="toggle-toc-info">
+  @if(isClosed) {
+  <app-panel-left-open-icon class="icon"></app-panel-left-open-icon>
+  } @else {
+  <app-panel-left-close-icon class="icon"></app-panel-left-close-icon>
   }
-</nav>
+  <span aria-hidden="true"
+        id="toggle-toc-info"
+        class="tooltip">
+    @if(isClosed) {
+    {{'ui.showToc' | translate}}
+    } @else {
+    {{'ui.hideToc' | translate}}
+    }
+  </span>
+</button>

@@ -1,15 +1,15 @@
 <div class="left-container">
-  <button id="menu-title"
+  <button id="presentations"
           class="header-option menu"
           commandfor="main-menu"
           command="toggle-popover"
           aria-haspopup="dialog">
-    <app-menu-icon class="icon"></app-menu-icon>
+    <app-folder-open-icon class="icon"></app-folder-open-icon>
     <span class="sr-only-mobile">{{'ui.menu' | translate}}</span>
   </button>
 
   <dialog popover
-          aria-labelledby="menu-title"
+          aria-labelledby="presentations"
           id="main-menu">
     <nav id="nav"
          tabindex="-1">
@@ -19,7 +19,9 @@
          [fragment]="'slides-start'"
          routerLinkActive="active"
          ariaCurrentWhenActive="page"
-         (click)="closeMenuPopover()">{{route.data?.['title'] | translate}}
+         (click)="closeMenuPopover()">
+        <app-file-icon class="icon"></app-file-icon>
+        {{route.data?.['title'] | translate}}
       </a>
       }
       }
@@ -123,14 +125,14 @@
           <button (click)="decreaseWidth()"
                   class="plus-minus-button"
                   [attr.aria-describedby]="isDecreaseButtonDisabled() ? 'decrease-button-disabled' : null">
+            <app-minus-icon class="icon"></app-minus-icon>
             <span class="sr-only">{{ 'ui.decreaseWidth' | translate}}</span>
-            <span aria-hidden="true">-</span>
           </button>
           <button (click)="increaseWidth()"
                   class="plus-minus-button"
                   [attr.aria-describedby]="isIncreaseButtonDisabled() ? 'increase-button-disabled' : null">
+            <app-plus-icon class="icon"></app-plus-icon>
             <span class="sr-only">{{ 'ui.increaseWidth' | translate}}</span>
-            <span aria-hidden="true">+</span>
           </button>
           <output class="margin-left">{{width}}%</output>
         </div>
@@ -203,7 +205,8 @@
     <span aria-hidden="true"
           id="keyboard-shortcut-info"
           class="tooltip">
-      {{'ui.press' | translate}} <kbd>Shift</kbd> + <kbd>F5</kbd> {{'ui.or' | translate}} <kbd>⌘</kbd> + <kbd>Return</kbd>
+      {{'ui.press' | translate}} <kbd>Shift</kbd> + <kbd>F5</kbd> {{'ui.or' | translate}} <kbd>⌘</kbd> +
+      <kbd>Return</kbd>
     </span>
   </button>
   }

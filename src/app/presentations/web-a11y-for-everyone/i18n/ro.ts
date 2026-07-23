@@ -1,15 +1,14 @@
-import { TranslatedSlideSet } from '@shared/models/translation.model';
+import { TranslatedPresentation } from '@shared/models/translation.model';
+import md from '@shared/markdown-compiler';
 
-const md = String.raw;
-
-const roSlideSetTranslations: TranslatedSlideSet = {
-  title: '\\Accesibilitatea web pe înțelesul tuturor',
+const roSlideSetTranslations: TranslatedPresentation = {
+  title: 'Accesibilitatea web pe înțelesul tuturor',
   examples: {
-    removeButton: '\\Șterge',
+    removeButton: 'Șterge',
   },
   slides: [
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 <div class="title-slide">
 
@@ -29,7 +28,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## Despre prezentatori: </br> <span class="f-w-normal">Teodora Chiosa</span>
 
@@ -43,7 +42,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## Despre prezentatori: </br> <span class="f-w-normal">Constantin Cristache</span>
 
@@ -54,7 +53,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 ## Ce este accesibilitatea?
 
@@ -74,7 +73,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--blue)',
+      backgroundColor: 'var(--blue)',
       content: md`
 ## Tipuri de dizabilități
 
@@ -91,7 +90,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 ## Ce este accesibilitatea web?
 
@@ -104,7 +103,7 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 ## Cum arată „în spate” un site web?
 
@@ -114,7 +113,7 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
       `,
     },
     {
-      backgroundColor: '\\var(--orange)',
+      backgroundColor: 'var(--orange)',
       content: md`
 <div class="side-by-side">
   <img loading="lazy" src="img/website/boxes.webp" alt="cutii de carton aranjate haotic și fără etichete">
@@ -123,7 +122,7 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
       `,
     },
     {
-      backgroundColor: '\\var(--pink)',
+      backgroundColor: 'var(--pink)',
       content: md`
 ## Cum folosește o persoană cu dizabilități un site?
 
@@ -136,7 +135,7 @@ Ne putem imagina că structura unui site este ca o cutie, cu diverse alte cutii 
       `,
     },
     {
-      backgroundColor: '\\var(--pink)',
+      backgroundColor: 'var(--pink)',
       content: md`
 ## Ce este tehnologia asistivă?
 
@@ -150,7 +149,7 @@ Exemple:
       `,
     },
     {
-      backgroundColor: '\\var(--emerald)',
+      backgroundColor: 'var(--emerald)',
       content: md`
 ## <span aria-hidden="true" class="decorative">✅</span> Exemplu: un buton accesibil
 
@@ -168,7 +167,7 @@ Utilizatorii de cititor de ecran vor auzi eticheta „cutiei”.
       `,
     },
     {
-      backgroundColor: '\\var(--red)',
+      backgroundColor: 'var(--red)',
       content: md`
 ## <span aria-hidden="true" class="decorative">❌</span> Exemplu: un buton inaccesibil
 
@@ -188,7 +187,7 @@ Câteodată, „cutiile”:
       `,
     },
     {
-      backgroundColor: '\\var(--yellow)',
+      backgroundColor: 'var(--yellow)',
       content: md`
 ## De ce este importantă accesibilitatea web?
 
@@ -207,7 +206,7 @@ O persoană cu dizabilități nu ar trebui să întâmpine bariere atunci când:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## <span aria-hidden="true" class="decorative">⚖️</span> Ce spune legislația?
 
@@ -219,7 +218,7 @@ Există două legi relevante pentru mediul digital (în Europa):
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 2. [Directiva (UE) 2019/882](https://eur-lex.europa.eu/legal-content/RO/TXT/HTML/?uri=CELEX:32019L0882) - cerințele de accesibilitate aplicabile produselor și serviciilor, transpusă în [Legea nr. 232/2022](https://legislatie.just.ro/Public/DetaliiDocument/257778)
    - Cunoscută și drept **European Accessibility Act**
@@ -235,7 +234,7 @@ Există două legi relevante pentru mediul digital (în Europa):
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ### Ghidul de accesibilitate
 
@@ -252,7 +251,7 @@ Conținutul unui site trebuie să fie:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 #### Perceptibil
 
@@ -262,7 +261,7 @@ Conținutul unui site trebuie să fie:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 <img loading="lazy" width="145" height="65" class="cloud-img" src="img/website/cloudy.webp" alt="o captură de ecran cu textul: 10 grade celsius, precipitații 19%, umiditate 49%, vânt 10 km pe oră. Captura de ecran include de asemenea și o ilustrație cu un nor">
 
@@ -272,13 +271,13 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 <img loading="lazy" class="fullscreen" src="img/disabilities/captions-transcripts-ro.webp" alt="o captură de ecran a unui video pe Youtube. Chenare roșii indică butonul de activare a subtitrărilor și subtitrările în sine afișate în josul clipului video. Un alt chenar roșu indică și panoul cu transcrierea clipului video.">
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 #### Operabil
 
@@ -294,7 +293,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 #### Ușor de înțeles
 
@@ -304,7 +303,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 #### Robust
 
@@ -319,7 +318,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ### <span class="f-w-normal">„</span>Minimul <span class="f-w-normal">cerințelor din Ghidul pentru Conținut Web Accesibil”?</span>
 
@@ -329,7 +328,7 @@ Exemplu: Text alternativ pentru imaginea cu norul?
       `,
     },
     {
-      backgroundColor: '\\var(--blue)',
+      backgroundColor: 'var(--blue)',
       content: md`
 <img loading="lazy" width="262" height="328" class="float-overlay" src="img/website/overlay.webp" alt="">
 
@@ -343,7 +342,7 @@ Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui sit
       `,
     },
     {
-      backgroundColor: '\\var(--red)',
+      backgroundColor: 'var(--red)',
       content: md`
 ### <span aria-hidden="true" class="decorative">❌</span> Problemele soluțiilor overlay
 
@@ -363,7 +362,7 @@ Se prezintă sub forma unui buton poziționat pe deasupra conținutului unui sit
       `,
     },
     {
-      backgroundColor: '\\var(--red)',
+      backgroundColor: 'var(--red)',
       content: md`
 ### Un site cu overlay <br> <span class="nu">nu</span> înseamnă neapărat un site accesibil!
 
@@ -375,7 +374,7 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
       `,
     },
     {
-      backgroundColor: '\\var(--green)',
+      backgroundColor: 'var(--green)',
       content: md`
 ## <span aria-hidden="true" class="decorative">💚</span> Cum detectăm un site accesibil?
 
@@ -388,7 +387,7 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
       `,
     },
     {
-      backgroundColor: '\\var(--violet)',
+      backgroundColor: 'var(--violet)',
       content: md`
 ## Resurse (engleză)
 
@@ -398,7 +397,7 @@ Atunci când accesibilitatea este luată în considerare cu adevărat:
       `,
     },
     {
-      backgroundColor: '\\var(--green)',
+      backgroundColor: 'var(--green)',
       content: md`
 ## <span aria-hidden="true" class="decorative">💭</span> Întrebări și răspunsuri
 

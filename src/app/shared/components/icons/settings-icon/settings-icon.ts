@@ -4,8 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-settings-icon',
   imports: [],
   templateUrl: './settings-icon.html',
-  styleUrl: './settings-icon.scss',
 })
-export class SettingsIcon {
-
-}
+export class SettingsIcon {}

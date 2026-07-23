@@ -2,17 +2,20 @@ import { AfterViewInit, Component, DOCUMENT, HostListener, inject, OnInit } from
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive, Routes } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { fromEvent } from 'rxjs';
 
 import { State, Theme, Layout } from '@shared/models/state.model';
 import { ContentLanguage } from '@shared/models/content-language.model';
 import { StateService } from '@shared/services/state.service';
-import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
+import { FolderOpenIcon } from '@shared/components/icons/folder-open-icon/folder-open-icon';
 import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-icon';
 import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
-import { routes } from 'app/app.routes';
+import { PlusIcon } from '@shared/components/icons/plus-icon/plus-icon';
+import { MinusIcon } from '@shared/components/icons/minus-icon/minus-icon';
+import { FileIcon } from '@shared/components/icons/file-icon/file-icon';
 import { LocalStorageService } from '@shared/services/local-storage.service';
-import { NotificationService } from 'app/shared/services/notification.service';
-import { fromEvent } from 'rxjs';
+import { NotificationService } from '@shared/services/notification.service';
+import { routes } from 'app/app.routes';
 
 const WIDTH_STEP = 10;
 const WIDTH_MIN = 10;
@@ -25,9 +28,12 @@ const WIDTH_MAX = 100;
     TranslatePipe,
     RouterLink,
     RouterLinkActive,
-    MenuIcon,
+    FolderOpenIcon,
     SettingsIcon,
     PresentationIcon,
+    PlusIcon,
+    MinusIcon,
+    FileIcon,
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -41,7 +47,7 @@ export class Header implements OnInit, AfterViewInit {
   state: State = {};
   layout?: Layout;
   width?: number;
-  theme?: Theme = 'system';
+  theme: Theme = 'system';
   language: ContentLanguage = 'en';
   routes: Routes;
 
@@ -125,10 +131,10 @@ export class Header implements OnInit, AfterViewInit {
     const initialLanguageLocalStorage = this.localStorageService.getLocalStorage()?.language;
     if (initialLanguageLocalStorage) {
       this.language = initialLanguageLocalStorage as ContentLanguage;
+      this.updateLanguage(this.language, true);
     } else {
       this.language = this.stateService.getState()().language as ContentLanguage;
     }
-    this.updateLanguage(this.language, true);
   }
 
   updateLayout(noLocalStorageChanges = false): void {
@@ -180,7 +186,7 @@ export class Header implements OnInit, AfterViewInit {
     if (typeof this.document !== 'undefined') {
       this.document.documentElement.style.setProperty(
         'color-scheme',
-        this.theme === 'dark' ? 'dark' : this.theme === 'light' ? 'light' : 'light dark',
+        ['light', 'dark'].includes(this.theme) ? (this.theme as string) : 'light dark',
       );
     }
   }

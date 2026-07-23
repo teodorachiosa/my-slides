@@ -8,7 +8,7 @@
 
   * {
     text-wrap: balance;
-    word-break: break-word;
+    overflow-wrap: anywhere;
     flex-wrap: wrap;
     line-height: 1.4;
   }
@@ -39,6 +39,11 @@
   img {
     width: 100%;
     height: auto;
+    max-width: 100%;
+  }
+
+  figure {
+    margin: 0;
   }
 
   blockquote {
@@ -103,5 +108,12 @@
 
   figcaption {
     font-size: 0.9em;
+  }
+
+  /* Align is deprecated in Firefox */
+  [align='center'] {
+    &:not(table) {
+      text-align: center;
+    }
   }
 }

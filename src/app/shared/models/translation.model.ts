@@ -1,4 +1,4 @@
-export interface TranslatedSlideSet {
+export interface TranslatedPresentation {
   title?: string;
   examples?: Record<string, string>;
   slides?: TranslatedSlide[];

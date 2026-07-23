@@ -1,0 +1,13 @@
+/* table-of-contents.ts should also be updated */
+@mixin smallWidth {
+  @media screen and (width <= 570px) {
+    @content;
+  }
+}
+
+/* table-of-contents.ts should also be updated */
+@mixin smallHeight {
+  @media screen and (height <= 500px) {
+    @content;
+  }
+}

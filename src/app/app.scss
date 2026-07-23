@@ -1,14 +1,18 @@
+@use 'scss/_mixins.scss' as *;
+
 :host {
   position: relative;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 
   .skip-links {
     z-index: 3;
     display: flex;
     justify-content: center;
     gap: 4px;
-    box-shadow: 0 0 var(--shadow-spread) 0 var(--shadow-color);
+    background: var(--background-transparent);
+    border-bottom: 1px solid var(--border-color);
 
     a {
       padding: calc(var(--spacing) / 3) calc(var(--spacing) / 2);
@@ -36,10 +40,12 @@
 
   .main-container {
     display: flex;
+    flex-grow: 1;
 
     main {
       display: flex;
       flex-grow: 1;
+      align-self: start;
 
       & > ::ng-deep * {
         display: contents;
@@ -49,10 +55,10 @@
 
   footer {
     z-index: 2;
-    border-top: 1px solid var(--light-grey);
+    border-top: 1px solid var(--border-color);
     padding: calc(1.5 * var(--spacing)) var(--spacing);
     line-height: 1.5;
-    background: var(--background);
+    background: var(--background-transparent);
 
     p {
       margin-bottom: 0;
@@ -64,7 +70,7 @@
   }
 }
 
-@media screen and (width <= 500px) {
+@include smallWidth {
   :host {
     .main-container {
       main {

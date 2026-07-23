@@ -9,7 +9,14 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
-import { RouterLink, RouterOutlet, Router, NavigationEnd, ActivatedRoute, Scroll } from '@angular/router';
+import {
+  RouterLink,
+  RouterOutlet,
+  Router,
+  NavigationEnd,
+  ActivatedRoute,
+  Scroll,
+} from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -17,11 +24,11 @@ import { Subscription } from 'rxjs';
 import { StateService } from '@shared/services/state.service';
 import { Header } from '@layout/header/header';
 import { CurrentRouteService } from '@shared/services/current-route.service';
-import { State } from './shared/models/state.model';
+import { State } from '@shared/models/state.model';
 
 /* When skipping to headings, the focused element goes underneath the header element.
 This values is used as a scroll offset from the top */
-const ANCHOR_SCROLL_OFFSET = 250;
+const ANCHOR_SCROLL_OFFSET = 100;
 
 @Component({
   selector: 'app-root',

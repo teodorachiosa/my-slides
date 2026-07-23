@@ -4,16 +4,20 @@
   --inverted-text: light-dark(white, black);
   --link-color: var(--accent);
   --background: light-dark(rgb(230 230 240), rgb(15 15 25));
-  --light-grey: rgba(117 117 137 / 0.15);
   --grey: rgb(127, 127, 137);
   --background-transparent: light-dark(
-    rgba(255, 255, 255, var(--background-transparency)),
-    rgba(35, 35, 45, var(--background-transparency))
+    rgb(255, 255, 255),
+    rgb(35, 35, 45)
   );
   --shadow-color: light-dark(rgba(0 0 0 / 0.2), rgb(0 0 0));
-  --controls-border: light-dark(
-    color-mix(var(--grey), var(--background) 60%),
-    color-mix(var(--grey), var(--background) 40%)
+  --backdrop-color: light-dark(rgba(10, 10, 20, 0.1), rgba(10, 10, 20, 0.2));
+  --border-color: light-dark(
+    color-mix(var(--grey), var(--background) 65%),
+    color-mix(var(--grey), var(--background) 45%)
+  );
+  --border-color-transparent: light-dark(
+    color-mix(in hsl, var(--border-color), white 20%),
+    color-mix(in hsl, var(--border-color), black 50%)
   );
   --controls-hover: light-dark(
     color-mix(var(--grey), var(--inverted-text) 87%),
@@ -21,8 +25,8 @@
   );
   --controls-background: var(--background-transparent);
   --checked-controls-background: light-dark(
-    oklch(from var(--grey) calc(l + 0.32) c h),
-    oklch(from var(--grey) calc(l - 0.45) c h)
+    oklch(from var(--grey) calc(l + 0.32) calc(c - 0.01) h),
+    oklch(from var(--grey) calc(l - 0.45) calc(c - 0.01) h)
   );
 
   /**  SLIDE BACKGROUND COLORS: **/

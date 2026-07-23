@@ -1,3 +1,5 @@
+@use 'scss/mixins' as *;
+
 :host {
   display: flex;
   flex-wrap: wrap;
@@ -5,60 +7,14 @@
   justify-content: space-between;
   gap: calc(var(--spacing) / 3);
   position: sticky;
-  z-index: 2;
+  z-index: 4;
   top: 0;
-  box-shadow: 0 0 var(--shadow-spread) 0 var(--shadow-color);
+  box-shadow: 0 0 var(--shadow-spread) var(--shadow-color);
   background: var(--background-transparent);
   backdrop-filter: blur(var(--blur));
   padding: calc(var(--spacing) / 4);
 
-  button {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    background: var(--controls-background);
-    border: 2px solid var(--controls-border);
-    padding: 0 calc(var(--spacing) / 3);
-    min-height: var(--min-height-controls);
-
-    &:not([disabled]):active {
-      opacity: 0.8;
-      scale: 1;
-    }
-
-    &[disabled] {
-      opacity: 0.5;
-    }
-
-    &:hover,
-    &:focus-visible {
-      .tooltip {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-    .tooltip {
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      top: calc(100% + var(--spacing) / 6);
-      right: 0;
-      text-wrap: nowrap;
-      color: var(--inverted-text);
-      background: color-mix(in hsl, var(--text), transparent 10%);
-      border-radius: var(--radius);
-      font-size: 0.9em;
-      padding: calc(var(--spacing) / 6) calc(var(--spacing) / 3);
-
-      kbd {
-        -webkit-text-stroke: 0.5px currentColor;
-      }
-    }
-  }
-
   input,
-  button,
   .radio {
     border-radius: var(--radius);
 
@@ -72,13 +28,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: calc(var(--spacing) / 15);
 
     .logo-title {
       font-weight: 700;
     }
 
     .logo-subtitle {
-      font-size: 0.85em;
+      font-size: 0.8em;
     }
   }
 
@@ -96,10 +53,10 @@
   }
 
   [popover] {
-    border: 2px solid var(--background);
+    border: 1px solid var(--border-color);
     padding: calc(var(--spacing) / 3);
     border-radius: var(--radius);
-    margin-top: 8px;
+    margin-top: calc(var(--spacing) / 6);
     background: var(--background-transparent);
     backdrop-filter: blur(var(--blur));
     box-shadow: 0 0 var(--shadow-spread) 0 color-mix(in srgb, var(--shadow-color), transparent 60%);
@@ -108,6 +65,14 @@
       flip-block,
       flip-inline,
       flip-block flip-inline;
+
+    &::backdrop {
+      background: var(--backdrop-color);
+    }
+
+    &#main-menu {
+      padding: 0;
+    }
   }
 
   :popover-open {
@@ -121,7 +86,6 @@
       grid-column-gap: var(--spacing);
       grid-column: 1 / -1;
       align-items: baseline;
-      min-height: var(--min-height-controls);
       padding: 0 calc(var(--spacing) / 3);
 
       :last-child {
@@ -132,24 +96,12 @@
 
   .header-option {
     gap: calc(var(--spacing) / 4);
-
-    .icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    ::ng-deep svg {
-      --svg-size: 16px;
-      height: var(--svg-size);
-      width: var(--svg-size);
-    }
   }
 
   .note {
     grid-column: 1 / -1;
     padding: calc(var(--spacing) / 3);
-    border-bottom: 0.1em solid var(--controls-border);
+    border-bottom: 1px solid var(--border-color);
   }
 
   .option {
@@ -176,7 +128,7 @@
 
     .radio-group {
       display: inline-flex;
-      border: 2px solid var(--controls-border);
+      border: 1px solid var(--border-color);
       justify-content: center;
       align-items: center;
       border-radius: var(--radius);
@@ -184,10 +136,6 @@
       .radio {
         display: flex;
         border-radius: 0;
-
-        label {
-          border-radius: 0;
-        }
 
         &:first-of-type {
           border-radius: calc(var(--radius) - 0.05em);
@@ -232,9 +180,11 @@
         label {
           display: inline-flex;
           align-items: center;
-          min-height: calc(var(--min-height-controls) - 4px);
+          gap: calc(var(--spacing) / 4);
+          height: calc(var(--min-height-controls) - 2px); //minus the borders
           min-width: max-content;
           padding: 0 calc(var(--spacing) / 3);
+          border-radius: 0;
         }
 
         input:checked {
@@ -246,7 +196,6 @@
               content: '✓' / '';
               display: flex;
               align-items: center;
-              margin-left: calc(var(--spacing) / 5);
               font-size: 13px;
             }
           }
@@ -270,29 +219,45 @@
     overflow: auto;
 
     a {
-      padding: calc(var(--spacing) / 3) calc(var(--spacing) / 2);
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing) / 4);
+      padding: 0 calc(var(--spacing) / 3);
       color: inherit;
       text-decoration: none;
-      word-break: break-word;
+      overflow-wrap: anywhere;
       outline-offset: -1px;
       border-radius: var(--radius);
-      border: 2px solid transparent;
+      border: 1px solid transparent;
+      min-height: var(--min-height-controls);
 
       &[aria-current] {
         font-weight: 700;
+        background: var(--checked-controls-background);
 
         &::after {
           content: '✓' / '';
           display: inline-flex;
           align-items: center;
-          margin-left: calc(var(--spacing) / 5);
           font-size: 13px;
         }
       }
 
       &:hover,
       &:focus-visible {
-        border: 2px solid var(--controls-border);
+        background: var(--controls-hover);
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ::ng-deep svg {
+          --svg-size: 18px;
+          height: var(--svg-size);
+          width: var(--svg-size);
+        }
       }
     }
   }
@@ -304,7 +269,7 @@
   }
 }
 
-@media screen and (width <= 500px) {
+@include smallWidth {
   .sr-only-mobile {
     clip: rect(0 0 0 0);
     clip-path: inset(100%);
@@ -321,7 +286,7 @@
   }
 }
 
-@media screen and (height <= 500px) {
+@include smallHeight {
   :host {
     position: static;
   }

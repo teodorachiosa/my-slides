@@ -79,4 +79,86 @@
   :focus-visible {
     outline: auto;
   }
+
+  :target {
+    animation: highlightTarget 4s ease-in-out;
+    border-radius: 2px;
+  }
+
+  @keyframes highlightTarget {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+    15% {
+      box-shadow: 0 0 0 0.2lh color-mix(in hsl, var(--text), transparent 50%);
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  /* Omit app-slide so that developers can add their own styles from scratch */
+  button:not(app-slide button) {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--controls-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 0 calc(var(--spacing) / 3);
+    min-width: var(--min-height-controls);
+    min-height: var(--min-height-controls);
+
+    &:not([disabled]):active {
+      opacity: 0.8;
+      scale: 1;
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &:hover,
+    &:focus-visible {
+      .tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &:not([disabled]):hover {
+      background: var(--controls-hover);
+    }
+
+    .tooltip {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: calc(100% + var(--spacing) / 6);
+      right: 0;
+      text-wrap: nowrap;
+      color: var(--inverted-text);
+      background: color-mix(in hsl, var(--text), transparent 10%);
+      border-radius: var(--radius);
+      font-size: 0.9em;
+      padding: calc(var(--spacing) / 6) calc(var(--spacing) / 3);
+
+      kbd {
+        -webkit-text-stroke: 0.5px currentColor;
+      }
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        --svg-size: 18px;
+        height: var(--svg-size);
+        width: var(--svg-size);
+      }
+    }
+  }
 }
