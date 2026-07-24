@@ -6,6 +6,7 @@ const ro = {
     menu: 'Prezentări',
     settings: 'Setări',
     siteTitle: 'ngx-md-slides',
+    by: 'de',
     skipToPresent: 'Sari la "Prezintă"',
     skipToNavigation: 'Sari la "Prezentări"',
     skipToSlides: 'Sari la conținutul principal',

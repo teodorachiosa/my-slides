@@ -6,6 +6,7 @@ const en = {
     menu: 'Presentations',
     settings: 'Settings',
     siteTitle: 'ngx-md-slides',
+    by: 'by',
     skipToPresent: 'Skip to "Present"',
     skipToNavigation: 'Skip to "Presentations"',
     skipToSlides: 'Skip to main content',
