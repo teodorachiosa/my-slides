@@ -96,6 +96,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getPageTitle(): string {
-    return `${this.translateService.instant(this.activatedRoute.firstChild?.snapshot.data['title'] ?? '.')} - ${this.translateService.instant('ui.siteTitle')}`;
+    return `${this.translateService.instant(this.activatedRoute.firstChild?.snapshot.data['title'] ?? '.')} - ${this.translateService.instant('ui.siteTitle')} - Teodora Chiosa`;
   }
 }

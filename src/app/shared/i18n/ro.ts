@@ -4,7 +4,7 @@ const ro = {
   ui: {
     menu: 'Prezentări',
     settings: 'Setări',
-    siteTitle: 'Slide-uri Teodora Chiosa',
+    siteTitle: 'Slide-uri',
     skipToPresent: 'Sari la "Prezintă"',
     skipToNavigation: 'Sari la "Prezentări"',
     skipToSlides: 'Sari la conținutul principal',
