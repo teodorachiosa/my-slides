@@ -4,7 +4,8 @@ const en = {
   ui: {
     menu: 'Presentations',
     settings: 'Settings',
-    siteTitle: "Slides",
+    siteTitle: 'Slides',
+    by: 'by',
     skipToPresent: 'Skip to "Present"',
     skipToNavigation: 'Skip to "Presentations"',
     skipToSlides: 'Skip to main content',

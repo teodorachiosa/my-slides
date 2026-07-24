@@ -5,6 +5,7 @@ const ro = {
     menu: 'Prezentări',
     settings: 'Setări',
     siteTitle: 'Slide-uri',
+    by: 'de',
     skipToPresent: 'Sari la "Prezintă"',
     skipToNavigation: 'Sari la "Prezentări"',
     skipToSlides: 'Sari la conținutul principal',
